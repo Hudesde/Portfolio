@@ -36,6 +36,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:100;transiti
 nav.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-shadow:var(--sh)}
 .nav-logo{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.1rem;color:#fff;transition:color var(--t)}
 nav.scrolled .nav-logo{color:var(--navy)}
+.nav-right{display:flex;align-items:center;gap:1rem}
 .nav-links{display:flex;gap:.2rem;list-style:none}
 .nav-links a{display:block;padding:.45rem .7rem;font-size:.85rem;font-weight:500;color:rgba(255,255,255,.85);border-radius:var(--rf);transition:all var(--t)}
 nav.scrolled .nav-links a{color:var(--tx-m)}
@@ -46,6 +47,17 @@ nav.scrolled .nav-links a.active{background:var(--blue-pale);color:var(--blue)}
 .nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
 .nav-toggle span{width:24px;height:2px;background:#fff;border-radius:2px;transition:all var(--t)}
 nav.scrolled .nav-toggle span{background:var(--navy)}
+
+/* ── LANG SWITCH ── */
+.lang-switch{display:flex;gap:.15rem;align-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:var(--rf);padding:.2rem;transition:background var(--t),border-color var(--t)}
+nav.scrolled .lang-switch{background:var(--bg3);border-color:var(--bd)}
+.lang-btn{display:inline-flex;align-items:center;gap:.32rem;padding:.28rem .62rem;font-size:.76rem;font-weight:700;letter-spacing:.02em;color:rgba(255,255,255,.72);background:transparent;border:none;border-radius:var(--rf);cursor:pointer;transition:all var(--t);font-family:inherit;line-height:1}
+nav.scrolled .lang-btn{color:var(--tx-s)}
+.lang-btn:hover{color:#fff}
+nav.scrolled .lang-btn:hover{color:var(--navy)}
+.lang-btn.active{background:#fff;color:var(--navy);box-shadow:var(--sh-sm)}
+nav.scrolled .lang-btn.active{background:var(--blue);color:#fff}
+.lang-btn .flag{font-size:1rem;line-height:1}
 
 /* ── HERO ── */
 #inicio{min-height:100vh;background:linear-gradient(135deg,var(--navy) 0%,#0a1929 50%,#1a2f5a 100%);display:flex;align-items:center;justify-content:center;padding:calc(var(--nav-h) + 4rem) 1.5rem 5rem;position:relative;overflow:hidden;text-align:center}
@@ -169,6 +181,9 @@ section:nth-child(even){background:var(--bg2)}
 .aw-title{font-family:'Poppins',sans-serif;font-size:1.1rem;font-weight:700;color:#78350F;margin-bottom:.2rem}
 .aw-org{font-size:.88rem;color:#92400E;font-weight:500}
 .aw-desc{font-size:.85rem;color:#92400E;margin-top:.2rem}
+.aw-caption{font-size:.8rem;color:#92400E;font-weight:600;text-align:center;margin-top:.85rem}
+.aw-link{display:inline-flex;align-items:center;gap:.35rem;font-size:.82rem;font-weight:700;color:#92400E;transition:color var(--t)}
+.aw-link:hover{color:#78350F;text-decoration:underline}
 
 /* ── SKILLS ── */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem}
@@ -271,6 +286,7 @@ footer strong{color:rgba(255,255,255,.9)}
   .proj-grid{grid-template-columns:1fr}
   .m-val{font-size:1.2rem}
   .proj-metrics{gap:.5rem}
+  .lang-btn{padding:.28rem .5rem;font-size:.72rem}
 }
 </style>
 </head>
@@ -279,18 +295,24 @@ footer strong{color:rgba(255,255,255,.9)}
 <!-- ═══ NAV ═══ -->
 <nav id="nav">
   <a href="#inicio" class="nav-logo">JRAT</a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#sobre-mi">Sobre mí</a></li>
-    <li><a href="#experiencia">Experiencia</a></li>
-    <li><a href="#proyectos">Proyectos</a></li>
-    <li><a href="#publicaciones">Publicaciones</a></li>
-    <li><a href="#habilidades">Habilidades</a></li>
-    <li><a href="#certificaciones">Certificaciones</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
-  <button class="nav-toggle" id="navToggle" aria-label="Menú">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-right">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a></li>
+      <li><a href="#experiencia" data-i18n="nav.experience">Experiencia</a></li>
+      <li><a href="#proyectos" data-i18n="nav.projects">Proyectos</a></li>
+      <li><a href="#publicaciones" data-i18n="nav.publications">Publicaciones</a></li>
+      <li><a href="#habilidades" data-i18n="nav.skills">Habilidades</a></li>
+      <li><a href="#certificaciones" data-i18n="nav.certifications">Certificaciones</a></li>
+      <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+    </ul>
+    <div class="lang-switch" role="group" aria-label="Language / Idioma">
+      <button class="lang-btn" data-lang="es" aria-label="Español"><span class="flag">🇲🇽</span>ES</button>
+      <button class="lang-btn" data-lang="en" aria-label="English"><span class="flag">🇺🇸</span>EN</button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <!-- ═══ HERO ═══ -->
@@ -299,11 +321,11 @@ footer strong{color:rgba(255,255,255,.9)}
     <div class="hero-badge" id="heroBadge">🏆 1.er Lugar · Hackathon CLIHC 2026</div>
     <img src="foto.jpg" alt="Jose Ramon Aragon Toledo" class="hero-photo">
     <h1>Jose Ramon Aragon Toledo</h1>
-    <p class="hero-title">Ingeniero en Computación · IA Centrada en el Humano</p>
-    <p class="hero-sub">Desarrollador de software e investigador. Creador de LIMA, asistente de voz para GNU/Linux presentado en conferencias internacionales.</p>
+    <p class="hero-title" data-i18n="hero.title">Ingeniero en Computación · IA Centrada en el Humano</p>
+    <p class="hero-sub" data-i18n="hero.sub">Desarrollador de software e investigador. Creador de LIMA, asistente de voz para GNU/Linux presentado en conferencias internacionales.</p>
     <div class="hero-cta">
-      <a href="https://hudesde.github.io/BOTAS-Web/" class="btn btn-primary" target="_blank">🤖 Ver LIMA en Acción</a>
-      <a href="#proyectos" class="btn btn-outline">Ver Proyectos</a>
+      <a href="https://hudesde.github.io/BOTAS-Web/" class="btn btn-primary" target="_blank" data-i18n="hero.cta1">🤖 Ver LIMA en Acción</a>
+      <a href="#proyectos" class="btn btn-outline" data-i18n="hero.cta2">Ver Proyectos</a>
     </div>
     <div class="hero-socials">
       <a href="https://github.com/Hudesde" target="_blank" class="hero-social">
@@ -328,22 +350,22 @@ footer strong{color:rgba(255,255,255,.9)}
     <div class="about-grid">
       <div class="about-photo-wrap reveal">
         <img src="foto.jpg" alt="Jose Ramon Aragon Toledo" class="about-photo">
-        <div class="about-badge">📍 Oaxaca, México</div>
+        <div class="about-badge" data-i18n="about.badge">📍 Oaxaca, México</div>
       </div>
       <div class="about-content reveal">
-        <h2>Sobre mí</h2>
-        <p>Soy Ingeniero en Computación egresado de la <strong>Universidad Tecnológica de la Mixteca</strong>, especializado en el desarrollo de aplicaciones con Inteligencia Artificial. En proceso de titulación por tesis, con defensa prevista para julio de 2026.</p>
-        <p>Mi proyecto principal es <strong>LIMA</strong> (Linux Intelligent Middleware Assistant), un asistente de voz para GNU/Linux con enfoque en IA Centrada en el Humano (HCAI), presentado en CLIHC 2026 y aceptado en AIS/IADIS 2026 (Valencia, España).</p>
-        <p>Soy autodidacta, comunicativo y apasionado por resolver problemas reales con tecnología. Domino <strong>Python, JavaScript y Java</strong>, con experiencia en Angular, FastAPI, Node.js y múltiples APIs de IA.</p>
+        <h2 data-i18n="about.title">Sobre mí</h2>
+        <p data-i18n="about.p1">Soy Ingeniero en Computación egresado de la <strong>Universidad Tecnológica de la Mixteca</strong>, especializado en el desarrollo de aplicaciones con Inteligencia Artificial. En proceso de titulación por tesis, con defensa prevista para julio de 2026.</p>
+        <p data-i18n="about.p2">Mi proyecto principal es <strong>LIMA</strong> (Linux Intelligent Middleware Assistant), un asistente de voz para GNU/Linux con enfoque en IA Centrada en el Humano (HCAI), presentado en CLIHC 2026 y aceptado en AIS/IADIS 2026 (Valencia, España).</p>
+        <p data-i18n="about.p3">Soy autodidacta, comunicativo y apasionado por resolver problemas reales con tecnología. Domino <strong>Python, JavaScript y Java</strong>, con experiencia en Angular, FastAPI, Node.js y múltiples APIs de IA.</p>
         <div class="about-stats">
-          <div class="stat"><div class="n">2<span>+</span></div><div class="l">Publicaciones</div></div>
-          <div class="stat"><div class="n">89<span>%</span></div><div class="l">Precisión LIMA</div></div>
-          <div class="stat"><div class="n">1<span>°</span></div><div class="l">Hackathon CLIHC</div></div>
-          <div class="stat"><div class="n">3<span>+</span></div><div class="l">Años exp.</div></div>
+          <div class="stat"><div class="n">2<span>+</span></div><div class="l" data-i18n="about.stat1">Publicaciones</div></div>
+          <div class="stat"><div class="n">89<span>%</span></div><div class="l" data-i18n="about.stat2">Precisión LIMA</div></div>
+          <div class="stat"><div class="n">1<span>°</span></div><div class="l" data-i18n="about.stat3">Hackathon CLIHC</div></div>
+          <div class="stat"><div class="n">3<span>+</span></div><div class="l" data-i18n="about.stat4">Años exp.</div></div>
         </div>
         <div class="about-actions">
-          <a href="CV_JoseRamonAragonToledo.pdf" download class="btn-dark">📄 Descargar CV</a>
-          <a href="https://github.com/Hudesde" target="_blank" class="btn-ghost">Ver GitHub →</a>
+          <a href="CV_JoseRamonAragonToledo.pdf" download class="btn-dark" data-i18n="about.cv">📄 Descargar CV</a>
+          <a href="https://github.com/Hudesde" target="_blank" class="btn-ghost" data-i18n="about.github">Ver GitHub →</a>
         </div>
       </div>
     </div>
@@ -354,9 +376,9 @@ footer strong{color:rgba(255,255,255,.9)}
 <section id="experiencia">
   <div class="container">
     <div class="sec-hd reveal">
-      <span class="sec-label">Trayectoria</span>
-      <h2 class="sec-title">Experiencia Profesional</h2>
-      <p class="sec-desc">Roles y proyectos donde he aportado soluciones tecnológicas reales.</p>
+      <span class="sec-label" data-i18n="exp.label">Trayectoria</span>
+      <h2 class="sec-title" data-i18n="exp.title">Experiencia Profesional</h2>
+      <p class="sec-desc" data-i18n="exp.desc">Roles y proyectos donde he aportado soluciones tecnológicas reales.</p>
     </div>
     <div class="timeline">
 
@@ -365,17 +387,17 @@ footer strong{color:rgba(255,255,255,.9)}
         <div class="tl-card">
           <div class="tl-meta">
             <div>
-              <div class="tl-title">Servicio Social — Investigación en IA y LLMs</div>
-              <div class="tl-org"><strong>Universidad Tecnológica de la Mixteca</strong> · Huajuapan de León, Oaxaca</div>
+              <div class="tl-title" data-i18n="exp1.title">Servicio Social — Investigación en IA y LLMs</div>
+              <div class="tl-org" data-i18n="exp1.org"><strong>Universidad Tecnológica de la Mixteca</strong> · Huajuapan de León, Oaxaca</div>
             </div>
-            <span class="tl-period">Mar 2025 – Ene 2026</span>
+            <span class="tl-period" data-i18n="exp1.period">Mar 2025 – Ene 2026</span>
           </div>
           <ul class="tl-list">
-            <li>Elaboré un Marco Histórico y Referencial (+4,000 líneas en LaTeX) sobre la evolución de LLMs: GPT-4, Gemini, DeepSeek, Grok, transformers y Mixture of Experts.</li>
-            <li>Desarrollé <strong>CharlesTherapy</strong> — plataforma de terapia conversacional rogeriana (Angular + Express + MySQL).</li>
-            <li>Desarrollé <strong>Kuiti</strong> — chatbot universitario de la UTM con NLP sobre la API de OpenAI.</li>
-            <li>Desarrollé la versión alfa de <strong>LIMA/BOTAS</strong>, base de mi tesis de titulación.</li>
-            <li>Documenté arquitecturas con PlantUML y publiqué código en GitHub.</li>
+            <li data-i18n="exp1.li1">Elaboré un Marco Histórico y Referencial (+4,000 líneas en LaTeX) sobre la evolución de LLMs: GPT-4, Gemini, DeepSeek, Grok, transformers y Mixture of Experts.</li>
+            <li data-i18n="exp1.li2">Desarrollé <strong>CharlesTherapy</strong> — plataforma de terapia conversacional rogeriana (Angular + Express + MySQL).</li>
+            <li data-i18n="exp1.li3">Desarrollé <strong>Kuiti</strong> — chatbot universitario de la UTM con NLP sobre la API de OpenAI.</li>
+            <li data-i18n="exp1.li4">Desarrollé la versión alfa de <strong>LIMA/BOTAS</strong>, base de mi tesis de titulación.</li>
+            <li data-i18n="exp1.li5">Documenté arquitecturas con PlantUML y publiqué código en GitHub.</li>
           </ul>
         </div>
       </div>
@@ -385,15 +407,15 @@ footer strong{color:rgba(255,255,255,.9)}
         <div class="tl-card">
           <div class="tl-meta">
             <div>
-              <div class="tl-title">Desarrollador de Software — Prácticas Profesionales</div>
-              <div class="tl-org"><strong>Karimnot</strong> · Oaxaca de Juárez, Oaxaca</div>
+              <div class="tl-title" data-i18n="exp2.title">Desarrollador de Software — Prácticas Profesionales</div>
+              <div class="tl-org" data-i18n="exp2.org"><strong>Karimnot</strong> · Oaxaca de Juárez, Oaxaca</div>
             </div>
-            <span class="tl-period">Jul – Ago 2025</span>
+            <span class="tl-period" data-i18n="exp2.period">Jul – Ago 2025</span>
           </div>
           <ul class="tl-list">
-            <li>Desarrollé un <strong>chatbot de WhatsApp para facturación fiscal</strong> usando la WhatsApp Cloud API de Meta.</li>
-            <li>El usuario enviaba foto del ticket; el bot capturaba los datos automáticamente y emitía la factura.</li>
-            <li>Implementé el flujo conversacional completo y la integración con el servicio de facturación.</li>
+            <li data-i18n="exp2.li1">Desarrollé un <strong>chatbot de WhatsApp para facturación fiscal</strong> usando la WhatsApp Cloud API de Meta.</li>
+            <li data-i18n="exp2.li2">El usuario enviaba foto del ticket; el bot capturaba los datos automáticamente y emitía la factura.</li>
+            <li data-i18n="exp2.li3">Implementé el flujo conversacional completo y la integración con el servicio de facturación.</li>
           </ul>
         </div>
       </div>
@@ -403,16 +425,16 @@ footer strong{color:rgba(255,255,255,.9)}
         <div class="tl-card">
           <div class="tl-meta">
             <div>
-              <div class="tl-title">Practicante de Sistemas / Soporte de TI</div>
-              <div class="tl-org"><strong>Honda Motos GT (Motos GT, S.A. de C.V.)</strong> · San Antonio de la Cal, Oaxaca</div>
+              <div class="tl-title" data-i18n="exp3.title">Practicante de Sistemas / Soporte de TI</div>
+              <div class="tl-org" data-i18n="exp3.org"><strong>Honda Motos GT (Motos GT, S.A. de C.V.)</strong> · San Antonio de la Cal, Oaxaca</div>
             </div>
-            <span class="tl-period">Jul – Sep 2024</span>
+            <span class="tl-period" data-i18n="exp3.period">Jul – Sep 2024</span>
           </div>
           <ul class="tl-list">
-            <li>Mantenimiento de equipos de cómputo y actualización de software en múltiples sucursales.</li>
-            <li>Mapeo de dispositivos en red y relocalización del servidor de cobranza a nivel estatal.</li>
-            <li>Primer respondiente ante caídas generales del sistema.</li>
-            <li>Elaboré el presupuesto para el proyecto de actualización de equipos.</li>
+            <li data-i18n="exp3.li1">Mantenimiento de equipos de cómputo y actualización de software en múltiples sucursales.</li>
+            <li data-i18n="exp3.li2">Mapeo de dispositivos en red y relocalización del servidor de cobranza a nivel estatal.</li>
+            <li data-i18n="exp3.li3">Primer respondiente ante caídas generales del sistema.</li>
+            <li data-i18n="exp3.li4">Elaboré el presupuesto para el proyecto de actualización de equipos.</li>
           </ul>
         </div>
       </div>
@@ -425,9 +447,9 @@ footer strong{color:rgba(255,255,255,.9)}
 <section id="proyectos">
   <div class="container">
     <div class="sec-hd reveal">
-      <span class="sec-label">Desarrollo</span>
-      <h2 class="sec-title">Proyectos Destacados</h2>
-      <p class="sec-desc">Aplicaciones e investigaciones con impacto real y reconocimiento académico.</p>
+      <span class="sec-label" data-i18n="proj.label">Desarrollo</span>
+      <h2 class="sec-title" data-i18n="proj.title">Proyectos Destacados</h2>
+      <p class="sec-desc" data-i18n="proj.desc">Aplicaciones e investigaciones con impacto real y reconocimiento académico.</p>
     </div>
 
     <div class="proj-grid">
@@ -445,22 +467,22 @@ footer strong{color:rgba(255,255,255,.9)}
           <div class="badges">
             <span class="badge b-amber">🌍 IADIS 2026</span>
             <span class="badge b-blue">CLIHC 2026</span>
-            <span class="badge b-green">Tesis</span>
+            <span class="badge b-green" data-i18n="proj.lima.badge">Tesis</span>
             <span class="badge b-navy">HCAI</span>
           </div>
-          <h3 class="proj-title">LIMA — Asistente de Voz para GNU/Linux</h3>
-          <p class="proj-desc">Middleware modular que permite interactuar con GNU/Linux en español mediante lenguaje natural y voz. Pipeline: captura de voz/GUI → detección local de intenciones → análisis con GPT-4o → validación de seguridad en 3 niveles → ejecución con retroalimentación educativa (TTS). Enfoque en Inteligencia Artificial Centrada en el Humano.</p>
+          <h3 class="proj-title" data-i18n="proj.lima.title">LIMA — Asistente de Voz para GNU/Linux</h3>
+          <p class="proj-desc" data-i18n="proj.lima.desc">Middleware modular que permite interactuar con GNU/Linux en español mediante lenguaje natural y voz. Pipeline: captura de voz/GUI → detección local de intenciones → análisis con GPT-4o → validación de seguridad en 3 niveles → ejecución con retroalimentación educativa (TTS). Enfoque en Inteligencia Artificial Centrada en el Humano.</p>
           <div class="proj-metrics">
-            <div><div class="m-val">89<span>%</span></div><div class="m-lbl">Precisión (200 tareas)</div></div>
-            <div><div class="m-val">100<span>%</span></div><div class="m-lbl">Detección ops. destructivas</div></div>
-            <div><div class="m-val">3</div><div class="m-lbl">Niveles de seguridad</div></div>
+            <div><div class="m-val">89<span>%</span></div><div class="m-lbl" data-i18n="proj.lima.m1">Precisión (200 tareas)</div></div>
+            <div><div class="m-val">100<span>%</span></div><div class="m-lbl" data-i18n="proj.lima.m2">Detección ops. destructivas</div></div>
+            <div><div class="m-val">3</div><div class="m-lbl" data-i18n="proj.lima.m3">Niveles de seguridad</div></div>
           </div>
           <div class="tags">
             <span class="tag">Python</span><span class="tag">GPT-4o</span><span class="tag">Whisper</span>
             <span class="tag">Vosk</span><span class="tag">GNU/Linux</span><span class="tag">NLP</span><span class="tag">TTS</span>
           </div>
           <div class="proj-links">
-            <a href="https://hudesde.github.io/BOTAS-Web/" target="_blank" class="pl pl-p">🚀 Ver Demo en Vivo</a>
+            <a href="https://hudesde.github.io/BOTAS-Web/" target="_blank" class="pl pl-p" data-i18n="proj.lima.demo">🚀 Ver Demo en Vivo</a>
             <a href="https://github.com/Hudesde/JRATSS" target="_blank" class="pl pl-g">GitHub</a>
           </div>
         </div>
@@ -471,19 +493,19 @@ footer strong{color:rgba(255,255,255,.9)}
         <div class="proj-banner" style="background:linear-gradient(135deg,#065f46,#0d9488)">
           <div style="text-align:center;position:relative;z-index:1">
             <div class="proj-logo" style="font-size:2.8rem">🧬</div>
-            <div class="proj-logo-sub">Diagnóstico Oncológico</div>
+            <div class="proj-logo-sub" data-i18n="proj.onco.sub">Diagnóstico Oncológico</div>
           </div>
         </div>
         <div class="proj-body">
           <div class="badges">
-            <span class="badge b-green">Metaheurísticas</span>
+            <span class="badge b-green" data-i18n="proj.onco.b1">Metaheurísticas</span>
             <span class="badge b-navy">Machine Learning</span>
           </div>
-          <h3 class="proj-title">Optimización de Diagnóstico Oncológico</h3>
-          <p class="proj-desc">Sistema para diagnóstico de cáncer de mama (Wisconsin Breast Cancer), orientado a minimizar falsos negativos. Selección de características con Algoritmo Genético y ajuste de hiperparámetros con SA, GWO y WOA. Modelos: Random Forest, Extra Trees y XGBoost.</p>
+          <h3 class="proj-title" data-i18n="proj.onco.title">Optimización de Diagnóstico Oncológico</h3>
+          <p class="proj-desc" data-i18n="proj.onco.desc">Sistema para diagnóstico de cáncer de mama (Wisconsin Breast Cancer), orientado a minimizar falsos negativos. Selección de características con Algoritmo Genético y ajuste de hiperparámetros con SA, GWO y WOA. Modelos: Random Forest, Extra Trees y XGBoost.</p>
           <div class="tags">
             <span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">XGBoost</span>
-            <span class="tag">Algoritmo Genético</span><span class="tag">GWO</span><span class="tag">WOA</span><span class="tag">Recocido Simulado</span>
+            <span class="tag" data-i18n="proj.onco.tag1">Algoritmo Genético</span><span class="tag">GWO</span><span class="tag">WOA</span><span class="tag" data-i18n="proj.onco.tag2">Recocido Simulado</span>
           </div>
           <div class="proj-links" style="margin-top:auto">
             <a href="https://github.com/aneli1/breast_cancer_mh" target="_blank" class="pl pl-g">GitHub</a>
@@ -501,11 +523,11 @@ footer strong{color:rgba(255,255,255,.9)}
         </div>
         <div class="proj-body">
           <div class="badges">
-            <span class="badge b-blue">Chatbots IA</span>
+            <span class="badge b-blue" data-i18n="proj.chat.b1">Chatbots IA</span>
             <span class="badge b-navy">OpenAI API</span>
           </div>
-          <h3 class="proj-title">Aplicaciones Conversacionales con IA</h3>
-          <p class="proj-desc"><strong>CharlesTherapy:</strong> plataforma de terapia conversacional con enfoque rogeriano (Angular + Express + MySQL).<br><br><strong>Kuiti:</strong> chatbot universitario de la UTM con NLP sobre la API de OpenAI.</p>
+          <h3 class="proj-title" data-i18n="proj.chat.title">Aplicaciones Conversacionales con IA</h3>
+          <p class="proj-desc" data-i18n="proj.chat.desc"><strong>CharlesTherapy:</strong> plataforma de terapia conversacional con enfoque rogeriano (Angular + Express + MySQL).<br><br><strong>Kuiti:</strong> chatbot universitario de la UTM con NLP sobre la API de OpenAI.</p>
           <div class="tags">
             <span class="tag">Angular</span><span class="tag">Express</span><span class="tag">MySQL</span>
             <span class="tag">OpenAI API</span><span class="tag">NLP</span>
@@ -527,10 +549,10 @@ footer strong{color:rgba(255,255,255,.9)}
         <div class="proj-body">
           <div class="badges">
             <span class="badge b-navy">WhatsApp API</span>
-            <span class="badge b-blue">Automatización</span>
+            <span class="badge b-blue" data-i18n="proj.wa.b2">Automatización</span>
           </div>
-          <h3 class="proj-title">Chatbot de Facturación Fiscal</h3>
-          <p class="proj-desc">Bot de WhatsApp que automatiza la generación de facturas fiscales para Karimnot. El usuario envía foto del ticket y el bot captura los datos para emitir la factura automáticamente mediante la API de Meta.</p>
+          <h3 class="proj-title" data-i18n="proj.wa.title">Chatbot de Facturación Fiscal</h3>
+          <p class="proj-desc" data-i18n="proj.wa.desc">Bot de WhatsApp que automatiza la generación de facturas fiscales para Karimnot. El usuario envía foto del ticket y el bot captura los datos para emitir la factura automáticamente mediante la API de Meta.</p>
           <div class="tags">
             <span class="tag">WhatsApp Cloud API</span><span class="tag">Meta Platform</span><span class="tag">Node.js</span>
           </div>
@@ -545,9 +567,9 @@ footer strong{color:rgba(255,255,255,.9)}
 <section id="publicaciones">
   <div class="container">
     <div class="sec-hd reveal">
-      <span class="sec-label">Investigación</span>
-      <h2 class="sec-title">Publicaciones y Reconocimientos</h2>
-      <p class="sec-desc">Contribuciones al campo de la Interacción Humano-Computadora e Inteligencia Artificial.</p>
+      <span class="sec-label" data-i18n="pub.label">Investigación</span>
+      <h2 class="sec-title" data-i18n="pub.title">Publicaciones y Reconocimientos</h2>
+      <p class="sec-desc" data-i18n="pub.desc">Contribuciones al campo de la Interacción Humano-Computadora e Inteligencia Artificial.</p>
     </div>
 
     <div class="pubs-grid">
@@ -555,11 +577,11 @@ footer strong{color:rgba(255,255,255,.9)}
       <div class="pub-card reveal">
         <div class="pub-ico ico-a">🌍</div>
         <div>
-          <span class="pub-tag pt-a">Full Paper · En prensa</span>
+          <span class="pub-tag pt-a" data-i18n="pub1.tag">Full Paper · En prensa</span>
           <div class="pub-title">BOTAS: A Human-Centered Natural Language Interface for GNU/Linux System Management with Multi-Distribution Support</div>
           <div class="pub-venue">AIS 2026 — International Conference on Artificial Intelligence in Society (MCCSIS/IADIS)</div>
           <div class="pub-authors">Aragon Toledo, J. R. &amp; Ruiz Rodríguez, R. — Universidad Tecnológica de la Mixteca</div>
-          <div class="pub-detail">📍 Valencia, España · 25 de julio de 2026</div>
+          <div class="pub-detail" data-i18n="pub1.detail">📍 Valencia, España · 25 de julio de 2026</div>
         </div>
       </div>
 
@@ -567,11 +589,11 @@ footer strong{color:rgba(255,255,255,.9)}
         <div style="display:grid;grid-template-columns:auto 1fr;gap:1.25rem;align-items:start;margin-bottom:1.25rem">
           <div class="pub-ico ico-b">📄</div>
           <div>
-            <span class="pub-tag pt-b">Short Paper · Publicado</span>
-            <div class="pub-title">Hacia la Evolución de la GUI Desktop: IA Centrada en el Humano como Paradigma para Repensar la Interacción con Sistemas Operativos</div>
-            <div class="pub-venue">CLIHC 2026 — Conferencia Latinoamericana de Interacción Humano-Computadora</div>
+            <span class="pub-tag pt-b" data-i18n="pub2.tag">Short Paper · Publicado</span>
+            <div class="pub-title" data-i18n="pub2.title">Hacia la Evolución de la GUI Desktop: IA Centrada en el Humano como Paradigma para Repensar la Interacción con Sistemas Operativos</div>
+            <div class="pub-venue" data-i18n="pub2.venue">CLIHC 2026 — Conferencia Latinoamericana de Interacción Humano-Computadora</div>
             <div class="pub-authors">Aragon Toledo, J. R. &amp; Ruiz Rodríguez, R. — Universidad Tecnológica de la Mixteca</div>
-            <div class="pub-detail">📍 Oaxaca de Juárez, México · 2026</div>
+            <div class="pub-detail" data-i18n="pub2.detail">📍 Oaxaca de Juárez, México · 2026</div>
           </div>
         </div>
         <img src="clihc-ponencia.png" alt="Ponencia CLIHC 2026 — Jose Ramon Aragon Toledo" style="width:100%;border-radius:10px;object-fit:cover;object-position:top;max-height:520px;border:2px solid rgba(59,130,246,.25)">
@@ -581,12 +603,17 @@ footer strong{color:rgba(255,255,255,.9)}
         <div style="display:grid;grid-template-columns:auto 1fr;gap:1.25rem;align-items:center;margin-bottom:1.25rem">
           <div class="aw-ico">🥇</div>
           <div>
-            <div class="aw-title">1.er Lugar — Hackathon CLIHC 2026</div>
-            <div class="aw-org">Conferencia Latinoamericana de Interacción Humano-Computadora · Equipo «Ruta Clara»</div>
-            <div class="aw-desc">Rediseño de interfaz de app móvil de transporte urbano con metodología UCD e investigación con 30 usuarios. 27–29 de mayo de 2026 · Oaxaca de Juárez, México.</div>
+            <div class="aw-title" data-i18n="award.title">1.er Lugar — Hackathon CLIHC 2026</div>
+            <div class="aw-org" data-i18n="award.org">Conferencia Latinoamericana de Interacción Humano-Computadora · Equipo «Ruta Clara»</div>
+            <div class="aw-desc" data-i18n="award.desc">Rediseño de interfaz de app móvil de transporte urbano con metodología UCD e investigación con 30 usuarios. 27–29 de mayo de 2026 · Oaxaca de Juárez, México.</div>
           </div>
         </div>
         <img src="hackathon-clihc-2026.jpg" alt="Equipo Ruta Clara — 1.er lugar Hackathon CLIHC 2026" style="width:100%;border-radius:10px;object-fit:cover;object-position:top;max-height:520px;border:2px solid rgba(251,191,36,.4)">
+        <img src="reconocimiento-hackathon-clihc-2026.png" alt="Certificado de Reconocimiento — 1.er lugar Hackathon CLIHC 2026, Equipo Ruta Clara" style="width:100%;border-radius:10px;object-fit:contain;background:#fff;margin-top:1rem;border:2px solid rgba(251,191,36,.4)">
+        <div class="aw-caption" data-i18n="award.caption">Certificado oficial de reconocimiento — Equipo Ruta Clara</div>
+        <div style="text-align:center;margin-top:.5rem">
+          <a href="reconocimiento-hackathon-clihc-2026.pdf" target="_blank" class="aw-link" data-i18n="award.pdf">⬇ Ver reconocimiento oficial (PDF)</a>
+        </div>
       </div>
 
     </div>
@@ -597,14 +624,14 @@ footer strong{color:rgba(255,255,255,.9)}
 <section id="habilidades">
   <div class="container">
     <div class="sec-hd reveal">
-      <span class="sec-label">Stack Técnico</span>
-      <h2 class="sec-title">Habilidades</h2>
-      <p class="sec-desc">Tecnologías, herramientas y competencias aplicadas en proyectos reales.</p>
+      <span class="sec-label" data-i18n="sk.label">Stack Técnico</span>
+      <h2 class="sec-title" data-i18n="sk.title">Habilidades</h2>
+      <p class="sec-desc" data-i18n="sk.desc">Tecnologías, herramientas y competencias aplicadas en proyectos reales.</p>
     </div>
     <div class="skills-grid">
 
       <div class="sk-group reveal">
-        <div class="sk-title"><span class="sk-ico">💻</span>Lenguajes</div>
+        <div class="sk-title"><span class="sk-ico">💻</span><span data-i18n="sk.g1">Lenguajes</span></div>
         <div class="sk-tags">
           <span class="sk-tag hi">Python</span>
           <span class="sk-tag hi">JavaScript</span>
@@ -616,7 +643,7 @@ footer strong{color:rgba(255,255,255,.9)}
       </div>
 
       <div class="sk-group reveal">
-        <div class="sk-title"><span class="sk-ico">🚀</span>Frameworks y Tecnologías</div>
+        <div class="sk-title"><span class="sk-ico">🚀</span><span data-i18n="sk.g2">Frameworks y Tecnologías</span></div>
         <div class="sk-tags">
           <span class="sk-tag hi">Angular</span>
           <span class="sk-tag hi">Node.js</span>
@@ -628,7 +655,7 @@ footer strong{color:rgba(255,255,255,.9)}
       </div>
 
       <div class="sk-group reveal">
-        <div class="sk-title"><span class="sk-ico">🤖</span>Inteligencia Artificial</div>
+        <div class="sk-title"><span class="sk-ico">🤖</span><span data-i18n="sk.g3">Inteligencia Artificial</span></div>
         <div class="sk-tags">
           <span class="sk-tag hi">GPT-4o</span>
           <span class="sk-tag hi">OpenAI API</span>
@@ -641,10 +668,10 @@ footer strong{color:rgba(255,255,255,.9)}
       </div>
 
       <div class="sk-group reveal">
-        <div class="sk-title"><span class="sk-ico">🔬</span>Optimización</div>
+        <div class="sk-title"><span class="sk-ico">🔬</span><span data-i18n="sk.g4">Optimización</span></div>
         <div class="sk-tags">
-          <span class="sk-tag">Algoritmos Genéticos</span>
-          <span class="sk-tag">Recocido Simulado</span>
+          <span class="sk-tag" data-i18n="sk.t.ga">Algoritmos Genéticos</span>
+          <span class="sk-tag" data-i18n="sk.t.sa">Recocido Simulado</span>
           <span class="sk-tag">GWO</span>
           <span class="sk-tag">WOA</span>
           <span class="sk-tag">Random Forest</span>
@@ -653,7 +680,7 @@ footer strong{color:rgba(255,255,255,.9)}
       </div>
 
       <div class="sk-group reveal">
-        <div class="sk-title"><span class="sk-ico">🗄️</span>Bases de Datos</div>
+        <div class="sk-title"><span class="sk-ico">🗄️</span><span data-i18n="sk.g5">Bases de Datos</span></div>
         <div class="sk-tags">
           <span class="sk-tag hi">MySQL</span>
           <span class="sk-tag hi">MongoDB</span>
@@ -663,7 +690,7 @@ footer strong{color:rgba(255,255,255,.9)}
       </div>
 
       <div class="sk-group reveal">
-        <div class="sk-title"><span class="sk-ico">🔌</span>APIs e Integraciones</div>
+        <div class="sk-title"><span class="sk-ico">🔌</span><span data-i18n="sk.g6">APIs e Integraciones</span></div>
         <div class="sk-tags">
           <span class="sk-tag hi">WhatsApp Cloud API</span>
           <span class="sk-tag">Meta Platform</span>
@@ -681,8 +708,8 @@ footer strong{color:rgba(255,255,255,.9)}
 <section id="certificaciones">
   <div class="container">
     <div class="sec-hd reveal">
-      <span class="sec-label">Formación Continua</span>
-      <h2 class="sec-title">Certificaciones</h2>
+      <span class="sec-label" data-i18n="cert.label">Formación Continua</span>
+      <h2 class="sec-title" data-i18n="cert.title">Certificaciones</h2>
     </div>
     <div class="certs-grid">
 
@@ -691,8 +718,8 @@ footer strong{color:rgba(255,255,255,.9)}
         <div>
           <div class="cert-name">Google AI Essentials</div>
           <div class="cert-issuer">Google / Coursera</div>
-          <div class="cert-date">Marzo 2025</div>
-          <a href="cert-google-ai-essentials.pdf" target="_blank" class="cert-dl">⬇ Ver certificado</a>
+          <div class="cert-date" data-i18n="cert1.date">Marzo 2025</div>
+          <a href="cert-google-ai-essentials.pdf" target="_blank" class="cert-dl" data-i18n="cert.view">⬇ Ver certificado</a>
         </div>
       </div>
       <div class="cert-card reveal">
@@ -700,8 +727,8 @@ footer strong{color:rgba(255,255,255,.9)}
         <div>
           <div class="cert-name">Cybersecurity Fundamentals</div>
           <div class="cert-issuer">IBM SkillsBuild</div>
-          <div class="cert-date">Febrero 2025</div>
-          <a href="cert-ibm.pdf" target="_blank" class="cert-dl">⬇ Ver certificado</a>
+          <div class="cert-date" data-i18n="cert2.date">Febrero 2025</div>
+          <a href="cert-ibm.pdf" target="_blank" class="cert-dl" data-i18n="cert.view">⬇ Ver certificado</a>
         </div>
       </div>
       <div class="cert-card reveal">
@@ -709,23 +736,23 @@ footer strong{color:rgba(255,255,255,.9)}
         <div>
           <div class="cert-name">Scrum Fundamentals Certified (SFC)</div>
           <div class="cert-issuer">SCRUMstudy / VMEdu</div>
-          <div class="cert-date">Junio 2025</div>
-          <a href="cert-scrum-sfc.png" target="_blank" class="cert-dl">⬇ Ver certificado</a>
+          <div class="cert-date" data-i18n="cert3.date">Junio 2025</div>
+          <a href="cert-scrum-sfc.png" target="_blank" class="cert-dl" data-i18n="cert.view">⬇ Ver certificado</a>
         </div>
       </div>
       <div class="cert-card reveal">
         <div class="cert-ico ci-b">⚡</div>
         <div>
-          <div class="cert-name">JavaScript Moderno: Guía para dominar el lenguaje</div>
+          <div class="cert-name" data-i18n="cert4.name">JavaScript Moderno: Guía para dominar el lenguaje</div>
           <div class="cert-issuer">Udemy · 20.5 h</div>
-          <div class="cert-date">Agosto 2024</div>
-          <a href="UC-b621b285.pdf" target="_blank" class="cert-dl">⬇ Ver certificado</a>
+          <div class="cert-date" data-i18n="cert4.date">Agosto 2024</div>
+          <a href="UC-b621b285.pdf" target="_blank" class="cert-dl" data-i18n="cert.view">⬇ Ver certificado</a>
         </div>
       </div>
       <div class="cert-card reveal">
         <div class="cert-ico ci-n">🐳</div>
         <div>
-          <div class="cert-name">Docker: Fundamentos</div>
+          <div class="cert-name" data-i18n="cert5.name">Docker: Fundamentos</div>
           <div class="cert-issuer">Udemy</div>
           <div class="cert-date">2024</div>
         </div>
@@ -735,35 +762,35 @@ footer strong{color:rgba(255,255,255,.9)}
         <div>
           <div class="cert-name">Lifelong Learning — Continuous Learner</div>
           <div class="cert-issuer">CertiProf</div>
-          <div class="cert-date">Ediciones 2025 y 2026</div>
-          <a href="cert-lifelong-learning.png" target="_blank" class="cert-dl">⬇ Ver certificado</a>
+          <div class="cert-date" data-i18n="cert6.date">Ediciones 2025 y 2026</div>
+          <a href="cert-lifelong-learning.png" target="_blank" class="cert-dl" data-i18n="cert.view">⬇ Ver certificado</a>
         </div>
       </div>
       <div class="cert-card reveal">
         <div class="cert-ico ci-g">🏆</div>
         <div>
-          <div class="cert-name">Liderazgo y Gestión de Equipos</div>
+          <div class="cert-name" data-i18n="cert7.name">Liderazgo y Gestión de Equipos</div>
           <div class="cert-issuer">Udemy</div>
-          <div class="cert-date">Febrero 2026</div>
-          <a href="UC-e4c19366.pdf" target="_blank" class="cert-dl">⬇ Ver certificado</a>
+          <div class="cert-date" data-i18n="cert7.date">Febrero 2026</div>
+          <a href="UC-e4c19366.pdf" target="_blank" class="cert-dl" data-i18n="cert.view">⬇ Ver certificado</a>
         </div>
       </div>
       <div class="cert-card reveal">
         <div class="cert-ico ci-g">😊</div>
         <div>
-          <div class="cert-name">Liderazgo y Felicidad en el Trabajo</div>
+          <div class="cert-name" data-i18n="cert8.name">Liderazgo y Felicidad en el Trabajo</div>
           <div class="cert-issuer">Udemy</div>
-          <div class="cert-date">Marzo 2026</div>
-          <a href="UC-0e9a66c4.pdf" target="_blank" class="cert-dl">⬇ Ver certificado</a>
+          <div class="cert-date" data-i18n="cert8.date">Marzo 2026</div>
+          <a href="UC-0e9a66c4.pdf" target="_blank" class="cert-dl" data-i18n="cert.view">⬇ Ver certificado</a>
         </div>
       </div>
       <div class="cert-card reveal">
         <div class="cert-ico ci-a">📊</div>
         <div>
-          <div class="cert-name">Habilidades Gerenciales +</div>
+          <div class="cert-name" data-i18n="cert9.name">Habilidades Gerenciales +</div>
           <div class="cert-issuer">Udemy</div>
-          <div class="cert-date">Marzo 2026</div>
-          <a href="UC-b8c12b46.pdf" target="_blank" class="cert-dl">⬇ Ver certificado</a>
+          <div class="cert-date" data-i18n="cert9.date">Marzo 2026</div>
+          <a href="UC-b8c12b46.pdf" target="_blank" class="cert-dl" data-i18n="cert.view">⬇ Ver certificado</a>
         </div>
       </div>
 
@@ -776,9 +803,9 @@ footer strong{color:rgba(255,255,255,.9)}
   <div class="container">
     <div class="contact-wrap">
       <div class="sec-hd reveal">
-        <span class="sec-label">Hablemos</span>
-        <h2 class="sec-title">Contacto</h2>
-        <p class="sec-desc">¿Tienes un proyecto, una colaboración o una oportunidad laboral? No dudes en escribirme.</p>
+        <span class="sec-label" data-i18n="contact.label">Hablemos</span>
+        <h2 class="sec-title" data-i18n="contact.title">Contacto</h2>
+        <p class="sec-desc" data-i18n="contact.desc">¿Tienes un proyecto, una colaboración o una oportunidad laboral? No dudes en escribirme.</p>
       </div>
       <div class="contact-links reveal">
         <a href="mailto:aatr010423@gmail.com" class="contact-link">
@@ -799,35 +826,334 @@ footer strong{color:rgba(255,255,255,.9)}
 </section>
 
 <footer>
-  <p>Diseñado por <strong>Jose Ramon Aragon Toledo</strong> · <a href="https://github.com/Hudesde" target="_blank" style="color:rgba(255,255,255,.65);text-decoration:underline">github.com/Hudesde</a></p>
-  <p style="margin-top:.4rem;font-size:.78rem;opacity:.5">Oaxaca, México · 2026</p>
+  <p data-i18n="footer.by">Diseñado por <strong>Jose Ramon Aragon Toledo</strong> · <a href="https://github.com/Hudesde" target="_blank" style="color:rgba(255,255,255,.65);text-decoration:underline">github.com/Hudesde</a></p>
+  <p style="margin-top:.4rem;font-size:.78rem;opacity:.5" data-i18n="footer.loc">Oaxaca, México · 2026</p>
 </footer>
 
 <script>
-// Rotating hero badge
-const badge = document.getElementById('heroBadge');
-const badgeItems = [
-  { t:'🏆 1.er Lugar · Hackathon CLIHC 2026',    bg:'rgba(245,158,11,.15)', bd:'rgba(245,158,11,.3)',   c:'#F59E0B' },
-  { t:'🤖 Investigador · IA Centrada en el Humano', bg:'rgba(59,130,246,.15)',  bd:'rgba(59,130,246,.3)',  c:'#3B82F6' },
-  { t:'🌍 Full Paper Aceptado · IADIS 2026 Valencia',bg:'rgba(16,185,129,.15)', bd:'rgba(16,185,129,.3)', c:'#10B981' },
-  { t:'🎓 Tesis LIMA · Defensa Julio 2026',         bg:'rgba(168,85,247,.15)', bd:'rgba(168,85,247,.3)', c:'#A855F7' },
-  { t:'💻 Python · GPT-4o · GNU/Linux',             bg:'rgba(236,72,153,.15)', bd:'rgba(236,72,153,.3)', c:'#EC4899' },
-  { t:'📖 Aprendizaje Continuo · Autodidacta',      bg:'rgba(20,184,166,.15)', bd:'rgba(20,184,166,.3)', c:'#14B8A6' },
+// ═══ i18n ═══
+const translations = {
+  es: {
+    "meta.title": `Jose Ramon Aragon Toledo | Portafolio`,
+    "meta.desc": `Portafolio de Jose Ramon Aragon Toledo — Ingeniero en Computacion, IA Centrada en el Humano, Desarrollo de Software.`,
+    "nav.about": `Sobre mí`,
+    "nav.experience": `Experiencia`,
+    "nav.projects": `Proyectos`,
+    "nav.publications": `Publicaciones`,
+    "nav.skills": `Habilidades`,
+    "nav.certifications": `Certificaciones`,
+    "nav.contact": `Contacto`,
+    "nav.menu": `Menú`,
+    "hero.title": `Ingeniero en Computación · IA Centrada en el Humano`,
+    "hero.sub": `Desarrollador de software e investigador. Creador de LIMA, asistente de voz para GNU/Linux presentado en conferencias internacionales.`,
+    "hero.cta1": `🤖 Ver LIMA en Acción`,
+    "hero.cta2": `Ver Proyectos`,
+    "about.badge": `📍 Oaxaca, México`,
+    "about.title": `Sobre mí`,
+    "about.p1": `Soy Ingeniero en Computación egresado de la <strong>Universidad Tecnológica de la Mixteca</strong>, especializado en el desarrollo de aplicaciones con Inteligencia Artificial. En proceso de titulación por tesis, con defensa prevista para julio de 2026.`,
+    "about.p2": `Mi proyecto principal es <strong>LIMA</strong> (Linux Intelligent Middleware Assistant), un asistente de voz para GNU/Linux con enfoque en IA Centrada en el Humano (HCAI), presentado en CLIHC 2026 y aceptado en AIS/IADIS 2026 (Valencia, España).`,
+    "about.p3": `Soy autodidacta, comunicativo y apasionado por resolver problemas reales con tecnología. Domino <strong>Python, JavaScript y Java</strong>, con experiencia en Angular, FastAPI, Node.js y múltiples APIs de IA.`,
+    "about.stat1": `Publicaciones`,
+    "about.stat2": `Precisión LIMA`,
+    "about.stat3": `Hackathon CLIHC`,
+    "about.stat4": `Años exp.`,
+    "about.cv": `📄 Descargar CV`,
+    "about.github": `Ver GitHub →`,
+    "exp.label": `Trayectoria`,
+    "exp.title": `Experiencia Profesional`,
+    "exp.desc": `Roles y proyectos donde he aportado soluciones tecnológicas reales.`,
+    "exp1.title": `Servicio Social — Investigación en IA y LLMs`,
+    "exp1.org": `<strong>Universidad Tecnológica de la Mixteca</strong> · Huajuapan de León, Oaxaca`,
+    "exp1.period": `Mar 2025 – Ene 2026`,
+    "exp1.li1": `Elaboré un Marco Histórico y Referencial (+4,000 líneas en LaTeX) sobre la evolución de LLMs: GPT-4, Gemini, DeepSeek, Grok, transformers y Mixture of Experts.`,
+    "exp1.li2": `Desarrollé <strong>CharlesTherapy</strong> — plataforma de terapia conversacional rogeriana (Angular + Express + MySQL).`,
+    "exp1.li3": `Desarrollé <strong>Kuiti</strong> — chatbot universitario de la UTM con NLP sobre la API de OpenAI.`,
+    "exp1.li4": `Desarrollé la versión alfa de <strong>LIMA/BOTAS</strong>, base de mi tesis de titulación.`,
+    "exp1.li5": `Documenté arquitecturas con PlantUML y publiqué código en GitHub.`,
+    "exp2.title": `Desarrollador de Software — Prácticas Profesionales`,
+    "exp2.org": `<strong>Karimnot</strong> · Oaxaca de Juárez, Oaxaca`,
+    "exp2.period": `Jul – Ago 2025`,
+    "exp2.li1": `Desarrollé un <strong>chatbot de WhatsApp para facturación fiscal</strong> usando la WhatsApp Cloud API de Meta.`,
+    "exp2.li2": `El usuario enviaba foto del ticket; el bot capturaba los datos automáticamente y emitía la factura.`,
+    "exp2.li3": `Implementé el flujo conversacional completo y la integración con el servicio de facturación.`,
+    "exp3.title": `Practicante de Sistemas / Soporte de TI`,
+    "exp3.org": `<strong>Honda Motos GT (Motos GT, S.A. de C.V.)</strong> · San Antonio de la Cal, Oaxaca`,
+    "exp3.period": `Jul – Sep 2024`,
+    "exp3.li1": `Mantenimiento de equipos de cómputo y actualización de software en múltiples sucursales.`,
+    "exp3.li2": `Mapeo de dispositivos en red y relocalización del servidor de cobranza a nivel estatal.`,
+    "exp3.li3": `Primer respondiente ante caídas generales del sistema.`,
+    "exp3.li4": `Elaboré el presupuesto para el proyecto de actualización de equipos.`,
+    "proj.label": `Desarrollo`,
+    "proj.title": `Proyectos Destacados`,
+    "proj.desc": `Aplicaciones e investigaciones con impacto real y reconocimiento académico.`,
+    "proj.lima.badge": `Tesis`,
+    "proj.lima.title": `LIMA — Asistente de Voz para GNU/Linux`,
+    "proj.lima.desc": `Middleware modular que permite interactuar con GNU/Linux en español mediante lenguaje natural y voz. Pipeline: captura de voz/GUI → detección local de intenciones → análisis con GPT-4o → validación de seguridad en 3 niveles → ejecución con retroalimentación educativa (TTS). Enfoque en Inteligencia Artificial Centrada en el Humano.`,
+    "proj.lima.m1": `Precisión (200 tareas)`,
+    "proj.lima.m2": `Detección ops. destructivas`,
+    "proj.lima.m3": `Niveles de seguridad`,
+    "proj.lima.demo": `🚀 Ver Demo en Vivo`,
+    "proj.onco.sub": `Diagnóstico Oncológico`,
+    "proj.onco.b1": `Metaheurísticas`,
+    "proj.onco.title": `Optimización de Diagnóstico Oncológico`,
+    "proj.onco.desc": `Sistema para diagnóstico de cáncer de mama (Wisconsin Breast Cancer), orientado a minimizar falsos negativos. Selección de características con Algoritmo Genético y ajuste de hiperparámetros con SA, GWO y WOA. Modelos: Random Forest, Extra Trees y XGBoost.`,
+    "proj.onco.tag1": `Algoritmo Genético`,
+    "proj.onco.tag2": `Recocido Simulado`,
+    "proj.chat.b1": `Chatbots IA`,
+    "proj.chat.title": `Aplicaciones Conversacionales con IA`,
+    "proj.chat.desc": `<strong>CharlesTherapy:</strong> plataforma de terapia conversacional con enfoque rogeriano (Angular + Express + MySQL).<br><br><strong>Kuiti:</strong> chatbot universitario de la UTM con NLP sobre la API de OpenAI.`,
+    "proj.wa.b2": `Automatización`,
+    "proj.wa.title": `Chatbot de Facturación Fiscal`,
+    "proj.wa.desc": `Bot de WhatsApp que automatiza la generación de facturas fiscales para Karimnot. El usuario envía foto del ticket y el bot captura los datos para emitir la factura automáticamente mediante la API de Meta.`,
+    "pub.label": `Investigación`,
+    "pub.title": `Publicaciones y Reconocimientos`,
+    "pub.desc": `Contribuciones al campo de la Interacción Humano-Computadora e Inteligencia Artificial.`,
+    "pub1.tag": `Full Paper · En prensa`,
+    "pub1.detail": `📍 Valencia, España · 25 de julio de 2026`,
+    "pub2.tag": `Short Paper · Publicado`,
+    "pub2.title": `Hacia la Evolución de la GUI Desktop: IA Centrada en el Humano como Paradigma para Repensar la Interacción con Sistemas Operativos`,
+    "pub2.venue": `CLIHC 2026 — Conferencia Latinoamericana de Interacción Humano-Computadora`,
+    "pub2.detail": `📍 Oaxaca de Juárez, México · 2026`,
+    "award.title": `1.er Lugar — Hackathon CLIHC 2026`,
+    "award.org": `Conferencia Latinoamericana de Interacción Humano-Computadora · Equipo «Ruta Clara»`,
+    "award.desc": `Rediseño de interfaz de app móvil de transporte urbano con metodología UCD e investigación con 30 usuarios. 27–29 de mayo de 2026 · Oaxaca de Juárez, México.`,
+    "award.caption": `Certificado oficial de reconocimiento — Equipo Ruta Clara`,
+    "award.pdf": `⬇ Ver reconocimiento oficial (PDF)`,
+    "sk.label": `Stack Técnico`,
+    "sk.title": `Habilidades`,
+    "sk.desc": `Tecnologías, herramientas y competencias aplicadas en proyectos reales.`,
+    "sk.g1": `Lenguajes`,
+    "sk.g2": `Frameworks y Tecnologías`,
+    "sk.g3": `Inteligencia Artificial`,
+    "sk.g4": `Optimización`,
+    "sk.g5": `Bases de Datos`,
+    "sk.g6": `APIs e Integraciones`,
+    "sk.t.ga": `Algoritmos Genéticos`,
+    "sk.t.sa": `Recocido Simulado`,
+    "cert.label": `Formación Continua`,
+    "cert.title": `Certificaciones`,
+    "cert.view": `⬇ Ver certificado`,
+    "cert1.date": `Marzo 2025`,
+    "cert2.date": `Febrero 2025`,
+    "cert3.date": `Junio 2025`,
+    "cert4.name": `JavaScript Moderno: Guía para dominar el lenguaje`,
+    "cert4.date": `Agosto 2024`,
+    "cert5.name": `Docker: Fundamentos`,
+    "cert6.date": `Ediciones 2025 y 2026`,
+    "cert7.name": `Liderazgo y Gestión de Equipos`,
+    "cert7.date": `Febrero 2026`,
+    "cert8.name": `Liderazgo y Felicidad en el Trabajo`,
+    "cert8.date": `Marzo 2026`,
+    "cert9.name": `Habilidades Gerenciales +`,
+    "cert9.date": `Marzo 2026`,
+    "contact.label": `Hablemos`,
+    "contact.title": `Contacto`,
+    "contact.desc": `¿Tienes un proyecto, una colaboración o una oportunidad laboral? No dudes en escribirme.`,
+    "footer.by": `Diseñado por <strong>Jose Ramon Aragon Toledo</strong> · <a href="https://github.com/Hudesde" target="_blank" style="color:rgba(255,255,255,.65);text-decoration:underline">github.com/Hudesde</a>`,
+    "footer.loc": `Oaxaca, México · 2026`,
+    "_badges": [
+      `🏆 1.er Lugar · Hackathon CLIHC 2026`,
+      `🤖 Investigador · IA Centrada en el Humano`,
+      `🌍 Full Paper Aceptado · IADIS 2026 Valencia`,
+      `🎓 Tesis LIMA · Defensa Julio 2026`,
+      `💻 Python · GPT-4o · GNU/Linux`,
+      `📖 Aprendizaje Continuo · Autodidacta`,
+    ],
+  },
+  en: {
+    "meta.title": `Jose Ramon Aragon Toledo | Portfolio`,
+    "meta.desc": `Portfolio of Jose Ramon Aragon Toledo — Computer Engineer, Human-Centered AI, Software Development.`,
+    "nav.about": `About`,
+    "nav.experience": `Experience`,
+    "nav.projects": `Projects`,
+    "nav.publications": `Publications`,
+    "nav.skills": `Skills`,
+    "nav.certifications": `Certifications`,
+    "nav.contact": `Contact`,
+    "nav.menu": `Menu`,
+    "hero.title": `Computer Engineer · Human-Centered AI`,
+    "hero.sub": `Software developer and researcher. Creator of LIMA, a voice assistant for GNU/Linux presented at international conferences.`,
+    "hero.cta1": `🤖 See LIMA in Action`,
+    "hero.cta2": `View Projects`,
+    "about.badge": `📍 Oaxaca, Mexico`,
+    "about.title": `About Me`,
+    "about.p1": `I'm a Computer Engineer and a graduate of the <strong>Universidad Tecnológica de la Mixteca</strong>, specialized in building applications with Artificial Intelligence. Currently completing my degree through a thesis, with the defense scheduled for July 2026.`,
+    "about.p2": `My main project is <strong>LIMA</strong> (Linux Intelligent Middleware Assistant), a voice assistant for GNU/Linux focused on Human-Centered AI (HCAI), presented at CLIHC 2026 and accepted at AIS/IADIS 2026 (Valencia, Spain).`,
+    "about.p3": `I'm self-taught, communicative, and passionate about solving real-world problems with technology. I'm proficient in <strong>Python, JavaScript, and Java</strong>, with experience in Angular, FastAPI, Node.js, and multiple AI APIs.`,
+    "about.stat1": `Publications`,
+    "about.stat2": `LIMA Accuracy`,
+    "about.stat3": `CLIHC Hackathon`,
+    "about.stat4": `Years exp.`,
+    "about.cv": `📄 Download CV`,
+    "about.github": `View GitHub →`,
+    "exp.label": `Career Path`,
+    "exp.title": `Professional Experience`,
+    "exp.desc": `Roles and projects where I've delivered real technological solutions.`,
+    "exp1.title": `Social Service — Research in AI and LLMs`,
+    "exp1.org": `<strong>Universidad Tecnológica de la Mixteca</strong> · Huajuapan de León, Oaxaca`,
+    "exp1.period": `Mar 2025 – Jan 2026`,
+    "exp1.li1": `Wrote a Historical and Reference Framework (+4,000 lines in LaTeX) on the evolution of LLMs: GPT-4, Gemini, DeepSeek, Grok, transformers, and Mixture of Experts.`,
+    "exp1.li2": `Built <strong>CharlesTherapy</strong> — a Rogerian conversational therapy platform (Angular + Express + MySQL).`,
+    "exp1.li3": `Built <strong>Kuiti</strong> — a university chatbot for UTM using NLP on the OpenAI API.`,
+    "exp1.li4": `Developed the alpha version of <strong>LIMA/BOTAS</strong>, the foundation of my degree thesis.`,
+    "exp1.li5": `Documented architectures with PlantUML and published code on GitHub.`,
+    "exp2.title": `Software Developer — Professional Internship`,
+    "exp2.org": `<strong>Karimnot</strong> · Oaxaca de Juárez, Oaxaca`,
+    "exp2.period": `Jul – Aug 2025`,
+    "exp2.li1": `Built a <strong>WhatsApp chatbot for tax invoicing</strong> using Meta's WhatsApp Cloud API.`,
+    "exp2.li2": `The user sent a photo of the receipt; the bot captured the data automatically and issued the invoice.`,
+    "exp2.li3": `Implemented the full conversational flow and the integration with the invoicing service.`,
+    "exp3.title": `Systems Intern / IT Support`,
+    "exp3.org": `<strong>Honda Motos GT (Motos GT, S.A. de C.V.)</strong> · San Antonio de la Cal, Oaxaca`,
+    "exp3.period": `Jul – Sep 2024`,
+    "exp3.li1": `Maintained computer equipment and updated software across multiple branches.`,
+    "exp3.li2": `Mapped network devices and relocated the state-wide collections server.`,
+    "exp3.li3": `First responder for general system outages.`,
+    "exp3.li4": `Prepared the budget for the equipment upgrade project.`,
+    "proj.label": `Development`,
+    "proj.title": `Featured Projects`,
+    "proj.desc": `Applications and research with real impact and academic recognition.`,
+    "proj.lima.badge": `Thesis`,
+    "proj.lima.title": `LIMA — Voice Assistant for GNU/Linux`,
+    "proj.lima.desc": `Modular middleware that lets you interact with GNU/Linux through natural language and voice. Pipeline: voice/GUI capture → local intent detection → GPT-4o analysis → 3-level safety validation → execution with educational feedback (TTS). Focused on Human-Centered Artificial Intelligence.`,
+    "proj.lima.m1": `Accuracy (200 tasks)`,
+    "proj.lima.m2": `Destructive-op detection`,
+    "proj.lima.m3": `Safety levels`,
+    "proj.lima.demo": `🚀 View Live Demo`,
+    "proj.onco.sub": `Oncology Diagnosis`,
+    "proj.onco.b1": `Metaheuristics`,
+    "proj.onco.title": `Oncology Diagnosis Optimization`,
+    "proj.onco.desc": `A system for breast cancer diagnosis (Wisconsin Breast Cancer), designed to minimize false negatives. Feature selection with a Genetic Algorithm and hyperparameter tuning with SA, GWO, and WOA. Models: Random Forest, Extra Trees, and XGBoost.`,
+    "proj.onco.tag1": `Genetic Algorithm`,
+    "proj.onco.tag2": `Simulated Annealing`,
+    "proj.chat.b1": `AI Chatbots`,
+    "proj.chat.title": `AI Conversational Applications`,
+    "proj.chat.desc": `<strong>CharlesTherapy:</strong> a conversational therapy platform with a Rogerian approach (Angular + Express + MySQL).<br><br><strong>Kuiti:</strong> a UTM university chatbot using NLP on the OpenAI API.`,
+    "proj.wa.b2": `Automation`,
+    "proj.wa.title": `Tax Invoicing Chatbot`,
+    "proj.wa.desc": `A WhatsApp bot that automates the generation of tax invoices for Karimnot. The user sends a photo of the receipt and the bot captures the data to issue the invoice automatically through Meta's API.`,
+    "pub.label": `Research`,
+    "pub.title": `Publications & Recognitions`,
+    "pub.desc": `Contributions to the field of Human-Computer Interaction and Artificial Intelligence.`,
+    "pub1.tag": `Full Paper · In press`,
+    "pub1.detail": `📍 Valencia, Spain · July 25, 2026`,
+    "pub2.tag": `Short Paper · Published`,
+    "pub2.title": `Toward the Evolution of the Desktop GUI: Human-Centered AI as a Paradigm to Rethink Interaction with Operating Systems`,
+    "pub2.venue": `CLIHC 2026 — Latin American Conference on Human-Computer Interaction`,
+    "pub2.detail": `📍 Oaxaca de Juárez, Mexico · 2026`,
+    "award.title": `1st Place — CLIHC 2026 Hackathon`,
+    "award.org": `Latin American Conference on Human-Computer Interaction · Team «Ruta Clara»`,
+    "award.desc": `Redesign of an urban transit mobile app interface using UCD methodology and research with 30 users. May 27–29, 2026 · Oaxaca de Juárez, Mexico.`,
+    "award.caption": `Official Certificate of Recognition — Team Ruta Clara`,
+    "award.pdf": `⬇ View official recognition (PDF)`,
+    "sk.label": `Tech Stack`,
+    "sk.title": `Skills`,
+    "sk.desc": `Technologies, tools, and skills applied in real projects.`,
+    "sk.g1": `Languages`,
+    "sk.g2": `Frameworks & Technologies`,
+    "sk.g3": `Artificial Intelligence`,
+    "sk.g4": `Optimization`,
+    "sk.g5": `Databases`,
+    "sk.g6": `APIs & Integrations`,
+    "sk.t.ga": `Genetic Algorithms`,
+    "sk.t.sa": `Simulated Annealing`,
+    "cert.label": `Continuous Learning`,
+    "cert.title": `Certifications`,
+    "cert.view": `⬇ View certificate`,
+    "cert1.date": `March 2025`,
+    "cert2.date": `February 2025`,
+    "cert3.date": `June 2025`,
+    "cert4.name": `Modern JavaScript: A Guide to Mastering the Language`,
+    "cert4.date": `August 2024`,
+    "cert5.name": `Docker: Fundamentals`,
+    "cert6.date": `2025 & 2026 editions`,
+    "cert7.name": `Leadership & Team Management`,
+    "cert7.date": `February 2026`,
+    "cert8.name": `Leadership & Happiness at Work`,
+    "cert8.date": `March 2026`,
+    "cert9.name": `Managerial Skills +`,
+    "cert9.date": `March 2026`,
+    "contact.label": `Let's Talk`,
+    "contact.title": `Contact`,
+    "contact.desc": `Have a project, a collaboration, or a job opportunity? Don't hesitate to reach out.`,
+    "footer.by": `Designed by <strong>Jose Ramon Aragon Toledo</strong> · <a href="https://github.com/Hudesde" target="_blank" style="color:rgba(255,255,255,.65);text-decoration:underline">github.com/Hudesde</a>`,
+    "footer.loc": `Oaxaca, Mexico · 2026`,
+    "_badges": [
+      `🏆 1st Place · CLIHC 2026 Hackathon`,
+      `🤖 Researcher · Human-Centered AI`,
+      `🌍 Full Paper Accepted · IADIS 2026 Valencia`,
+      `🎓 LIMA Thesis · Defense July 2026`,
+      `💻 Python · GPT-4o · GNU/Linux`,
+      `📖 Lifelong Learning · Self-Taught`,
+    ],
+  },
+};
+
+// Fixed colors for the rotating hero badge (shared across languages)
+const badgeColors = [
+  { bg:'rgba(245,158,11,.15)', bd:'rgba(245,158,11,.3)',  c:'#F59E0B' },
+  { bg:'rgba(59,130,246,.15)', bd:'rgba(59,130,246,.3)',  c:'#3B82F6' },
+  { bg:'rgba(16,185,129,.15)', bd:'rgba(16,185,129,.3)',  c:'#10B981' },
+  { bg:'rgba(168,85,247,.15)', bd:'rgba(168,85,247,.3)',  c:'#A855F7' },
+  { bg:'rgba(236,72,153,.15)', bd:'rgba(236,72,153,.3)',  c:'#EC4899' },
+  { bg:'rgba(20,184,166,.15)', bd:'rgba(20,184,166,.3)',  c:'#14B8A6' },
 ];
+
+const badge = document.getElementById('heroBadge');
+const langBtns = document.querySelectorAll('.lang-btn');
+const navToggleBtn = document.getElementById('navToggle');
+let currentLang = localStorage.getItem('lang');
+if (!currentLang) {
+  currentLang = (navigator.language || '').toLowerCase().startsWith('en') ? 'en' : 'es';
+}
+if (!['es','en'].includes(currentLang)) currentLang = 'es';
 let bi = 0;
+
+function setBadge(i){
+  const t = translations[currentLang]._badges[i];
+  const col = badgeColors[i % badgeColors.length];
+  badge.style.background = col.bg;
+  badge.style.borderColor = col.bd;
+  badge.style.color = col.c;
+  badge.textContent = t;
+}
+
+function applyLang(lang){
+  currentLang = lang;
+  const dict = translations[lang];
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (dict[k] != null) el.innerHTML = dict[k];
+  });
+
+  document.title = dict['meta.title'];
+  const md = document.querySelector('meta[name="description"]');
+  if (md) md.setAttribute('content', dict['meta.desc']);
+  if (navToggleBtn) navToggleBtn.setAttribute('aria-label', dict['nav.menu']);
+
+  langBtns.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  localStorage.setItem('lang', lang);
+
+  bi = 0;
+  setBadge(0);
+}
+
+langBtns.forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
+applyLang(currentLang);
+
+// Rotating hero badge
 setInterval(() => {
   badge.style.opacity = '0';
   setTimeout(() => {
-    bi = (bi + 1) % badgeItems.length;
-    const it = badgeItems[bi];
-    badge.style.background = it.bg;
-    badge.style.borderColor = it.bd;
-    badge.style.color = it.c;
-    badge.textContent = it.t;
+    bi = (bi + 1) % translations[currentLang]._badges.length;
+    setBadge(bi);
     badge.style.opacity = '1';
   }, 300);
 }, 2800);
 
+// ═══ NAV ═══
 const nav = document.getElementById('nav');
 const toggle = document.getElementById('navToggle');
 const links = document.getElementById('navLinks');
@@ -838,13 +1164,6 @@ toggle.addEventListener('click', () => links.classList.toggle('open'));
 links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
 
 const navAs = links.querySelectorAll('a');
-new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting)
-      navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
-  });
-}, {threshold: 0.4}).observe;
-
 document.querySelectorAll('section[id]').forEach(s => {
   new IntersectionObserver(entries => {
     entries.forEach(e => {
