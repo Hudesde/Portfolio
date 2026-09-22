@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0F2340">
+<meta name="description" content="LIMA (Linux Intelligent Middleware Assistant): asistente de voz en español para GNU/Linux con enfoque en IA Centrada en el Humano, creado por Jose Ramon Aragon Toledo.">
+<title>LIMA — Asistente de voz para GNU/Linux | Jose Ramon Aragon Toledo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a href="../index.html" class="nav-logo">JRAT</a>
+  <div class="nav-right">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html" data-i18n="nav.home">Inicio</a></li>
+      <li><a href="../index.html#proyectos" data-i18n="nav.projects">Proyectos</a></li>
+      <li><a href="../index.html#publicaciones" data-i18n="nav.publications">Publicaciones</a></li>
+      <li><a href="../index.html#contacto" data-i18n="nav.contact">Contacto</a></li>
+    </ul>
+    <div class="lang-switch" role="group" aria-label="Language / Idioma">
+      <button class="lang-btn" data-lang="es" aria-label="Español"><span class="flag">🇲🇽</span>ES</button>
+      <button class="lang-btn" data-lang="en" aria-label="English"><span class="flag">🇺🇸</span>EN</button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menú" data-i18n-attr="aria-label:nav.menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══ HEADER ═══ -->
+<header class="page-hero">
+  <div class="container">
+    <div class="crumbs"><a href="../index.html" data-i18n="crumb.home">Inicio</a><span>/</span><a href="../index.html#proyectos" data-i18n="crumb.projects">Proyectos</a><span>/</span><span>LIMA</span></div>
+    <span class="page-tag" data-i18n="l.tag">🤖 Proyecto principal · Tesis</span>
+    <h1>LIMA — Linux Intelligent Middleware Assistant</h1>
+    <p class="page-lead" data-i18n="l.lead">Asistente de voz en español para GNU/Linux: traduce lo que pides en acciones del sistema, te muestra qué va a hacer y pide confirmación antes de cualquier operación riesgosa.</p>
+    <div class="page-meta">
+      <span class="chip">🐪 Perl 5 · Python 3</span>
+      <span class="chip">🖥 GTK3</span>
+      <span class="chip">🧠 GPT-4o · DeepSeek</span>
+      <span class="chip">🎙 Whisper · Vosk</span>
+      <span class="chip" data-i18n="l.c1">🐧 6 familias de distribuciones</span>
+    </div>
+    <div class="page-actions">
+      <a href="https://hudesde.github.io/LIMA-Web/" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="l.a1">🌐 Sitio web de LIMA ↗</a>
+      <a href="https://github.com/Hudesde/LIMA-DEMO" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="l.a2">💻 Código en GitHub ↗</a>
+      <a href="../investigacion/tesis-lima.html" class="btn btn-outline" data-i18n="l.a3">🎓 Ver la tesis</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ CONTENT ═══ -->
+<main class="detail">
+  <div class="detail-grid">
+    <div class="detail-main">
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="l.why.title">🎯 ¿Qué problema resuelve?</h2>
+        <div class="prose">
+          <p data-i18n="l.why.p1">La terminal de GNU/Linux es potente, pero su sintaxis críptica es una barrera para usuarios no especializados: operaciones cotidianas —buscar archivos por tamaño, organizar documentos, crear carpetas— exigen memorizar y componer comandos.</p>
+          <p data-i18n="l.why.p2">LIMA actúa como <strong>middleware</strong> entre la persona y el sistema operativo: basta con pedirlo en voz alta, en español. Su diseño sigue los principios de la <strong>Inteligencia Artificial Centrada en el Humano (HCAI)</strong>: transparencia, seguridad y control del usuario.</p>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="l.how.title">⚙️ Cómo funciona</h2>
+        <ol class="steps">
+          <li><div><strong data-i18n="l.s1.t">Escucha</strong><span data-i18n="l.s1.d">Detecta la palabra de activación y captura la voz (o texto desde la interfaz); transcribe con Whisper o, sin conexión, con Vosk.</span></div></li>
+          <li><div><strong data-i18n="l.s2.t">Entiende</strong><span data-i18n="l.s2.d">Un detector local resuelve al instante las intenciones frecuentes (hora, uso de disco, abrir aplicaciones) y un módulo de aprendizaje reutiliza tareas ya vistas con TF-IDF y similitud coseno.</span></div></li>
+          <li><div><strong data-i18n="l.s3.t">Interpreta</strong><span data-i18n="l.s3.d">Lo demás pasa a un modelo de lenguaje (GPT-4o, DeepSeek o un modelo local) que devuelve la acción como JSON estructurado.</span></div></li>
+          <li><div><strong data-i18n="l.s4.t">Valida</strong><span data-i18n="l.s4.d">Capas de seguridad independientes del modelo: lista blanca de rutas, clasificación de riesgo (seguro, advertencia, peligro), confirmación explícita para operaciones destructivas y registro auditable.</span></div></li>
+          <li><div><strong data-i18n="l.s5.t">Ejecuta y explica</strong><span data-i18n="l.s5.d">Realiza la acción, muestra el resultado en la interfaz y lo explica por voz (OpenAI TTS o eSpeak).</span></div></li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="l.res.title">📊 Resultados de la evaluación</h2>
+        <div class="kpis">
+          <div class="kpi"><div class="v">89<span>%</span></div><div class="d" data-i18n="l.k1">precisión al generar comandos (conjunto de 250 tareas, 8 categorías)</div></div>
+          <div class="kpi"><div class="v">100<span>%</span></div><div class="d" data-i18n="l.k2">de las operaciones destructivas pidieron confirmación</div></div>
+          <div class="kpi"><div class="v">×2.8</div><div class="d" data-i18n="l.k3">más rápido que buscar el comando manualmente</div></div>
+          <div class="kpi"><div class="v">83.9<span>%</span></div><div class="d" data-i18n="l.k4">eficacia por voz de usuarios sin experiencia previa</div></div>
+        </div>
+        <p class="note" data-i18n="l.res.note">Detalle completo de la metodología y los resultados en la <a href="../investigacion/tesis-lima.html">tesis</a>.</p>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="l.arch.title">🧩 Arquitectura</h2>
+        <div class="prose">
+          <p data-i18n="l.arch.p">Cerca de 9,500 líneas de Perl 5 y un módulo auxiliar en Python 3, organizadas en un orquestador y nueve módulos funcionales:</p>
+        </div>
+        <div class="mods">
+          <div class="mod"><code>lima.pl</code><p data-i18n="l.m0">Orquestador: coordina el pipeline de tres niveles y despacha cada acción.</p></div>
+          <div class="mod"><code>VoiceRecognition.pm</code><p data-i18n="l.m1">Captura de audio y transcripción con Whisper (en línea) o Vosk (sin conexión).</p></div>
+          <div class="mod"><code>WakeWordDetector.pm</code><p data-i18n="l.m2">Detección de la palabra de activación y del silencio al terminar de hablar.</p></div>
+          <div class="mod"><code>IntentDetector.pm</code><p data-i18n="l.m3">Resuelve localmente las intenciones frecuentes, sin consultar al modelo de lenguaje.</p></div>
+          <div class="mod"><code>TaskLearner.pm</code><p data-i18n="l.m4">Aprende tareas repetidas con TF-IDF y similitud coseno para responder más rápido.</p></div>
+          <div class="mod"><code>CommandParser.pm</code><p data-i18n="l.m5">Traduce la petición a un esquema JSON de comandos mediante el LLM, en línea o fuera de línea.</p></div>
+          <div class="mod"><code>FileManager.pm</code><p data-i18n="l.m6">Operaciones de archivos con validación de rutas, búsqueda avanzada con filtros y plantillas de proyectos.</p></div>
+          <div class="mod"><code>TTS.pm</code><p data-i18n="l.m7">Síntesis de voz con OpenAI TTS o eSpeak, sin bloquear la interfaz.</p></div>
+          <div class="mod"><code>DistroDetector.pm</code><p data-i18n="l.m8">Detecta la familia de la distribución (Debian, Fedora, Arch, SUSE, Alpine, Void) y traduce nombres de paquetes.</p></div>
+          <div class="mod"><code>GUI_GTK3.pm</code><p data-i18n="l.m9">Interfaz gráfica con indicador de estado, historial, diálogos de confirmación y tutorial interactivo.</p></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="l.stack.title">🛠 Tecnologías</h2>
+        <div class="tags">
+          <span class="tag">Perl 5</span><span class="tag">Python 3</span><span class="tag">GTK3</span><span class="tag">GPT-4o</span><span class="tag">DeepSeek</span>
+          <span class="tag">Whisper</span><span class="tag">Vosk</span><span class="tag">OpenAI TTS</span><span class="tag">eSpeak</span><span class="tag">TF-IDF</span>
+          <span class="tag">JSON</span><span class="tag">GNU/Linux</span><span class="tag">NLP</span><span class="tag">HCAI</span>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="rel.title">🔗 Relacionado</h2>
+        <div class="rel-grid">
+          <a class="rel-card" href="../investigacion/tesis-lima.html"><span class="rel-ico" style="background:var(--green-l)">🎓</span><span><span class="rel-k" data-i18n="rel.thesis">Tesis</span><span class="rel-t" data-i18n="l.r1">Aprobada por unanimidad · 2026</span></span></a>
+          <a class="rel-card" href="../investigacion/botas-iadis-2026.html"><span class="rel-ico" style="background:var(--amber-l)">🌍</span><span><span class="rel-k" data-i18n="rel.paper">Artículo</span><span class="rel-t">BOTAS · AIS/IADIS 2026</span></span></a>
+          <a class="rel-card" href="../investigacion/clihc-2026.html"><span class="rel-ico">📄</span><span><span class="rel-k" data-i18n="rel.paper">Artículo</span><span class="rel-t">Short paper · CLIHC 2026</span></span></a>
+        </div>
+      </div>
+
+    </div>
+
+    <aside class="aside">
+      <div class="info-card">
+        <h2 data-i18n="info.title">Ficha</h2>
+        <dl class="facts">
+          <div><dt data-i18n="l.f1.k">Rol</dt><dd data-i18n="l.f1.v">Autor: diseño, desarrollo y evaluación</dd></div>
+          <div><dt data-i18n="l.f2.k">Periodo</dt><dd>2025 – 2026</dd></div>
+          <div><dt data-i18n="l.f3.k">Contexto</dt><dd data-i18n="l.f3.v">Tesis de Ingeniería en Computación · Universidad Tecnológica de la Mixteca</dd></div>
+          <div><dt data-i18n="l.f4.k">Plataforma</dt><dd data-i18n="l.f4.v">GNU/Linux (familias Debian, Fedora, Arch, SUSE, Alpine y Void)</dd></div>
+          <div><dt data-i18n="l.f5.k">Modos</dt><dd data-i18n="l.f5.v">En línea (GPT-4o, DeepSeek, Whisper) o sin conexión (Vosk, eSpeak, modelo local)</dd></div>
+        </dl>
+      </div>
+      <div class="info-card">
+        <h2 data-i18n="info.links">Enlaces</h2>
+        <ul class="link-list">
+          <li><a href="https://hudesde.github.io/LIMA-Web/" target="_blank" rel="noopener">🌐 <span data-i18n="l.l1">Sitio web de LIMA</span><span class="ext">↗</span></a></li>
+          <li><a href="https://github.com/Hudesde/LIMA-DEMO" target="_blank" rel="noopener">💻 <span data-i18n="l.l2">Código e instalación</span><span class="ext">↗</span></a></li>
+          <li><a href="../investigacion/tesis-lima.html">🎓 <span data-i18n="l.l3">Tesis y examen profesional</span></a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <p data-i18n="footer.by">Diseñado por <strong>Jose Ramon Aragon Toledo</strong> · <a href="https://github.com/Hudesde" target="_blank" rel="noopener" style="color:rgba(255,255,255,.65);text-decoration:underline">github.com/Hudesde</a></p>
+  <p style="margin-top:.4rem;font-size:.78rem;opacity:.5" data-i18n="footer.loc">Oaxaca, México · 2026</p>
+</footer>
+
+<script>
+window.PAGE_I18N = {
+  en: {
+    "meta.title": `LIMA — Voice Assistant for GNU/Linux | Jose Ramon Aragon Toledo`,
+    "meta.desc": `LIMA (Linux Intelligent Middleware Assistant): a Spanish-language voice assistant for GNU/Linux built on Human-Centered AI, created by Jose Ramon Aragon Toledo.`,
+    "l.tag": `🤖 Flagship project · Thesis`,
+    "l.lead": `A Spanish-language voice assistant for GNU/Linux: it turns what you ask into system actions, shows you what it's about to do, and asks for confirmation before any risky operation.`,
+    "l.c1": `🐧 6 distribution families`,
+    "l.a1": `🌐 LIMA website ↗`,
+    "l.a2": `💻 Code on GitHub ↗`,
+    "l.a3": `🎓 Read the thesis`,
+    "l.why.title": `🎯 What problem does it solve?`,
+    "l.why.p1": `The GNU/Linux terminal is powerful, but its cryptic syntax is a barrier for non-specialist users: everyday operations —finding files by size, organizing documents, creating folders— require memorizing and composing commands.`,
+    "l.why.p2": `LIMA acts as <strong>middleware</strong> between the person and the operating system: you just ask out loud, in Spanish. Its design follows the principles of <strong>Human-Centered Artificial Intelligence (HCAI)</strong>: transparency, safety, and user control.`,
+    "l.how.title": `⚙️ How it works`,
+    "l.s1.t": `Listens`,
+    "l.s1.d": `Detects the wake word and captures speech (or text from the interface); transcribes it with Whisper or, offline, with Vosk.`,
+    "l.s2.t": `Understands`,
+    "l.s2.d": `A local detector instantly resolves frequent intents (time, disk usage, opening apps), and a learning module reuses previously seen tasks with TF-IDF and cosine similarity.`,
+    "l.s3.t": `Interprets`,
+    "l.s3.d": `Everything else goes to a language model (GPT-4o, DeepSeek, or a local model) that returns the action as structured JSON.`,
+    "l.s4.t": `Validates`,
+    "l.s4.d": `Safety layers independent of the model: path allow-list, risk classification (safe, warning, danger), explicit confirmation for destructive operations, and an auditable log.`,
+    "l.s5.t": `Executes & explains`,
+    "l.s5.d": `Performs the action, shows the result in the interface, and explains it by voice (OpenAI TTS or eSpeak).`,
+    "l.res.title": `📊 Evaluation results`,
+    "l.k1": `command-generation accuracy (250-task dataset, 8 categories)`,
+    "l.k2": `of destructive operations asked for confirmation`,
+    "l.k3": `faster than looking up the command manually`,
+    "l.k4": `voice effectiveness for users with no prior experience`,
+    "l.res.note": `Full methodology and results in the <a href="../investigacion/tesis-lima.html">thesis</a>.`,
+    "l.arch.title": `🧩 Architecture`,
+    "l.arch.p": `About 9,500 lines of Perl 5 plus an auxiliary Python 3 module, organized as an orchestrator and nine functional modules:`,
+    "l.m0": `Orchestrator: coordinates the three-level pipeline and dispatches each action.`,
+    "l.m1": `Audio capture and transcription with Whisper (online) or Vosk (offline).`,
+    "l.m2": `Wake-word detection and end-of-speech silence detection.`,
+    "l.m3": `Resolves frequent intents locally, without querying the language model.`,
+    "l.m4": `Learns repeated tasks with TF-IDF and cosine similarity to respond faster.`,
+    "l.m5": `Translates the request into a JSON command schema through the LLM, online or offline.`,
+    "l.m6": `File operations with path validation, advanced filtered search, and project templates.`,
+    "l.m7": `Speech synthesis with OpenAI TTS or eSpeak, without blocking the interface.`,
+    "l.m8": `Detects the distribution family (Debian, Fedora, Arch, SUSE, Alpine, Void) and translates package names.`,
+    "l.m9": `Graphical interface with a status indicator, history, confirmation dialogs, and an interactive tutorial.`,
+    "l.stack.title": `🛠 Technologies`,
+    "l.r1": `Unanimously approved · 2026`,
+    "l.f1.k": `Role`,
+    "l.f1.v": `Author: design, development, and evaluation`,
+    "l.f2.k": `Period`,
+    "l.f3.k": `Context`,
+    "l.f3.v": `Computer Engineering thesis · Universidad Tecnológica de la Mixteca`,
+    "l.f4.k": `Platform`,
+    "l.f4.v": `GNU/Linux (Debian, Fedora, Arch, SUSE, Alpine, and Void families)`,
+    "l.f5.k": `Modes`,
+    "l.f5.v": `Online (GPT-4o, DeepSeek, Whisper) or offline (Vosk, eSpeak, local model)`,
+    "l.l1": `LIMA website`,
+    "l.l2": `Code & installation`,
+    "l.l3": `Thesis & defense`,
+  },
+};
+</script>
+<script src="../assets/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0F2340">
+<meta name="description" content="Optimización de diagnóstico oncológico con metaheurísticas y machine learning (Wisconsin Breast Cancer) — proyecto de Jose Ramon Aragon Toledo.">
+<title>Diagnóstico Oncológico con Metaheurísticas | Jose Ramon Aragon Toledo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a href="../index.html" class="nav-logo">JRAT</a>
+  <div class="nav-right">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html" data-i18n="nav.home">Inicio</a></li>
+      <li><a href="../index.html#proyectos" data-i18n="nav.projects">Proyectos</a></li>
+      <li><a href="../index.html#publicaciones" data-i18n="nav.publications">Publicaciones</a></li>
+      <li><a href="../index.html#contacto" data-i18n="nav.contact">Contacto</a></li>
+    </ul>
+    <div class="lang-switch" role="group" aria-label="Language / Idioma">
+      <button class="lang-btn" data-lang="es" aria-label="Español"><span class="flag">🇲🇽</span>ES</button>
+      <button class="lang-btn" data-lang="en" aria-label="English"><span class="flag">🇺🇸</span>EN</button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menú" data-i18n-attr="aria-label:nav.menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══ HEADER ═══ -->
+<header class="page-hero" style="background:linear-gradient(135deg,#053a2e 0%,#065f46 55%,#0d9488 100%)">
+  <div class="container">
+    <div class="crumbs"><a href="../index.html" data-i18n="crumb.home">Inicio</a><span>/</span><a href="../index.html#proyectos" data-i18n="crumb.projects">Proyectos</a><span>/</span><span data-i18n="o.crumb">Diagnóstico oncológico</span></div>
+    <span class="page-tag t-green" data-i18n="o.tag">🧬 Machine Learning · Metaheurísticas</span>
+    <h1 data-i18n="o.h1">Optimización de Diagnóstico Oncológico</h1>
+    <p class="page-lead" data-i18n="o.lead">Sistema de apoyo al diagnóstico de cáncer de mama que combina selección de características y ajuste de hiperparámetros con metaheurísticas, orientado a minimizar los falsos negativos.</p>
+    <div class="page-meta">
+      <span class="chip">📊 Wisconsin Breast Cancer</span>
+      <span class="chip">🐍 Python · scikit-learn · XGBoost</span>
+    </div>
+    <div class="page-actions">
+      <a href="https://github.com/aneli1/breast_cancer_mh" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="o.a1">💻 Ver en GitHub ↗</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ CONTENT ═══ -->
+<main class="detail">
+  <div class="detail-grid">
+    <div class="detail-main">
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="o.goal.title">🎯 Objetivo</h2>
+        <div class="prose">
+          <p data-i18n="o.goal.p">Clasificar tumores de mama a partir del conjunto de datos <strong>Wisconsin Breast Cancer</strong> priorizando la reducción de <strong>falsos negativos</strong>: en un contexto clínico, pasar por alto un caso maligno es el error más costoso.</p>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="o.how.title">⚙️ Enfoque</h2>
+        <ol class="steps">
+          <li><div><strong data-i18n="o.s1.t">Selección de características</strong><span data-i18n="o.s1.d">Un Algoritmo Genético elige el subconjunto de variables más informativo.</span></div></li>
+          <li><div><strong data-i18n="o.s2.t">Ajuste de hiperparámetros</strong><span data-i18n="o.s2.d">Tres metaheurísticas exploran la configuración de los modelos: Recocido Simulado (SA), Grey Wolf Optimizer (GWO) y Whale Optimization Algorithm (WOA).</span></div></li>
+          <li><div><strong data-i18n="o.s3.t">Modelos de clasificación</strong><span data-i18n="o.s3.d">Random Forest, Extra Trees y XGBoost, comparados con el objetivo de minimizar los falsos negativos.</span></div></li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="o.stack.title">🛠 Tecnologías</h2>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">XGBoost</span><span class="tag">Random Forest</span><span class="tag">Extra Trees</span>
+          <span class="tag" data-i18n="o.t1">Algoritmo Genético</span><span class="tag" data-i18n="o.t2">Recocido Simulado</span><span class="tag">GWO</span><span class="tag">WOA</span>
+        </div>
+      </div>
+
+    </div>
+
+    <aside class="aside">
+      <div class="info-card">
+        <h2 data-i18n="info.title">Ficha</h2>
+        <dl class="facts">
+          <div><dt data-i18n="o.f1.k">Conjunto de datos</dt><dd>Wisconsin Breast Cancer</dd></div>
+          <div><dt data-i18n="o.f2.k">Prioridad</dt><dd data-i18n="o.f2.v">Minimizar falsos negativos</dd></div>
+          <div><dt data-i18n="o.f3.k">Optimización</dt><dd>GA · SA · GWO · WOA</dd></div>
+          <div><dt data-i18n="o.f4.k">Modelos</dt><dd>Random Forest · Extra Trees · XGBoost</dd></div>
+        </dl>
+      </div>
+      <div class="info-card">
+        <h2 data-i18n="info.links">Enlaces</h2>
+        <ul class="link-list">
+          <li><a href="https://github.com/aneli1/breast_cancer_mh" target="_blank" rel="noopener">💻 <span data-i18n="o.l1">Repositorio</span><span class="ext">↗</span></a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <p data-i18n="footer.by">Diseñado por <strong>Jose Ramon Aragon Toledo</strong> · <a href="https://github.com/Hudesde" target="_blank" rel="noopener" style="color:rgba(255,255,255,.65);text-decoration:underline">github.com/Hudesde</a></p>
+  <p style="margin-top:.4rem;font-size:.78rem;opacity:.5" data-i18n="footer.loc">Oaxaca, México · 2026</p>
+</footer>
+
+<script>
+window.PAGE_I18N = {
+  en: {
+    "meta.title": `Oncology Diagnosis with Metaheuristics | Jose Ramon Aragon Toledo`,
+    "meta.desc": `Oncology diagnosis optimization with metaheuristics and machine learning (Wisconsin Breast Cancer) — a project by Jose Ramon Aragon Toledo.`,
+    "o.crumb": `Oncology diagnosis`,
+    "o.tag": `🧬 Machine Learning · Metaheuristics`,
+    "o.h1": `Oncology Diagnosis Optimization`,
+    "o.lead": `A breast cancer diagnosis support system that combines feature selection and hyperparameter tuning with metaheuristics, designed to minimize false negatives.`,
+    "o.a1": `💻 View on GitHub ↗`,
+    "o.goal.title": `🎯 Goal`,
+    "o.goal.p": `Classify breast tumors from the <strong>Wisconsin Breast Cancer</strong> dataset while prioritizing the reduction of <strong>false negatives</strong>: in a clinical setting, missing a malignant case is the costliest error.`,
+    "o.how.title": `⚙️ Approach`,
+    "o.s1.t": `Feature selection`,
+    "o.s1.d": `A Genetic Algorithm picks the most informative subset of variables.`,
+    "o.s2.t": `Hyperparameter tuning`,
+    "o.s2.d": `Three metaheuristics explore the model configuration: Simulated Annealing (SA), Grey Wolf Optimizer (GWO), and Whale Optimization Algorithm (WOA).`,
+    "o.s3.t": `Classification models`,
+    "o.s3.d": `Random Forest, Extra Trees, and XGBoost, compared with the goal of minimizing false negatives.`,
+    "o.stack.title": `🛠 Technologies`,
+    "o.t1": `Genetic Algorithm`,
+    "o.t2": `Simulated Annealing`,
+    "o.f1.k": `Dataset`,
+    "o.f2.k": `Priority`,
+    "o.f2.v": `Minimize false negatives`,
+    "o.f3.k": `Optimization`,
+    "o.f4.k": `Models`,
+    "o.l1": `Repository`,
+  },
+};
+</script>
+<script src="../assets/js/site.js"></script>
+</body>
+</html>

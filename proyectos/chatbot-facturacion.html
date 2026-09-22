@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0F2340">
+<meta name="description" content="Chatbot de WhatsApp para facturación fiscal desarrollado por Jose Ramon Aragon Toledo para Karimnot con la WhatsApp Cloud API de Meta.">
+<title>Chatbot de Facturación Fiscal | Jose Ramon Aragon Toledo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a href="../index.html" class="nav-logo">JRAT</a>
+  <div class="nav-right">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html" data-i18n="nav.home">Inicio</a></li>
+      <li><a href="../index.html#proyectos" data-i18n="nav.projects">Proyectos</a></li>
+      <li><a href="../index.html#publicaciones" data-i18n="nav.publications">Publicaciones</a></li>
+      <li><a href="../index.html#contacto" data-i18n="nav.contact">Contacto</a></li>
+    </ul>
+    <div class="lang-switch" role="group" aria-label="Language / Idioma">
+      <button class="lang-btn" data-lang="es" aria-label="Español"><span class="flag">🇲🇽</span>ES</button>
+      <button class="lang-btn" data-lang="en" aria-label="English"><span class="flag">🇺🇸</span>EN</button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menú" data-i18n-attr="aria-label:nav.menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══ HEADER ═══ -->
+<header class="page-hero" style="background:linear-gradient(135deg,#3b0764 0%,#6d28d9 55%,#a855f7 100%)">
+  <div class="container">
+    <div class="crumbs"><a href="../index.html" data-i18n="crumb.home">Inicio</a><span>/</span><a href="../index.html#proyectos" data-i18n="crumb.projects">Proyectos</a><span>/</span><span data-i18n="w.crumb">Chatbot de facturación</span></div>
+    <span class="page-tag t-blue" data-i18n="w.tag">📱 WhatsApp API · Automatización</span>
+    <h1 data-i18n="w.h1">Chatbot de Facturación Fiscal</h1>
+    <p class="page-lead" data-i18n="w.lead">Bot de WhatsApp que automatiza la emisión de facturas fiscales a partir de una foto del ticket de compra.</p>
+    <div class="page-meta">
+      <span class="chip">🏢 Karimnot</span>
+      <span class="chip" data-i18n="w.c1">📅 Jul – Ago 2025</span>
+      <span class="chip" data-i18n="w.c2">💼 Prácticas profesionales</span>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ CONTENT ═══ -->
+<main class="detail">
+  <div class="detail-grid">
+    <div class="detail-main">
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="w.sol.title">💡 La solución</h2>
+        <div class="prose">
+          <p data-i18n="w.sol.p">Para Karimnot desarrollé un bot de WhatsApp que simplifica la facturación: el usuario envía una foto de su ticket por WhatsApp, el bot captura los datos y emite la factura automáticamente.</p>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="w.flow.title">🔄 Flujo</h2>
+        <ol class="steps">
+          <li><div><strong data-i18n="w.s1.t">Foto del ticket</strong><span data-i18n="w.s1.d">El usuario escribe al bot y envía la foto de su ticket de compra.</span></div></li>
+          <li><div><strong data-i18n="w.s2.t">Captura automática</strong><span data-i18n="w.s2.d">El bot extrae del ticket los datos necesarios para la factura.</span></div></li>
+          <li><div><strong data-i18n="w.s3.t">Emisión de la factura</strong><span data-i18n="w.s3.d">La integración con el servicio de facturación genera la factura automáticamente.</span></div></li>
+        </ol>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="w.role.title">👨‍💻 Mi aportación</h2>
+        <ul class="checklist">
+          <li data-i18n="w.r1">Desarrollé el chatbot sobre la WhatsApp Cloud API de Meta.</li>
+          <li data-i18n="w.r2">Implementé el flujo conversacional completo.</li>
+          <li data-i18n="w.r3">Integré el bot con el servicio de facturación.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="w.stack.title">🛠 Tecnologías</h2>
+        <div class="tags">
+          <span class="tag">WhatsApp Cloud API</span><span class="tag">Meta Platform</span><span class="tag">Node.js</span>
+        </div>
+      </div>
+
+    </div>
+
+    <aside class="aside">
+      <div class="info-card">
+        <h2 data-i18n="info.title">Ficha</h2>
+        <dl class="facts">
+          <div><dt data-i18n="w.f1.k">Empresa</dt><dd>Karimnot · Oaxaca de Juárez, Oaxaca</dd></div>
+          <div><dt data-i18n="w.f2.k">Rol</dt><dd data-i18n="w.f2.v">Desarrollador de software (prácticas profesionales)</dd></div>
+          <div><dt data-i18n="w.f3.k">Periodo</dt><dd data-i18n="w.f3.v">Julio – Agosto 2025</dd></div>
+          <div><dt data-i18n="w.f4.k">Canal</dt><dd>WhatsApp</dd></div>
+        </dl>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <p data-i18n="footer.by">Diseñado por <strong>Jose Ramon Aragon Toledo</strong> · <a href="https://github.com/Hudesde" target="_blank" rel="noopener" style="color:rgba(255,255,255,.65);text-decoration:underline">github.com/Hudesde</a></p>
+  <p style="margin-top:.4rem;font-size:.78rem;opacity:.5" data-i18n="footer.loc">Oaxaca, México · 2026</p>
+</footer>
+
+<script>
+window.PAGE_I18N = {
+  en: {
+    "meta.title": `Tax Invoicing Chatbot | Jose Ramon Aragon Toledo`,
+    "meta.desc": `WhatsApp tax-invoicing chatbot built by Jose Ramon Aragon Toledo for Karimnot using Meta's WhatsApp Cloud API.`,
+    "w.crumb": `Invoicing chatbot`,
+    "w.tag": `📱 WhatsApp API · Automation`,
+    "w.h1": `Tax Invoicing Chatbot`,
+    "w.lead": `A WhatsApp bot that automates issuing tax invoices from a photo of the purchase receipt.`,
+    "w.c1": `📅 Jul – Aug 2025`,
+    "w.c2": `💼 Professional internship`,
+    "w.sol.title": `💡 The solution`,
+    "w.sol.p": `For Karimnot I built a WhatsApp bot that simplifies invoicing: the user sends a photo of their receipt over WhatsApp, the bot captures the data and issues the invoice automatically.`,
+    "w.flow.title": `🔄 Flow`,
+    "w.s1.t": `Receipt photo`,
+    "w.s1.d": `The user messages the bot and sends a photo of the purchase receipt.`,
+    "w.s2.t": `Automatic capture`,
+    "w.s2.d": `The bot extracts the data needed for the invoice from the receipt.`,
+    "w.s3.t": `Invoice issued`,
+    "w.s3.d": `The integration with the invoicing service generates the invoice automatically.`,
+    "w.role.title": `👨‍💻 My contribution`,
+    "w.r1": `Built the chatbot on Meta's WhatsApp Cloud API.`,
+    "w.r2": `Implemented the full conversational flow.`,
+    "w.r3": `Integrated the bot with the invoicing service.`,
+    "w.stack.title": `🛠 Technologies`,
+    "w.f1.k": `Company`,
+    "w.f2.k": `Role`,
+    "w.f2.v": `Software developer (professional internship)`,
+    "w.f3.k": `Period`,
+    "w.f3.v": `July – August 2025`,
+    "w.f4.k": `Channel`,
+  },
+};
+</script>
+<script src="../assets/js/site.js"></script>
+</body>
+</html>

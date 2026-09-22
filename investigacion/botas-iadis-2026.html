@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0F2340">
+<meta name="description" content="BOTAS: A Human-Centered Natural Language Interface for GNU/Linux System Management with Multi-Distribution Support — full paper de Jose Ramon Aragon Toledo y Ricardo Ruiz Rodríguez presentado en AIS 2026 (MCCSIS/IADIS), Valencia, España.">
+<title>Paper BOTAS · AIS/IADIS 2026 | Jose Ramon Aragon Toledo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a href="../index.html" class="nav-logo">JRAT</a>
+  <div class="nav-right">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html" data-i18n="nav.home">Inicio</a></li>
+      <li><a href="../index.html#proyectos" data-i18n="nav.projects">Proyectos</a></li>
+      <li><a href="../index.html#publicaciones" data-i18n="nav.publications">Publicaciones</a></li>
+      <li><a href="../index.html#contacto" data-i18n="nav.contact">Contacto</a></li>
+    </ul>
+    <div class="lang-switch" role="group" aria-label="Language / Idioma">
+      <button class="lang-btn" data-lang="es" aria-label="Español"><span class="flag">🇲🇽</span>ES</button>
+      <button class="lang-btn" data-lang="en" aria-label="English"><span class="flag">🇺🇸</span>EN</button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menú" data-i18n-attr="aria-label:nav.menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══ HEADER ═══ -->
+<header class="page-hero">
+  <div class="container">
+    <div class="crumbs"><a href="../index.html" data-i18n="crumb.home">Inicio</a><span>/</span><a href="../index.html#publicaciones" data-i18n="crumb.pubs">Publicaciones</a><span>/</span><span>BOTAS · AIS 2026</span></div>
+    <span class="page-tag" data-i18n="b.tag">🌍 Full Paper · Publicado</span>
+    <h1>BOTAS: A Human-Centered Natural Language Interface for GNU/Linux System Management with Multi-Distribution Support</h1>
+    <p class="page-lead" data-i18n="b.lead">Artículo completo presentado en la International Conference on Artificial Intelligence in Society (AIS 2026), parte de la Multi Conference on Computer Science and Information Systems (MCCSIS 2026) organizada por IADIS en Valencia, España.</p>
+    <div class="page-meta">
+      <span class="chip" data-i18n="b.c1">📅 25–27 de julio de 2026</span>
+      <span class="chip" data-i18n="b.c2">📍 Valencia, España</span>
+      <span class="chip">📚 pp. 100–110</span>
+      <span class="chip">🔖 ISBN 978-989-8704-78-8</span>
+    </div>
+    <div class="page-actions">
+      <a href="../Novedades/certificadoIADIS.pdf" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="b.a1">📜 Ver certificado (PDF)</a>
+      <a href="#cita" class="btn btn-outline" data-i18n="b.a2">❝ Cómo citar</a>
+      <a href="https://hudesde.github.io/LIMA-Web/" target="_blank" rel="noopener" class="btn btn-outline" data-i18n="b.a3">🌐 Sitio web de LIMA ↗</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ CONTENT ═══ -->
+<main class="detail">
+  <div class="detail-grid">
+    <div class="detail-main">
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="b.about.title">📄 Sobre el artículo</h2>
+        <div class="prose">
+          <p data-i18n="b.about.p1">El artículo presenta <strong>BOTAS</strong>, la versión del sistema que después evolucionó en <a href="../proyectos/lima.html">LIMA</a>: una interfaz de lenguaje natural diseñada con un enfoque de Inteligencia Artificial Centrada en el Humano que permite administrar sistemas GNU/Linux mediante instrucciones en español, con soporte para múltiples distribuciones.</p>
+          <p data-i18n="b.about.p2">Este trabajo forma parte de mi <a href="tesis-lima.html">tesis de licenciatura</a>. Lo presenté de forma presencial en Valencia gracias al apoyo de las autoridades de la Universidad Tecnológica de la Mixteca.</p>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="b.gal.title">📸 La conferencia</h2>
+        <div class="prose">
+          <p data-i18n="b.gal.p">Asistí los tres días de la conferencia, presenté el artículo y conversé con investigadores de distintos países; varias de esas conversaciones influyeron en decisiones posteriores de la tesis.</p>
+        </div>
+        <div class="car" data-carousel style="margin-top:1.5rem">
+          <div class="carousel">
+            <div class="car-track" tabindex="0" aria-label="Fotografías de AIS 2026 en Valencia" data-i18n-attr="aria-label:b.gal">
+              <figure class="car-slide">
+                <img src="../Novedades/iadis.jpeg" alt="Jose Ramon Aragon Toledo junto al estandarte de IADIS en la sede de la conferencia" data-i18n-attr="alt:b.g1.alt">
+                <figcaption data-i18n="b.g1">En la sede de AIS 2026 (MCCSIS · IADIS), Valencia, España.</figcaption>
+              </figure>
+              <figure class="car-slide">
+                <img src="../Novedades/FotoStandIADIS.jpg" alt="Jose Ramon Aragon Toledo con otros dos participantes frente al estandarte de IADIS" data-i18n-attr="alt:b.g2.alt">
+                <figcaption data-i18n="b.g2">Con otros participantes de MCCSIS 2026 frente al estandarte de IADIS.</figcaption>
+              </figure>
+              <figure class="car-slide">
+                <img src="../Novedades/AsistenteIADIS2.jpg" alt="Asistentes sentados en una sala durante una sesión de presentaciones" data-i18n-attr="alt:b.g3.alt">
+                <figcaption data-i18n="b.g3">Asistentes durante una de las sesiones de presentaciones.</figcaption>
+              </figure>
+              <figure class="car-slide">
+                <img src="../Novedades/CongresoIADIStodosLosAsistentes.jpg" alt="Fotografía grupal de los asistentes a la conferencia" data-i18n-attr="alt:b.g4.alt">
+                <figcaption data-i18n="b.g4">Fotografía grupal de los asistentes a la conferencia.</figcaption>
+              </figure>
+              <figure class="car-slide">
+                <img src="../Novedades/networkingIADIS.jpg" alt="Participantes conversando durante el coffee break de la conferencia" data-i18n-attr="alt:b.g5.alt">
+                <figcaption data-i18n="b.g5">Networking durante el coffee break.</figcaption>
+              </figure>
+            </div>
+            <button type="button" class="car-btn car-prev" aria-label="Foto anterior" data-i18n-attr="aria-label:car.prev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+            <button type="button" class="car-btn car-next" aria-label="Foto siguiente" data-i18n-attr="aria-label:car.next"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+            <span class="car-count" aria-hidden="true"></span>
+          </div>
+          <div class="car-dots"></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="b.cert.title">📜 Certificado de presentación</h2>
+        <div class="doc-wide">
+          <a class="doc-thumb" href="../Novedades/certificadoIADIS.pdf" target="_blank" rel="noopener"><img src="../assets/img/docs/certificado-iadis.jpg" alt="Certificado de IADIS por la presentación del artículo BOTAS en AIS 2026" data-i18n-attr="alt:b.cert.alt" loading="lazy"></a>
+          <div class="doc-body">
+            <span class="doc-type">PDF · IADIS</span>
+            <span class="doc-name" data-i18n="b.cert.name">Certificado de participación y presentación del artículo</span>
+            <span class="doc-meta" data-i18n="b.cert.meta">International Conference on Artificial Intelligence in Society (AIS 2026) · Valencia, España, 25–27 de julio de 2026 · Emitido por la International Association for Development of the Information Society.</span>
+            <div class="doc-actions">
+              <a href="../Novedades/certificadoIADIS.pdf" target="_blank" rel="noopener" class="pl pl-p" data-i18n="doc.view">Ver PDF</a>
+              <a href="../Novedades/certificadoIADIS.pdf" download="Certificado-AIS2026-IADIS-JoseRamonAragonToledo.pdf" class="pl pl-g" data-i18n="doc.dl">Descargar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="block" id="cita">
+        <h2 class="block-title" data-i18n="cite.title">❝ Cómo citar</h2>
+        <div class="cite-box">
+          <p class="cite-text" id="citeText">Aragon Toledo, J. R. and Ruiz Rodríguez, R. (2026). <em>BOTAS: A Human-Centered Natural Language Interface for GNU/Linux System Management with Multi-Distribution Support.</em> In Proceedings of the International Conferences on Artificial Intelligence in Society 2026, Digital Transformation and Innovation Management 2026 and Connected Smart Cities 2026, pp. 100–110. Valencia, Spain: IADIS Press. ISBN 978-989-8704-78-8.</p>
+          <div class="cite-actions">
+            <button type="button" class="pl pl-p copy-btn" data-copy="#citeText"><span class="idle" data-i18n="cite.copy">📋 Copiar cita</span><span class="done" data-i18n="cite.copied">✓ Copiada</span></button>
+            <button type="button" class="pl pl-g copy-btn" data-copy="#bibText"><span class="idle" data-i18n="cite.bib">📋 Copiar BibTeX</span><span class="done" data-i18n="cite.copied">✓ Copiada</span></button>
+          </div>
+          <details class="bibtex">
+            <summary data-i18n="cite.bibshow">Ver BibTeX</summary>
+<pre id="bibText">@inproceedings{AragonToledo2026BOTAS,
+  author    = {Aragon Toledo, Jose Ramon and Ruiz Rodríguez, Ricardo},
+  title     = {{BOTAS}: A Human-Centered Natural Language Interface for {GNU/Linux} System Management with Multi-Distribution Support},
+  booktitle = {Proceedings of the International Conferences on Artificial Intelligence in Society 2026, Digital Transformation and Innovation Management 2026 and Connected Smart Cities 2026},
+  pages     = {100--110},
+  year      = {2026},
+  publisher = {IADIS Press},
+  address   = {Valencia, Spain},
+  isbn      = {978-989-8704-78-8}
+}</pre>
+          </details>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="rel.title">🔗 Relacionado</h2>
+        <div class="rel-grid">
+          <a class="rel-card" href="tesis-lima.html"><span class="rel-ico" style="background:var(--green-l)">🎓</span><span><span class="rel-k" data-i18n="rel.thesis">Tesis</span><span class="rel-t" data-i18n="b.r1">LIMA · Aprobada por unanimidad</span></span></a>
+          <a class="rel-card" href="../proyectos/lima.html"><span class="rel-ico">🤖</span><span><span class="rel-k" data-i18n="rel.project">Proyecto</span><span class="rel-t" data-i18n="b.r2">LIMA: arquitectura y funcionamiento</span></span></a>
+          <a class="rel-card" href="clihc-2026.html"><span class="rel-ico">📄</span><span><span class="rel-k" data-i18n="rel.paper">Artículo</span><span class="rel-t">Short paper · CLIHC 2026</span></span></a>
+        </div>
+      </div>
+
+    </div>
+
+    <aside class="aside">
+      <div class="info-card">
+        <h2 data-i18n="info.title">Ficha</h2>
+        <dl class="facts">
+          <div><dt data-i18n="b.f1.k">Tipo</dt><dd data-i18n="b.f1.v">Full paper (artículo completo)</dd></div>
+          <div><dt data-i18n="b.f2.k">Conferencia</dt><dd>International Conference on Artificial Intelligence in Society (AIS 2026) · MCCSIS 2026</dd></div>
+          <div><dt data-i18n="b.f3.k">Organiza</dt><dd>IADIS — International Association for Development of the Information Society</dd></div>
+          <div><dt data-i18n="b.f4.k">Sede y fechas</dt><dd data-i18n="b.f4.v">Valencia, España · 25–27 de julio de 2026</dd></div>
+          <div><dt data-i18n="b.f5.k">Actas</dt><dd>Proceedings of the International Conferences on Artificial Intelligence in Society 2026, Digital Transformation and Innovation Management 2026 and Connected Smart Cities 2026 · pp. 100–110 · IADIS Press</dd></div>
+          <div><dt>ISBN</dt><dd>978-989-8704-78-8</dd></div>
+          <div><dt data-i18n="b.f6.k">Autores</dt><dd>Jose Ramon Aragon Toledo<br>Ricardo Ruiz Rodríguez<br><span style="color:var(--tx-s);font-weight:400">Universidad Tecnológica de la Mixteca</span></dd></div>
+        </dl>
+      </div>
+      <div class="info-card">
+        <h2 data-i18n="info.links">Enlaces</h2>
+        <ul class="link-list">
+          <li><a href="../Novedades/certificadoIADIS.pdf" target="_blank" rel="noopener">📜 <span data-i18n="b.l1">Certificado (PDF)</span><span class="ext">↗</span></a></li>
+          <li><a href="https://hudesde.github.io/LIMA-Web/" target="_blank" rel="noopener">🌐 <span data-i18n="b.l2">Sitio web de LIMA</span><span class="ext">↗</span></a></li>
+          <li><a href="https://www.iadis.org/" target="_blank" rel="noopener">🏛 <span>IADIS</span><span class="ext">↗</span></a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <p data-i18n="footer.by">Diseñado por <strong>Jose Ramon Aragon Toledo</strong> · <a href="https://github.com/Hudesde" target="_blank" rel="noopener" style="color:rgba(255,255,255,.65);text-decoration:underline">github.com/Hudesde</a></p>
+  <p style="margin-top:.4rem;font-size:.78rem;opacity:.5" data-i18n="footer.loc">Oaxaca, México · 2026</p>
+</footer>
+
+<script>
+window.PAGE_I18N = {
+  en: {
+    "meta.title": `BOTAS Paper · AIS/IADIS 2026 | Jose Ramon Aragon Toledo`,
+    "meta.desc": `BOTAS: A Human-Centered Natural Language Interface for GNU/Linux System Management with Multi-Distribution Support — full paper by Jose Ramon Aragon Toledo and Ricardo Ruiz Rodríguez presented at AIS 2026 (MCCSIS/IADIS), Valencia, Spain.`,
+    "b.tag": `🌍 Full Paper · Published`,
+    "b.lead": `Full paper presented at the International Conference on Artificial Intelligence in Society (AIS 2026), part of the Multi Conference on Computer Science and Information Systems (MCCSIS 2026) organized by IADIS in Valencia, Spain.`,
+    "b.c1": `📅 July 25–27, 2026`,
+    "b.c2": `📍 Valencia, Spain`,
+    "b.a1": `📜 View certificate (PDF)`,
+    "b.a2": `❝ How to cite`,
+    "b.a3": `🌐 LIMA website ↗`,
+    "b.about.title": `📄 About the paper`,
+    "b.about.p1": `The paper presents <strong>BOTAS</strong>, the version of the system that later evolved into <a href="../proyectos/lima.html">LIMA</a>: a natural language interface designed with a Human-Centered Artificial Intelligence approach that lets people manage GNU/Linux systems through instructions in Spanish, with support for multiple distributions.`,
+    "b.about.p2": `This work is part of my <a href="tesis-lima.html">bachelor's thesis</a>. I presented it in person in Valencia thanks to the support of the Universidad Tecnológica de la Mixteca authorities.`,
+    "b.gal.title": `📸 The conference`,
+    "b.gal.p": `I attended all three days of the conference, presented the paper, and talked with researchers from different countries; several of those conversations shaped later decisions in my thesis.`,
+    "b.gal": `Photos from AIS 2026 in Valencia`,
+    "b.g1.alt": `Jose Ramon Aragon Toledo next to the IADIS banner at the conference venue`,
+    "b.g1": `At the AIS 2026 venue (MCCSIS · IADIS), Valencia, Spain.`,
+    "b.g2.alt": `Jose Ramon Aragon Toledo with two other participants in front of the IADIS banner`,
+    "b.g2": `With other MCCSIS 2026 participants in front of the IADIS banner.`,
+    "b.g3.alt": `Attendees seated in a room during a presentation session`,
+    "b.g3": `Attendees during one of the presentation sessions.`,
+    "b.g4.alt": `Group photo of the conference attendees`,
+    "b.g4": `Group photo of the conference attendees.`,
+    "b.g5.alt": `Participants talking during the conference coffee break`,
+    "b.g5": `Networking during the coffee break.`,
+    "b.cert.title": `📜 Presentation certificate`,
+    "b.cert.alt": `IADIS certificate for presenting the BOTAS paper at AIS 2026`,
+    "b.cert.name": `Certificate of participation and paper presentation`,
+    "b.cert.meta": `International Conference on Artificial Intelligence in Society (AIS 2026) · Valencia, Spain, July 25–27, 2026 · Issued by the International Association for Development of the Information Society.`,
+    "b.r1": `LIMA · Unanimously approved`,
+    "b.r2": `LIMA: architecture and how it works`,
+    "b.f1.k": `Type`,
+    "b.f1.v": `Full paper`,
+    "b.f2.k": `Conference`,
+    "b.f3.k": `Organizer`,
+    "b.f4.k": `Venue & dates`,
+    "b.f4.v": `Valencia, Spain · July 25–27, 2026`,
+    "b.f5.k": `Proceedings`,
+    "b.f6.k": `Authors`,
+    "b.l1": `Certificate (PDF)`,
+    "b.l2": `LIMA website`,
+  },
+};
+</script>
+<script src="../assets/js/site.js"></script>
+</body>
+</html>
