@@ -1,0 +1,286 @@
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+\usepackage{graphicx,url}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
+
+\sloppy
+
+\title{Hacia la Evolución de la GUI Desktop:\\ IA Centrada en el Humano como Paradigma\\ para Repensar la Interacción con Sistemas Operativos}
+
+\author{Jose Ramon Aragon Toledo\inst{1}, Ricardo Ruiz Rodríguez\inst{1}}
+
+\address{Universidad Tecnológica de la Mixteca (UTM)\\
+  Huajuapan de León, Oaxaca -- México
+  \email{aatr010423@gmail.com, rruiz@mixteco.utm.mx}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Innovation in desktop operating system interfaces has stagnated over the past two
+decades. Despite exponential growth in computational power, tools such as file
+explorers, terminals, and configuration managers have scarcely evolved since the
+1990s. This plateau particularly affects GNU/Linux, whose power remains inaccessible
+to non-expert users due to command-line interaction models from the 1970s. This paper
+analyzes desktop interaction stagnation through the lens of Human-Centered AI (HCAI)
+and presents BOTAS, a voice-based assistant enabling Spanish-speaking users to
+interact with GNU/Linux via natural language. Evaluation across 200 tasks shows
+89\% command-generation accuracy and 100\% detection of destructive operations.
+\end{abstract}
+
+\begin{resumo}
+La innovación en las interfaces de sistemas operativos de escritorio ha
+experimentado un estancamiento en las últimas dos décadas. A pesar del crecimiento
+exponencial en capacidad computacional, herramientas como exploradores de archivos,
+terminales y gestores de configuración apenas han evolucionado desde los años
+noventa. Esta meseta afecta especialmente a GNU/Linux, cuyo potencial permanece
+inaccesible para usuarios no expertos debido a modelos de interacción de línea de
+comandos de los años setenta. Este artículo analiza el estancamiento de la
+interacción con el escritorio a través del marco de la Inteligencia Artificial
+Centrada en el Humano (HCAI) y presenta BOTAS, un asistente de voz que permite a
+usuarios hispanohablantes interactuar con GNU/Linux mediante lenguaje natural. La
+evaluación sobre 200 tareas muestra un 89\% de precisión en la generación de
+comandos y un 100\% de detección de operaciones destructivas.
+\end{resumo}
+
+
+\section{Introducción}
+\label{sec:intro}
+
+\noindent
+Operamos con procesadores cien millones de veces más rápidos que los de la década
+de 1980, y sin embargo la interacción fundamental con un sistema operativo de
+escritorio apenas ha cambiado en veinte años \cite{Jenson2024}. Scott
+Jenson---veterano diseñador de experiencia de usuario que participó en el
+desarrollo del Finder original de Macintosh en Apple y posteriormente condujo
+investigación sobre interacción en Google---sostiene que ``este inmovilismo no es
+un límite técnico sino una claudicación del diseño'' \cite{Jenson2024}. La
+industria ha transitado de la transformación creativa que definió los albores de
+la computación---donde conceptos de Xerox PARC fueron radicalmente
+reimaginados---a una imitación superficial entre plataformas.
+
+GNU/Linux sustenta aproximadamente el 90\% de la infraestructura en la nube y el
+100\% de las 500 supercomputadoras más potentes del mundo
+\cite{W3Techs2023, Top5002023}; no obstante, su interfaz de línea de comandos
+perpetúa un paradigma de la década de 1970 \cite{Raymond2003} que exige memorizar
+sintaxis crípticas sin retroalimentación sobre el riesgo de las operaciones.
+Mientras tanto, los asistentes de voz comerciales gestionan consultas triviales
+pero ninguno aborda la interacción profunda con el sistema operativo
+\cite{Luger2016}, y herramientas como ChatGPT sugieren comandos sin ejecutarlos
+ni validar su seguridad. Este trabajo sostiene que la Inteligencia Artificial
+Centrada en el Humano (HCAI) \cite{Shneiderman2020, Shneiderman2022} ofrece un
+marco para superar este estancamiento, y presenta BOTAS, un asistente de voz
+que materializa los principios HCAI para la interacción con GNU/Linux en español.
+
+
+\section{Marco Conceptual y Trabajo Relacionado}
+\label{sec:framework}
+
+\subsection{Estancamiento de las interfaces de escritorio}
+\label{subsec:stagnation}
+
+\noindent
+La interacción humano-computadora ha atravesado períodos de innovación genuina---la
+metáfora de escritorio, la Web, la revolución táctil---que redefinieron los modelos
+mentales de los usuarios \cite{Norman1988}. Sin embargo, en el escritorio las
+últimas dos décadas constituyen una meseta funcional \cite{Jenson2024}.
+Estudios recientes confirman que las herramientas integradas en los SO modernos
+---exploradores de archivos, terminales, gestores de configuración---no han
+experimentado cambios paradigmáticos desde mediados de los 2000
+\cite{Grudin2017}. Para GNU/Linux, la CLI constituye la barrera principal
+hacia una plataforma que domina la infraestructura profesional \cite{W3Techs2023}.
+
+\subsection{Inteligencia Artificial Centrada en el Humano}
+\label{subsec:hcai}
+
+\noindent
+Shneiderman \cite{Shneiderman2020, Shneiderman2022} formalizó HCAI como un
+paradigma donde la IA \textit{amplifica} capacidades humanas en lugar de
+reemplazarlas, articulado sobre cuatro principios: \textbf{transparencia} (el
+usuario comprende las acciones del sistema), \textbf{control humano} (supervisión
+y rechazo de propuestas), \textbf{seguridad} (prevención de acciones dañinas,
+crítico donde un error puede causar pérdida irreversible de datos) y
+\textbf{empoderamiento} (el usuario construye autonomía progresiva). Amershi et al.
+\cite{Amershi2019} complementan con 18 directrices prácticas. HCAI provee un
+cimiento coherente para repensar la interacción con el SO: un asistente fundado en
+estos principios puede hacer accesible GNU/Linux asegurando que el usuario aprenda
+en lugar de depender.
+
+\subsection{Asistentes de voz y la brecha de interacción con el SO}
+\label{subsec:voice-gap}
+
+\noindent
+Los avances en reconocimiento de voz---particularmente Whisper
+\cite{Radford2022}---y en modelos de lenguaje de gran escala
+\cite{Brown2020, OpenAI2023} han alcanzado madurez práctica multilingüe. NL2Bash
+\cite{Lin2018} exploró la traducción de lenguaje natural a Bash (36\% de precisión
+exacta) pero sin interacción en tiempo real ni validación de seguridad. Ningún
+sistema existente integra reconocimiento de voz, ejecución de comandos,
+clasificación de seguridad y retroalimentación educativa dentro de un flujo
+orientado por HCAI. Esta brecha de integración define la oportunidad que aborda
+este trabajo.
+
+
+\section{Propuesta: BOTAS con Enfoque HCAI}
+\label{sec:proposal}
+
+\noindent
+Los principios HCAI se materializan sobre GNU/Linux porque es el entorno donde
+esta intervención genera mayor impacto: un sistema extraordinariamente potente cuya
+principal barrera de adopción es la interacción, no la funcionalidad
+\cite{Warschauer2004}. Su carácter abierto permite integración profunda, y su
+gratuidad elimina barreras económicas---factor decisivo para contextos educativos
+en América Latina.
+
+BOTAS (\textit{Bot de Operaciones y Tareas Automatizadas del Sistema}) se originó
+durante un programa de servicio social en una universidad pública mexicana,
+explorando si el lenguaje natural podía servir como puente entre usuarios novatos
+y la CLI de GNU/Linux. Desde un MVP dependiente de la nube, se incorporaron
+iterativamente: detección de palabra de activación fuera de línea (Vosk),
+reconocimiento local de intenciones, detección automática de distribución en
+seis familias Linux y registro estructurado.
+
+\subsection{Capacidades actuales}
+\label{subsec:capabilities}
+
+\noindent
+BOTAS implementa un pipeline modular cuyo flujo se ilustra en la
+Figura~\ref{fig:pipeline}: (1)~captura de entrada mediante GUI o palabra
+de activación; (2)~detección local de intenciones por expresiones regulares;
+(3)~análisis por GPT-4o para solicitudes complejas; (4)~validación de seguridad
+determinista en tres niveles (\textit{seguro}, \textit{advertencia},
+\textit{peligroso}); y (5)~ejecución con retroalimentación educativa y TTS.
+Cada operación muestra el comando generado antes de ejecutarlo
+(transparencia), explica su función (empoderamiento) y exige confirmación
+para operaciones riesgosas (control humano).
+
+Limitaciones actuales: dependencia de servicios en la nube (Whisper, GPT-4o),
+dificultad con peticiones ambiguas y ausencia de diálogos multiturnos; se
+desarrolla operación local con Vosk y modelos ligeros para entornos institucionales.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+  node distance=4mm,
+  box/.style={draw, rounded corners=2pt, minimum height=6mm, minimum width=22mm,
+              font=\scriptsize, align=center, fill=#1},
+  arr/.style={-{Stealth[length=1.5mm]}, thick},
+]
+\node[box=blue!10] (voz) {Voz / GUI};
+\node[box=green!10, right=of voz] (local) {Intención\\local};
+\node[box=orange!10, right=of local] (llm) {LLM};
+\node[box=red!10, right=of llm] (seg) {Seguridad\\(3 niveles)};
+\node[box=purple!8, right=of seg] (exec) {Ejecución\\+ TTS};
+\draw[arr] (voz) -- (local);
+\draw[arr] (local) -- node[above,font=\tiny]{compleja} (llm);
+\draw[arr] (llm) -- (seg);
+\draw[arr] (seg) -- (exec);
+\draw[arr, dashed] (local) to[bend right=25] node[below,font=\tiny]{directa} (seg);
+\end{tikzpicture}
+\caption{Pipeline de procesamiento de BOTAS. Las peticiones rutinarias
+(29\%) se resuelven localmente sin LLM (línea punteada).}
+\label{fig:pipeline}
+\end{figure}
+
+
+\section{Evaluación Preliminar}
+\label{sec:evaluation}
+
+\subsection{Pruebas funcionales}
+\label{subsec:testing}
+
+\noindent
+BOTAS fue evaluado con un conjunto de 200 tareas de administración de GNU/Linux
+en cinco categorías: gestión de archivos~(45), información del sistema~(40),
+control de procesos~(35), redes~(30) y permisos~(25). Las tareas fueron
+seleccionadas a partir de operaciones frecuentes documentadas en manuales de
+administración de sistemas y foros de soporte, cubriendo tres niveles de riesgo:
+seguro~(169), advertencia~(18) y peligroso~(13). El conjunto fue compilado y
+verificado manualmente por el desarrollador principal---restricción metodológica
+que puede introducir sesgo de confirmación. La Tabla~\ref{tab:accuracy} resume
+los resultados.
+
+\begin{table}[h]
+\caption{Precisión en la generación de comandos por categoría}
+\label{tab:accuracy}
+\centering
+\begin{tabular}{lcc}
+\toprule
+\textbf{Categoría} & \textbf{Tareas} & \textbf{Precisión} \\
+\midrule
+Gestión de archivos    & 45 & 84\% \\
+Información del sistema & 40 & 85\% \\
+Control de procesos     & 35 & 83\% \\
+Redes                   & 30 & 93\% \\
+Permisos                & 25 & 80\% \\
+\midrule
+\textbf{Total}          & \textbf{200} & \textbf{89\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Modos de error: fraseo ambiguo (6\%), errores de banderas en pipes múltiples
+(3\%), indisponibilidad específica de distribución (2\%). La capa de seguridad
+determinista detectó el 100\% de las 43 operaciones peligrosas (eliminación
+recursiva, escalamiento de privilegios, modificaciones del sistema)---tasa
+garantizada por expresiones regulares, independiente del modelo. El detector local
+resolvió el 29\% de tareas sin LLM, con 100\% de precisión, ahorrando
+500--1500\,ms por solicitud.
+
+\subsection{Estudio piloto de usabilidad}
+\label{subsec:usability}
+
+\noindent
+Tres usuarios sin experiencia en GNU/Linux evaluaron BOTAS en su etapa de producto
+mínimo viable. Aunque insuficiente para generalización estadística, el piloto
+aportó hallazgos cualitativos: los participantes valoraron la ejecución por
+lenguaje natural, las explicaciones educativas y la retroalimentación de seguridad.
+La retroalimentación constructiva identificó confusión con la sintaxis verbal,
+frustración ante confirmaciones percibidas como excesivas y dificultad con
+mensajes de error---informando directamente el rediseño hacia diálogos de
+clarificación. Latencia: Whisper promedia 1--3\,s; Vosk responde en $<$200\,ms.
+
+
+\section{Discusión y Conclusiones}
+\label{sec:discussion}
+
+\noindent
+La precisión del 89\% implica que aproximadamente una de cada diez peticiones
+genera un comando incorrecto. Sin embargo, el diseño HCAI mitiga el impacto
+de este margen: cada comando se muestra al usuario antes de su ejecución
+(transparencia), las operaciones riesgosas requieren confirmación explícita
+(control humano) y el 100\% de operaciones destructivas son detectadas por la
+capa de seguridad determinista. Así, un comando incorrecto no se ejecuta
+automáticamente---el usuario conserva la decisión final, y el sistema
+explica cada acción propuesta, convirtiendo el error en oportunidad educativa.
+Desde la perspectiva latinoamericana, la barrera lingüística y los costos de
+ecosistemas cerrados representan obstáculos para instituciones educativas
+\cite{Warschauer2004}; la interacción por voz en español reduce estas barreras.
+
+Trabajo futuro: consolidar la operación local, un estudio formal de usabilidad
+con muestra ampliada que evalúe comprensión, percepción de control, confianza
+y seguridad percibida, validación multidistribución y liberación como software
+libre. Los principios HCAI materializados en BOTAS demuestran que las barreras
+de acceso a sistemas potentes pueden reducirse sin sacrificar sus capacidades.
+
+
+\section*{Agradecimientos}
+\noindent
+Este trabajo fue parcialmente desarrollado durante el Servicio Social en la
+Universidad Tecnológica de la Mixteca. El autor agradece al Dr. Ricardo Ruiz
+Rodríguez por su orientación y apoyo a lo largo del desarrollo de esta
+investigación, así como a los participantes del estudio piloto de usabilidad
+por su retroalimentación.
+
+\bibliographystyle{sbc}
+\bibliography{paper-es}
+
+\end{document}

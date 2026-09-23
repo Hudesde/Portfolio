@@ -1,0 +1,228 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BOTAS -- Version extendida para la
+% IADIS INTERNATIONAL JOURNAL ON COMPUTER SCIENCE AND INFORMATION SYSTEMS
+% (IJCSIS, ISSN 1646-3692) -- 2026
+% VERSION EN ESPAÑOL (traducción de BOTAS_IJCSIS_2026_EN.tex)
+%
+% Extiende: Aragon Toledo y Ruiz Rodriguez (2026), AIS 2026, Valencia, pp. 100-110
+% Formato: lineamientos del journal IADIS (A4, Times 10 pt, Harvard autor-fecha)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,a4paper]{article}
+
+% -- Codificación y fuentes ---------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{mathptmx}
+\usepackage[spanish,english]{babel}
+
+% -- Geometría de página (lineamientos del JOURNAL IADIS) --------------------
+% top 5.5 cm | bottom 5.0 cm | left 4.3 cm | right 3.3 cm | header/footer 4 cm
+% Área de texto: 13.4 cm x 19.2 cm
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    top=55mm,
+    bottom=50mm,
+    left=43mm,
+    right=33mm,
+    headheight=12pt,
+    headsep=5mm,
+    footskip=15mm,
+    includehead=false,
+    includefoot=false
+}
+
+% Sin encabezados, pies ni números de página
+\usepackage{fancyhdr}
+\pagestyle{empty}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% -- Tablas y figuras ----------------------------------------------------------
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{subcaption}
+\graphicspath{{figs/}}
+
+% -- Listados de código --------------------------------------------------------
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Paleta de gráficos compartida (validada: CVD dE 9.2 / normal dE 24.0, all-pairs light)
+\definecolor{seriesA}{HTML}{2A78D6}   % slot 1 -- azul   (GUI / búsqueda manual)
+\definecolor{seriesB}{HTML}{EB6834}   % slot 2 -- naranja (voz / BOTAS)
+\definecolor{seriesC}{HTML}{1BAF7A}   % slot 3 -- aqua
+\definecolor{inkPrimary}{HTML}{0B0B0B}
+\definecolor{inkSecondary}{HTML}{52514E}
+\definecolor{inkMuted}{HTML}{8A8880}
+\definecolor{surfaceTint}{HTML}{F2F1EE}
+
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{surfaceTint},
+    keywordstyle=\bfseries\color{seriesA},
+    commentstyle=\itshape\color{inkSecondary},
+    stringstyle=\color{seriesB},
+    numbers=none,
+    xleftmargin=2mm,
+    framexleftmargin=2mm
+}
+
+% -- Referencias (Harvard autor-fecha vía natbib) -----------------------------
+% Nota: la bibliografía permanece en inglés, siguiendo la convención ya
+% establecida en la versión en español del paper de congreso.
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authoryear,round,aysep={,},yysep={;},notesep={, }}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=seriesA,
+    pdfborder={0 0 0}
+}
+
+% -- Matemáticas y misceláneos --------------------------------------------------
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{parskip}
+
+% -- Protrusión de caracteres y expansión de fuente: mejor justificación -----
+\usepackage[protrusion=true,expansion=true]{microtype}
+
+% Permite saltos de línea dentro de tokens de máquina de escribir largos
+\usepackage[htt]{hyphenat}
+
+% -- Estilos de encabezado IADIS ------------------------------------------------
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\fontsize{13}{15.6}\bfseries\MakeUppercase}
+  {\thesection.}{0.4em}{}
+\titlespacing*{\section}{0pt}{24pt}{12pt}
+
+\titleformat{\subsection}
+  {\fontsize{13}{15.6}\bfseries}
+  {\thesubsection}{0.4em}{}
+\titlespacing*{\subsection}{0pt}{12pt}{12pt}
+
+\titleformat{\subsubsection}
+  {\fontsize{11}{13.2}\bfseries}
+  {\thesubsubsection}{0.4em}{}
+\titlespacing*{\subsubsection}{0pt}{6pt}{6pt}
+
+% -- Estilo de captions (9 pt, "Figura 1. Texto") ------------------------------
+\captionsetup{
+    font=small,
+    labelfont=bf,
+    labelsep=period,
+    justification=centering,
+    skip=6pt,
+    aboveskip=6pt,
+    belowskip=6pt
+}
+\captionsetup[sub]{font=small,labelfont=bf,labelsep=period}
+
+% -- Sangría de párrafo ----------------------------------------------------------
+\setlength{\parindent}{0.5cm}
+\setlength{\parskip}{0pt}
+
+% -- Colocación de flotantes: compactar páginas, el bloque de texto es chico --
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.75}
+\renewcommand{\textfraction}{0.06}
+\renewcommand{\floatpagefraction}{0.85}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{5}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{10pt plus 2pt minus 3pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+
+% -- Ayuda para figuras pareadas compactas ---------------------------------------
+\newcommand{\figpair}[1]{\begin{minipage}[t]{0.48\textwidth}\centering #1\end{minipage}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\selectlanguage{spanish}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\figurename}{Figura}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% == TÍTULO (16 pt negrita, MAYÚSCULAS, alineado a la izquierda) =============
+{
+\raggedright
+\fontsize{16}{19.2}\bfseries
+PATRONES APRENDIDOS Y OPERACIÓN SIN CONEXIÓN EN
+ESPAÑOL: UNA INTERFAZ DE LENGUAJE NATURAL CENTRADA
+EN EL HUMANO CON SOPORTE MULTIDISTRIBUCIÓN PARA
+GNU/LINUX\par
+\vspace{24pt}
+}
+
+% == AUTORES (11 pt, alineado a la izquierda) =================================
+{
+\raggedright
+\fontsize{11}{13.2}\selectfont
+Jose Ramon Aragon Toledo y Ricardo Ruiz Rodr\'{i}guez\par
+\vspace{6pt}
+\fontsize{9}{10.8}\itshape
+Universidad Tecnol\'{o}gica de la Mixteca (UTM)\\
+Carretera a Acatlima Km.\ 2.5, Huajuapan de Le\'{o}n, Oaxaca 69000, M\'{e}xico\\
+aatr010423@gs.utm.mx, rruiz@gs.utm.mx\par
+}
+
+\vspace{42pt}
+
+% == RESUMEN ===================================================================
+{
+\noindent\fontsize{9}{10.8}\bfseries RESUMEN\par
+\vspace{6pt}
+\normalfont\fontsize{9}{10.8}\selectfont
+\noindent
+\input{parts/00_resumen}
+\par
+}
+
+\vspace{18pt}
+
+% == PALABRAS CLAVE ============================================================
+{
+\noindent\fontsize{9}{10.8}\bfseries PALABRAS CLAVE\par
+\vspace{6pt}
+\normalfont\fontsize{10}{12}\selectfont
+\noindent
+\input{parts/00_palabras_clave}
+\par
+}
+
+\vspace{12pt}
+
+\input{parts/01_intro_trabajos}
+
+\input{parts/02_arquitectura}
+
+\input{parts/03_evaluacion}
+
+\input{parts/04_discusion}
+
+% == REFERENCIAS (9 pt, alfabéticas, sangría francesa de 0.5 cm) =============
+{
+\fontsize{9}{10.8}\selectfont
+\setlength{\bibsep}{2pt}
+\bibliography{../references}
+}
+
+\end{document}

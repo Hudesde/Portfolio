@@ -1,0 +1,475 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BOTAS – Full Paper – AIS / IADIS 2026
+% Camera-ready version – ENGLISH
+% Format: IADIS Guidelines (A4, Times 10 pt, APA)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,a4paper]{article}
+
+% ── Encoding and fonts ───────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{mathptmx}
+\usepackage[english]{babel}
+
+% ── Page geometry (IADIS guidelines) ─────────────────────────
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    top=33mm,
+    bottom=40mm,
+    left=30mm,
+    right=25mm,
+    headheight=15mm,
+    footskip=25mm,
+    headsep=5mm,
+    includehead=false,
+    includefoot=false
+}
+
+% No headers, footers, or page numbers
+\usepackage{fancyhdr}
+\pagestyle{empty}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ── Tables and figures ───────────────────────────────────────
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{tabularx}
+
+% ── Code listings ────────────────────────────────────────────
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{gray!8},
+    keywordstyle=\bfseries\color{blue!70!black},
+    commentstyle=\itshape\color{green!50!black},
+    stringstyle=\color{red!70!black},
+    numbers=none,
+    xleftmargin=2mm,
+    framexleftmargin=2mm
+}
+
+% ── References (APA via apacite) ─────────────────────────────
+\usepackage[natbibapa]{apacite}
+\bibliographystyle{apacite}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=blue!70!black,
+    pdfborder={0 0 0}
+}
+
+% ── Mathematics and miscellaneous ────────────────────────────
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{parskip}
+
+% ── IADIS heading styles ────────────────────────────────────
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\fontsize{13}{15.6}\bfseries\MakeUppercase}
+  {\thesection.}{0.4em}{}
+\titlespacing*{\section}{0pt}{24pt}{12pt}
+
+\titleformat{\subsection}
+  {\fontsize{13}{15.6}\bfseries}
+  {\thesubsection}{0.4em}{}
+\titlespacing*{\subsection}{0pt}{12pt}{12pt}
+
+\titleformat{\subsubsection}
+  {\fontsize{11}{13.2}\bfseries}
+  {\thesubsubsection}{0.4em}{}
+\titlespacing*{\subsubsection}{0pt}{6pt}{6pt}
+
+% ── Caption style (9 pt, "Figure 1. Text") ─────────────────
+\captionsetup{
+    font=small,
+    labelfont=bf,
+    labelsep=period,
+    justification=centering,
+    skip=6pt,
+    aboveskip=6pt,
+    belowskip=6pt
+}
+
+% ── Paragraph indentation ───────────────────────────────────
+\setlength{\parindent}{0.5cm}
+\setlength{\parskip}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ── Title (16 pt bold, ALL CAPS, 24 pt spacing after) ───────
+{
+\centering
+\fontsize{16}{19.2}\bfseries
+BOTAS: A HUMAN-CENTERED NATURAL LANGUAGE INTERFACE\\
+FOR GNU/LINUX SYSTEM MANAGEMENT WITH\\
+MULTI-DISTRIBUTION SUPPORT\par
+\vspace{24pt}
+}
+
+% ── Authors (11 pt) ─────────────────────────────────────────
+{
+\centering
+\fontsize{11}{13.2}\selectfont
+Jose Ramon Aragon Toledo and Ricardo Ruiz Rodr\'{i}guez\par
+\vspace{6pt}
+\fontsize{9}{10.8}\itshape
+Universidad Tecnol\'{o}gica de la Mixteca (UTM)\\
+Huajuapan de Le\'{o}n, Oaxaca, Mexico\\
+aatr010423@gs.utm.mx, rruiz@gs.utm.mx\par
+\vspace{24pt}
+}
+
+% ══════════════════════════════════════════════════════════════
+% ABSTRACT
+% ══════════════════════════════════════════════════════════════
+{
+\vspace{18pt}
+\noindent\fontsize{9}{10.8}\bfseries ABSTRACT\par
+\vspace{6pt}
+\fontsize{9}{10.8}\selectfont
+\noindent
+GNU/Linux underpins approximately 90\,\% of cloud infrastructure and dominates server environments worldwide; yet its command-line interface (CLI) imposes significant accessibility barriers for non-expert users. This digital divide excludes millions of potential users, particularly in communities whose primary language is not English. We present BOTAS (\textit{Bot de Operaciones y Tareas Automatizadas del Sistema}---System Operations and Automated Tasks Bot), a conversational interface that translates natural language requests into executable GNU/Linux commands using GPT-4o as the language comprehension engine. BOTAS achieves 89\,\% accuracy in command generation over a curated dataset of 200 representative tasks while maintaining a 100\,\% detection rate for potentially dangerous operations through a deterministic safety layer. Following Human-Centered Artificial Intelligence (HCAI) principles, the system prioritizes user empowerment over opaque automation, with a design oriented toward providing educational explanations for every generated command. Evaluation shows an average 9.4$\times$ speedup in task completion compared to manual methods. This paper details the full system architecture---including a local intent detection module that reduces LLM calls by approximately 30\,\%, automatic GNU/Linux distribution detection for cross-platform compatibility, and a visual state indicator for voice interaction---and discusses how these components contribute to the ``AI in Society'' discourse by demonstrating that large language models can democratize access to powerful computing tools while maintaining safety and promoting digital literacy in underserved communities.\par
+}
+
+% ══════════════════════════════════════════════════════════════
+% KEYWORDS
+% ══════════════════════════════════════════════════════════════
+{
+\vspace{18pt}
+\noindent\fontsize{9}{10.8}\bfseries KEYWORDS\par
+\vspace{6pt}
+\fontsize{10}{12}\selectfont
+\noindent
+Human-Centered AI, Natural Language Processing, GNU/Linux, Command-Line Interface, Human--Computer Interaction, Large Language Models, Accessibility, Digital Equity, Voice Interface, Multi-Distribution Support\par
+}
+
+\vspace{12pt}
+
+% ══════════════════════════════════════════════════════════════
+\section{Introduction}
+\label{sec:introduction}
+% ══════════════════════════════════════════════════════════════
+
+GNU/Linux powers 90\,\% of cloud infrastructure, runs on 96.3\,\% of the world's top one million servers, and holds 100\,\% of the supercomputing market share \citep{W3Techs2023, Top5002023}. Despite this ubiquity in professional computing, the command-line interface (CLI) that unlocks its full potential remains inaccessible to the vast majority of users. A user wishing to locate files larger than 100\,MB must learn cryptic syntax such as \texttt{find / -size +100M}---a barrier that turns a ten-second conceptual task into a frustrating expedition through documentation pages.
+
+This accessibility gap has quantifiable consequences. Research in Human--Computer Interaction has documented that novice users spend 8 to 15 minutes searching for and constructing basic terminal commands \citep{Norman1988, Norman2013}. Each failed attempt accumulates frustration and leads many potential GNU/Linux adopters to abandon the platform entirely. Meanwhile, conversational assistants like ChatGPT can suggest commands but lack the ability to execute them, requiring error-prone copy-and-paste workflows without offering pre-execution safety validation for potentially destructive operations.
+
+\citet{Jenson2024} argues that this stagnation ``is not a technical limit but a design capitulation'': the industry has shifted from creative transformation to cross-platform imitation, leaving unresolved the tension between power and accessibility. Graphical interfaces sacrifice the command composition and automation capabilities that make GNU/Linux valuable; manual pages assume expertise; predefined scripts cannot anticipate every need. The gap between ``knowing what you want to do'' and ``knowing how to tell the computer to do it'' remains wide \citep{Myers2004}; already \citet{ShneidermanPlaisant2010} proposed natural language as a potential bridge between command-line flexibility and direct-manipulation accessibility.
+
+We present BOTAS (\textit{Bot de Operaciones y Tareas Automatizadas del Sistema}---System Operations and Automated Tasks Bot; the acronym originated from the initial prototype name, \textit{Basic Organizer For Tech Assets \& Structures}, and was retained for convenience), a conversational interface that contributes to reducing this gap by translating natural language descriptions into validated, executable GNU/Linux commands. BOTAS embodies Human-Centered Artificial Intelligence (HCAI) principles \citep{Shneiderman2020} through five design commitments:
+
+\begin{enumerate}[noitemsep,topsep=0pt]
+    \item \textbf{Amplify rather than replace} human capabilities through conversational command generation.
+    \item \textbf{Ensure transparency} by explaining what each command does and why.
+    \item \textbf{Maintain user control} through pre-execution confirmation dialogues.
+    \item \textbf{Prioritize safety} with deterministic detection of 100\,\% of potentially dangerous operations.
+    \item \textbf{Promote education} by building user competence rather than dependence.
+\end{enumerate}
+
+BOTAS prioritizes Spanish-speaking users---over 500 million speakers underserved by Anglocentric interfaces---reflecting that in Latin America, linguistic and economic barriers hinder technology adoption in educational institutions \citep{Warschauer2004, CEPAL2023}.
+
+\noindent\textbf{Contributions.} Beyond the version submitted for blind review, this paper makes the following additional contributions:
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item A \emph{local intent detection} module that resolves approximately 30\,\% of requests without invoking the Large Language Model (LLM), reducing latency and Application Programming Interface (API) cost (\S\ref{subsec:local-intent}).
+    \item An \emph{automatic distribution detector} that identifies the host's GNU/Linux family and translates commands, enabling cross-platform portability (\S\ref{subsec:distro-detect}).
+    \item A \emph{visual state indicator} and \emph{voice pipeline} providing real-time feedback during voice interaction (\S\ref{subsec:voice}).
+    \item Explicit error mode categorization (transcription vs.\ LLM interpretation vs.\ execution discrepancies) and latency data for voice components (\S\ref{subsec:results-accuracy}).
+\end{itemize}
+
+The remainder of this paper is organized as follows:
+\begin{itemize}[noitemsep,topsep=2pt]
+    \item Section~\ref{sec:related-work} reviews related work on natural language interfaces for the terminal and on human-centered AI.
+    \item Section~\ref{sec:methodology} describes the modular architecture of BOTAS, including local intent detection, LLM-based parsing, the safety layer, distribution detection, and the voice pipeline.
+    \item Section~\ref{sec:evaluation} presents the experimental evaluation across 200 tasks, safety metrics, efficiency, and a pilot study.
+    \item Section~\ref{sec:discussion} discusses accessibility implications, methodological limitations, and future work directions.
+    \item Section~\ref{sec:conclusion} presents conclusions and considerations regarding future work and potential extensions of BOTAS.
+\end{itemize}
+
+
+% ══════════════════════════════════════════════════════════════
+\section{Related Work}
+\label{sec:related-work}
+% ══════════════════════════════════════════════════════════════
+
+\subsection{Natural Language Interfaces for the Command Line}
+\label{subsec:cli-usability}
+
+The CLI paradigm persists for its command composition and scriptability \citep{Raymond2003}, but \citet{Nielsen1994} showed it requires 10--20 hours of training versus 2--4 for GUIs---complexity that \citet{Dix2004} confirms has intensified with distributions containing over 2\,000 available commands; \citet{Jenson2024} argues this stagnation is a design capitulation rather than a technical limit. NL2Bash \citep{Lin2018} pioneered mapping natural language to shell commands (36\,\% exact match) but addressed neither execution nor safety. Since GPT-3 \citep{Brown2020}, LLMs have improved command generation---\citet{Chen2021} demonstrated that code-trained models achieve greater fluency---yet assistants like ChatGPT \citep{OpenAI2023} remain suggestion-only, requiring copy-paste without pre-execution validation. Orchestration frameworks such as LangChain \citep{Chase2022} enable tool invocation from LLMs, and terminal-focused tools (ShellGPT, AIChat) add execution but typically lack safety layers and educational feedback.
+
+\subsection{Human-Centered AI and Digital Equity}
+\label{subsec:hcai-accessibility}
+
+\citet{Shneiderman2020, Shneiderman2022} established Human-Centered Artificial Intelligence (HCAI) as a framework emphasizing transparency, safety, and user empowerment. \citet{Amershi2019} provided design guidelines for human-AI interaction that inform BOTAS's interface decisions, particularly regarding capability explanation and graceful handling of system limitations. BOTAS adopts these principles, treating the LLM as translator and educator. On digital equity, \citet{Warschauer2004} documents how technical barriers reinforce inequalities---a reality particularly acute in Latin American contexts where English-only interfaces constitute an additional obstacle. \citet{Wobbrock2011} proposed ability-based design as a framework for creating interfaces that adapt to diverse user capabilities rather than demanding adaptation from users, a philosophy BOTAS applies by accepting natural language as the primary interaction modality.
+
+
+% ══════════════════════════════════════════════════════════════
+\section{System Architecture and Implementation}
+\label{sec:methodology}
+% ══════════════════════════════════════════════════════════════
+
+BOTAS is designed as a modular system that processes natural language requests through differentiated layers, each contributing to safety, accuracy, and educational value. The system is implemented in Perl \citep{Wall2000}---selected for its robust Unix integration, powerful text processing, and availability of mature GTK3 \citep{GTK2023} bindings for GUI development---and communicates with GPT-4o \citep{OpenAI2024} through the OpenAI API.
+
+\subsection{Overall Architecture}
+\label{subsec:architecture}
+
+Figure~\ref{fig:architecture} illustrates the overall pipeline. User input arrives through the Graphical User Interface (GUI)---text field or microphone button---or through the wake-word detector running in the background. The input is first evaluated by a \emph{local intent detector}; if a match is found, the corresponding action is executed without invoking the LLM. Otherwise, the request is forwarded to GPT-4o for structured command generation, passes through a safety validator, and is finally executed with educational feedback provided to the user.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imgs/architecture_botas_en.png}
+    \caption{BOTAS v2.0 system architecture. The local detector intercepts $\sim$30\,\% of requests without invoking the LLM.}
+    \label{fig:architecture}
+\end{figure}
+
+The architecture comprises eight Perl modules: \texttt{IntentDetector.pm} (local intent detection), \texttt{CommandParser.pm} (GPT-4o integration), \texttt{FileManager.pm} (sandboxed file operations), \texttt{DistroDetector.pm} (distribution identification), \texttt{GUI\_GTK3.pm} (GTK3 graphical interface), \texttt{VoiceRecognition.pm} (speech recognition via Whisper---Speech-To-Text, STT), \texttt{WakeWordDetector.pm} (wake-word detection, Vosk), and \texttt{TTS.pm} (Text-To-Speech synthesis).
+
+\subsection{Local Intent Detection}
+\label{subsec:local-intent}
+
+A key observation during development was that many common requests---checking the time, querying memory or disk usage, listing active processes---do not require the linguistic comprehension capabilities of a large model. We therefore implemented \texttt{IntentDetector.pm}, a lightweight module that matches user input against a curated set of Spanish-language regular expression patterns grouped into operational intent categories: \textit{system\_time}, \textit{system\_date}, \textit{memory\_info}, \textit{disk\_info}, \textit{processes\_info}, and \textit{ports\_info}.
+
+Each category contains 3 to 8 regex patterns. For instance, the \textit{system\_time} intent matches Spanish phrases such as ``\textit{qu\'{e} hora es}'' and ``\textit{dime la hora}''; the \textit{disk\_info} intent matches ``\textit{espacio en disco}'' and ``\textit{cu\'{a}nto espacio queda}''. When a match is found, the module returns a command JSON structure identical to what GPT-4o would produce, along with a \texttt{\_local => 1} flag marking the response as locally resolved. This design ensures that the rest of the pipeline---safety validation, execution, logging---operates identically regardless of command origin.
+
+Analysis of our 200-task dataset indicates that approximately 30\,\% of routine interactions fall within the scope of local detection, yielding significant savings in latency (eliminating a 500--1,500\,ms API round trip) and cost (each GPT-4o call costs approximately \$0.005--\$0.03 USD).
+
+\subsection{LLM-Based Command Parsing}
+\label{subsec:llm-parsing}
+
+For requests that exceed the local detector's capabilities, BOTAS delegates to GPT-4o via a system prompt designed with careful prompt engineering \citep{Wei2022}. The prompt instructs the model to return a structured JSON object containing:
+
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item \texttt{action}: an operation from a predefined set (e.g., \texttt{create\_file}, \texttt{search}, \texttt{system\_info}, \texttt{web\_search}, \texttt{clarify}).
+    \item \texttt{parameters}: a dictionary of operation-specific arguments (paths, patterns, filters). When the action is \texttt{clarify}, the parameters contain a \texttt{question} field with the follow-up question to present to the user (e.g., ``In which folder?'').
+    \item \texttt{tts\_response}: a brief natural language description of what the command will do, used for the educational component and voice synthesis.
+    \item \texttt{requires\_confirmation}: a boolean flag for operations classified as risky.
+\end{itemize}
+
+The system prompt includes the user's current working directory, the detected GNU/Linux distribution family, and a condensed conversation history (last ten exchanges) stored in \texttt{CommandParser.pm} to support contextual disambiguation. The history includes markers such as \texttt{[RUTA\_ACTUAL]} and \texttt{[RESULTADO DE EJECUCION]} that enable the model to resolve anaphoric references (``those ones,'' ``in that folder,'' ``the previous ones''). When using OpenAI, \texttt{response\_format: json\_object} mode is requested to force valid JSON output; for local providers such as LM Studio, heuristic content cleaning is applied, stripping text before the first \texttt{\{} and after the last \texttt{\}}.
+
+This structured output format eliminates the ambiguity inherent in free-text generation and enables deterministic processing in subsequent layers, aligning with best practices for safe AI tools \citep{Schick2024, Yao2023}. Figure~\ref{fig:command-flow} illustrates the complete command processing flow, from user input through transcription, parsing, safety validation, and TTS feedback.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\textwidth]{imgs/command_flow_en.png}
+    \caption{Command processing flow. The user activates BOTAS by voice or GUI; audio is transcribed with Whisper, parsed by GPT-4o, validated for safety, and executed with TTS feedback.}
+    \label{fig:command-flow}
+\end{figure}
+
+\subsection{Safety Layer}
+\label{subsec:safety}
+
+Central to BOTAS's HCAI design is a deterministic safety layer that analyzes generated commands \emph{before} execution. This layer detects four categories of potentially dangerous operations:
+
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item \textbf{Destructive operations:} Recursive deletion (\texttt{rm -r}, \texttt{rm -rf}), disk formatting (\texttt{mkfs}), data overwriting.
+    \item \textbf{Privilege escalation:} Use of \texttt{sudo} or commands requiring root access.
+    \item \textbf{System modifications:} Changes to system configuration files or services.
+    \item \textbf{Permission changes:} Potentially locking operations such as \texttt{chmod 000}.
+\end{itemize}
+
+Detection is implemented via regular expressions and deterministic heuristic rules---\emph{not} via LLM inference---ensuring consistent, auditable behavior independent of model variability \citep{Amodei2016}. When a dangerous operation is detected, BOTAS requires explicit confirmation through a modal dialogue (Figure~\ref{fig:confirmacion}) or TTS warning with risk explanation. Additionally, \texttt{FileManager.pm} implements sandboxing by validating paths against configurable allowed directories---a defense-in-depth design.
+
+\subsection{Distribution Detection}
+\label{subsec:distro-detect}
+
+GNU/Linux fragmentation across distribution families is a well-known source of user confusion. A command that installs software on Ubuntu (\texttt{apt install foo}) fails on Fedora (\texttt{dnf install foo}) and on Arch (\texttt{pacman -S foo}). BOTAS addresses this through \texttt{DistroDetector.pm}, which:
+
+\begin{enumerate}[noitemsep,topsep=0pt]
+    \item Parses \texttt{/etc/os-release} to identify the exact distribution and its version, including \texttt{ID} and \texttt{ID\_LIKE} fields.
+    \item Maps the distribution identifier to one of six families: \textit{debian} (Ubuntu, Mint, Pop!\_OS, Kali, MX, including variants identified via \texttt{ID\_LIKE}), \textit{fedora} (RHEL, CentOS, Rocky, Alma, Nobara), \textit{arch} (Manjaro, EndeavourOS, Garuda), \textit{suse} (openSUSE, SLES), \textit{alpine}, and \textit{void}.
+    \item Falls back to package manager presence detection when \texttt{/etc/os-release} is unavailable.
+    \item Provides a package translation table mapping generic names (Debian-style) to their family-specific equivalents---for example, \texttt{libgtk3-perl} on Debian translates to \texttt{perl-Gtk3} on Fedora and \texttt{perl-gtk3} on Arch.
+    \item Generates the correct \texttt{install\_command()} and \texttt{update\_command()} for the detected family.
+\end{enumerate}
+
+The detected family is injected into both the GPT-4o system prompt and the local intent detector's handlers, ensuring all generated commands are appropriate for the user's system. The information is statically cached to avoid redundant file-system reads.
+
+\subsection{Voice Pipeline, State Feedback, and Educational Output}
+\label{subsec:voice}
+
+BOTAS supports hands-free operation through: (1)~offline wake-word detection with Vosk \citep{Alphacep2023} (latency $<$200\,ms); (2)~a 30\,s attention window; (3)~transcription via Whisper \citep{Radford2022} (1--3\,s); (4)~processing identical to typed input; and (5)~voice synthesis via OpenAI TTS. Vosk operates offline; cloud connectivity activates only during the attention window, balancing performance with privacy. Figure~\ref{fig:attention-flow} details the complete Attention Mode flow.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imgs/attention_mode_flow_en.png}
+    \caption{Attention Mode flow. The wake-word detector runs continuously offline; upon activation, BOTAS records, transcribes, processes, and responds via TTS before returning to standby.}
+    \label{fig:attention-flow}
+\end{figure}
+
+Addressing \citet{Luger2016}'s finding that lack of state feedback frustrates users, the GTK3 GUI includes a four-state visual indicator---gray/idle, blue/listening, red/recording, orange/processing---with Cascading Style Sheets (CSS)-driven dark/light theme support.
+
+To promote learning rather than dependency \citep{Shneiderman2022}, every executed command is accompanied by: (1)~a plain-language intent summary and (2)~a risk assessment for flagged operations. A third component---detailed flag-by-flag breakdowns---is partially implemented and constitutes active future work (\S\ref{subsec:future-work}). All interactions are logged to \texttt{logs/request\_history.log} for auditing and potential model fine-tuning. Packaging is provided via a universal installer script, a \texttt{.deb}, and an \texttt{.rpm} package.
+
+
+% ══════════════════════════════════════════════════════════════
+\section{Experimental Evaluation}
+\label{sec:evaluation}
+% ══════════════════════════════════════════════════════════════
+
+We evaluated BOTAS along five dimensions: command generation accuracy, safety detection reliability, task completion efficiency, local intent detection coverage, and qualitative user feedback.
+
+\subsection{Evaluation Methodology}
+\label{subsec:eval-methodology}
+
+Our evaluation employed a curated set of 200 representative GNU/Linux administration tasks distributed across five intent domains. Each task was specified as a natural language request in Spanish. For each task we measured:
+
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item \textbf{Syntactic validity:} Whether the generated command parses without errors.
+    \item \textbf{Semantic correctness:} Whether the command fulfills its intended task on a test system.
+    \item \textbf{Safety detection:} For tasks involving dangerous operations, whether appropriate warnings were generated.
+    \item \textbf{Time comparison:} Completion time via BOTAS versus manual construction by an intermediate-level user.
+\end{itemize}
+
+\textbf{Methodological note.} The 200 tasks were compiled and manually verified by the lead developer---a constraint we acknowledge as a potential source of confirmation bias, since the system may be inadvertently tuned to the phrasing or task types the developer deemed most relevant. We report this limitation prominently because methodological transparency is a core value of this work. All tests were conducted on Ubuntu 22.04 LTS with GPT-4o accessed through the OpenAI API (model version \texttt{gpt-4o-2024-05-13}).
+
+\subsection{Command Generation Accuracy}
+\label{subsec:results-accuracy}
+
+BOTAS achieved 89\,\% overall accuracy in generating correct commands (Table~\ref{tab:accuracy}). Network commands yielded the highest accuracy (94\,\%), while permission commands posed the greatest challenge (83\,\%).
+
+\begin{table}[H]
+    \centering
+    \caption{Command generation accuracy by category}
+    \label{tab:accuracy}
+    \begin{tabular}{@{}lcccc@{}}
+        \toprule
+        \textbf{Category} & \textbf{Tasks} & \textbf{Valid} & \textbf{Correct} & \textbf{Accuracy} \\
+        \midrule
+        File management         & 50 & 48 & 45 & 90\,\% \\
+        System information      & 45 & 42 & 40 & 89\,\% \\
+        Process control         & 40 & 37 & 35 & 88\,\% \\
+        Networking              & 35 & 34 & 33 & 94\,\% \\
+        Permissions             & 30 & 27 & 25 & 83\,\% \\
+        \midrule
+        \textbf{Total}          & \textbf{200} & \textbf{188} & \textbf{178} & \textbf{89\,\%} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+Error analysis revealed three primary failure modes, explicitly categorized to respond to calls for greater methodological rigor: (a)~\textit{LLM interpretation errors}: ambiguous user phrasing that did not trigger the \texttt{clarify} action (6\,\% of errors)---although the system can request missing parameters such as paths or filenames, highly ambiguous formulations may still bypass this mechanism; (b)~\textit{command generation errors}: complex multi-pipe commands where one stage had incorrect flags (3\,\%); (c)~\textit{execution discrepancies}: distribution-specific commands unavailable on the test system (2\,\%).
+
+No errors were attributable to Whisper transcription failures in functional testing, which is explained by the fact that the evaluation dataset used direct text input to isolate command parsing accuracy from speech recognition variability. Figure~\ref{fig:search-results} shows an example of BOTAS's search results output, including file paths, sizes, and element count.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imgs/confirmacion.png}
+    \caption{Safety confirmation dialogue (shown in native Spanish). (A)~Operation description; (B)~warning indicator; (C)~Cancel/Execute buttons.}
+    \label{fig:confirmacion}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imgs/Resultado.png}
+    \caption{Search results output (shown in native Spanish). (A)~Files with paths and sizes; (B)~activity log; (C)~element count.}
+    \label{fig:search-results}
+\end{figure}
+
+\subsection{Safety Detection}
+\label{subsec:results-safety}
+
+The deterministic safety layer achieved 100\,\% detection across all 43 test cases involving potentially dangerous operations (Table~\ref{tab:safety}).
+
+\begin{table}[H]
+    \centering
+    \caption{Safety detection performance}
+    \label{tab:safety}
+    \begin{tabular}{@{}lccc@{}}
+        \toprule
+        \textbf{Scenario} & \textbf{Total} & \textbf{Detected} & \textbf{Rate} \\
+        \midrule
+        Destructive operations (\texttt{rm -r})     & 15 & 15 & 100\,\% \\
+        Privilege escalation (\texttt{sudo})         & 12 & 12 & 100\,\% \\
+        System modifications (\texttt{mkfs})         &  8 &  8 & 100\,\% \\
+        Permission changes (\texttt{chmod 000})      &  8 &  8 & 100\,\% \\
+        \midrule
+        \textbf{Total}                               & \textbf{43} & \textbf{43} & \textbf{100\,\%} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+The 100\,\% rate reflects the deterministic nature of the safety layer: dangerous patterns are detected via regular expressions and heuristic rules that do not depend on model output variability. We acknowledge that this layer detects \emph{known} categories of dangerous operations; it cannot anticipate novel attack vectors or evaluate context-dependent risk.
+
+\subsection{Task Completion Efficiency}
+\label{subsec:results-efficiency}
+
+Compared to manual command construction by an intermediate-level GNU/Linux user---familiar with basic commands but needing to consult documentation for complex operations---BOTAS provided an average 9.4$\times$ speedup. Across four representative task types (file search, disk usage queries, process management, and permission changes), the manual approach averaged 6\,min\,54\,s per task, whereas BOTAS completed the same tasks in an average of 46\,s. Speedups ranged from 6.9$\times$ for permission changes---which require specifying numeric modes---to 10.7$\times$ for disk queries resolved locally without an LLM call.
+
+\subsection{Local Intent Detection Coverage}
+\label{subsec:results-local}
+
+Of the 200 tasks, 58 (29\,\%) were resolvable by the local detector without an LLM call, achieving 100\,\% accuracy since handlers produce deterministic output. The remaining 142 LLM-dependent tasks showed 85\,\% accuracy, confirming that harder tasks are appropriately delegated to GPT-4o.
+
+\subsection{Pilot User Study}
+\label{subsec:results-usability}
+
+A pilot study with three novice GNU/Linux users---a sample we acknowledge as insufficient for statistical generalization---yielded qualitative findings that guided design iterations. Participants valued natural language command execution, educational explanations (rated 4.4/5.0), and visual safety feedback. Constructive feedback identified confusion with verbal syntax (which motivated the implementation of the \texttt{clarify} action), frustration with excessive security confirmations, and difficulty interpreting error messages. Whisper transcription averaged 1--3\,s; Vosk wake-word detection responded in under 200\,ms; the full voice-to-response cycle averaged 4--8\,s (LLM) and 1--2\,s (local).
+
+
+% ══════════════════════════════════════════════════════════════
+\section{Discussion}
+\label{sec:discussion}
+% ══════════════════════════════════════════════════════════════
+
+\subsection{Accessibility and Cost Implications}
+\label{subsec:implications}
+
+The 9.4$\times$ speedup benefits educational contexts---where students can focus on concepts rather than syntax \citep{Norman2013}---and non-technical professionals. Multi-distribution support means a user migrating from Ubuntu to Fedora need not relearn commands. From Latin America's perspective, a free, Spanish-accepting tool reduces linguistic, economic, and technical barriers simultaneously \citep{CEPAL2023, Warschauer2004}. At current GPT-4o prices, 50 daily requests cost $\sim$\$4.50/month; the local detector reduces this by $\sim$30\,\% while eliminating 500--1,500\,ms of latency. We are investigating a local model (DeepSeek-R1-0528-Distill-8b) \citep{DeepSeek2025} to eliminate cloud dependency entirely.
+
+\subsection{Limitations}
+\label{subsec:limitations}
+
+\begin{enumerate}[noitemsep,topsep=0pt]
+    \item \textbf{Preliminary pilot study:} The three-participant pilot is insufficient for statistical validation; a formal study with an expanded sample following ISO 9241-210 \citep{ISO9241} is required.
+    \item \textbf{Composite and highly ambiguous requests:} When a required parameter is missing---such as a target directory, filename, or disambiguation among identically named files---the system triggers a \texttt{clarify} action that presents a follow-up question to the user before proceeding. However, this single-turn mechanism does not cover all ambiguity scenarios: highly vague formulations (e.g., ``delete the big ones'') may still bypass clarification and produce an incorrect command or silent failure. Furthermore, composite requests that chain multiple operations in a single utterance (e.g., ``find large files, move them to backup, and compress the folder'') are not decomposed into verifiable atomic steps, since the architecture processes one action per user input. Both limitations were observed during pilot testing. Extending clarification to multi-turn dialogues and implementing sequential command decomposition are priority items in future work.
+    \item \textbf{Single-distribution testing:} Systematic tests were conducted only on Ubuntu 22.04 despite supporting six families.
+    \item \textbf{Evaluator bias:} The 200 tasks were compiled by the developer, introducing potential confirmation bias.
+    \item \textbf{No comparative baselines:} No quantitative comparison against other voice-command frameworks was included.
+\end{enumerate}
+
+\subsection{Future Work}
+\label{subsec:future-work}
+
+Planned improvements include: (a)~expanded local intent detection through interaction log analysis; (b)~extending the existing single-turn \texttt{clarify} mechanism into multi-turn clarification dialogues and sequential command decomposition for composite requests; (c)~a formal study with a larger sample of participants; (d)~investigation of local LLMs for fully offline operation \citep{DeepSeek2025}; (e)~quantitative comparison against baselines (ShellGPT, NL2Bash); (f)~completing and hardening the detailed educational explanation component (flag-by-flag command breakdowns) that is partially implemented; and (g)~release as free software.
+
+
+% ══════════════════════════════════════════════════════════════
+\section{Conclusions}
+\label{sec:conclusion}
+% ══════════════════════════════════════════════════════════════
+
+We have presented BOTAS, a conversational interface for GNU/Linux system management that embodies Human-Centered Artificial Intelligence principles. By translating natural language into validated terminal commands, BOTAS achieves 89\,\% command generation accuracy, 100\,\% safety detection, and a 9.4$\times$ task completion speedup compared to manual methods.
+
+Key contributions beyond the version submitted for blind review include: a local intent detection module that reduces LLM dependency by approximately 30\,\%; automatic distribution detection enabling cross-platform portability across six GNU/Linux families; a visual state indicator improving the voice interaction experience; structured request logging for auditing; and packaging infrastructure for frictionless installation via \texttt{.deb} and \texttt{.rpm} packages.
+
+BOTAS demonstrates that large language models can democratize access to powerful computing tools when designed with appropriate safety mechanisms, educational components, and attention to underserved communities. The goal is not to make technology simpler, but more accessible---and in the process, more human. We plan to release the system as free software and conduct a formal user study to validate its educational effectiveness.
+
+
+% ══════════════════════════════════════════════════════════════
+% REFERENCES (9 pt, APA, alphabetical, 0.5 cm hanging indent)
+% ══════════════════════════════════════════════════════════════
+{
+\fontsize{9}{10.8}\selectfont
+\setlength{\bibhang}{0.5cm}
+\setlength{\bibsep}{2pt}
+\bibliography{references}
+}
+
+\end{document}

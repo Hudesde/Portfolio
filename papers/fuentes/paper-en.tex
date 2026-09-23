@@ -1,0 +1,253 @@
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+\usepackage{graphicx,url}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{booktabs}
+
+\sloppy
+
+\title{Toward the Evolution of the Desktop GUI:\\ Human-Centered AI as a Paradigm for\\ Rethinking Operating System Interaction}
+
+\author{Jose Ramon Aragon Toledo\inst{1}, Ricardo Ruíz Rodríguez\inst{1}}
+
+\address{Universidad Tecnológica de la Mixteca (UTM)\\
+  Huajuapan de León, Oaxaca -- México
+  \email{\{jaragon,rruiz\}@mixteco.utm.mx}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Innovation in desktop operating system interfaces has stagnated over the past two
+decades. Despite exponential growth in computational power, tools such as file
+explorers, terminals, and configuration managers have scarcely evolved since the
+1990s. This plateau particularly affects GNU/Linux, whose power remains inaccessible
+to non-expert users due to command-line interaction models from the 1970s. This paper
+analyzes desktop interaction stagnation through the lens of Human-Centered AI (HCAI)
+and presents BOTAS, a voice-based assistant enabling Spanish-speaking users to
+interact with GNU/Linux via natural language. Evaluation across 200 tasks shows
+89\% command-generation accuracy and 100\% detection of destructive operations.
+\end{abstract}
+
+
+\section{Introduction}
+\label{sec:intro}
+
+We operate with processors a hundred million times faster than those of the 1980s,
+yet the fundamental interaction with a desktop operating system has barely changed
+in twenty years \cite{Jenson2024}. Scott Jenson---a veteran UX designer who worked
+on the original Macintosh Finder at Apple and later at Google---argues that ``this
+immobility is not a technical limitation but a capitulation of design''
+\cite{Jenson2024}. The industry has moved from the creative transformation that
+defined early computing---where Xerox PARC concepts were radically reimagined---to
+shallow cross-platform imitation.
+
+GNU/Linux powers approximately 90\% of cloud infrastructure and 100\% of the
+world's top 500 supercomputers \cite{W3Techs2023, Top5002023}, yet its command-line
+interface perpetuates a 1970s paradigm \cite{Raymond2003} demanding cryptic syntax
+with no feedback about operational risk. Meanwhile, commercial voice
+assistants handle trivial queries but none addresses deep OS interaction
+\cite{Luger2016}, and tools like ChatGPT suggest commands without executing them
+or validating safety. This paper argues that Human-Centered AI (HCAI)
+\cite{Shneiderman2020, Shneiderman2022} provides a framework for overcoming this
+stagnation, and presents BOTAS, a voice-based assistant that materializes HCAI
+principles for GNU/Linux interaction in Spanish.
+
+This work contributes: (1)~an analysis of desktop interface stagnation through the
+HCAI lens; (2)~the presentation of BOTAS, whose evolution from minimum viable
+prototype to modular system illustrates HCAI in practice; and (3)~preliminary
+evaluation with accuracy metrics, safety detection, and pilot usability feedback.
+
+
+\section{Conceptual Framework and Related Work}
+\label{sec:framework}
+
+\subsection{Stagnation of Desktop Interfaces}
+\label{subsec:stagnation}
+
+HCI has traversed periods of genuine innovation---the desktop metaphor, the Web,
+the touch revolution---that redefined how users form mental models of computing
+\cite{Norman1988}. On the desktop, however, the past two decades constitute a
+functional plateau. Jenson \cite{Jenson2024} illustrates this with an anecdote:
+in the early 1980s, while working on the Finder, his team noticed that truncated
+filenames lost critical information with end-placed ellipses. ``I suggested placing
+the ellipsis in the middle to preserve the file extension---it was implemented in
+two days and, forty years later, that code is still running'' \cite{Jenson2024}.
+Today, in the era of large language models, operating systems still employ
+file-navigation paradigms from three decades ago---a paradox especially acute for
+GNU/Linux, where the CLI constitutes the primary barrier to a computing platform
+that dominates professional infrastructure \cite{W3Techs2023}.
+
+\subsection{Human-Centered AI}
+\label{subsec:hcai}
+
+Shneiderman \cite{Shneiderman2020, Shneiderman2022} formalized HCAI as a paradigm
+where AI systems \textit{amplify} human capabilities rather than replace them,
+built on four principles: \textbf{transparency} (users understand system actions),
+\textbf{human control} (users supervise and can reject proposals),
+\textbf{safety} (prevention of harmful actions, even if inadvertently
+requested---critical where a typo can cause irreversible data loss), and
+\textbf{empowerment} (users progressively learn underlying mechanisms, building
+autonomy over dependency). Amershi et al. \cite{Amershi2019} complement this with
+18 practical guidelines for human-AI interaction. As AI adoption grows and users
+discover the possibilities these tools offer, HCAI provides a coherent
+foundation for rethinking OS interaction: an assistant grounded in these
+principles can make GNU/Linux accessible while ensuring users learn rather than
+depend.
+
+\subsection{Voice Assistants and the OS Interaction Gap}
+\label{subsec:voice-gap}
+
+Advances in speech recognition---particularly Whisper \cite{Radford2022}---and
+in LLMs \cite{Brown2020, OpenAI2023} have reached practical multilingual maturity.
+NL2Bash \cite{Lin2018} explored natural language to Bash translation (36\%
+exact-match accuracy) but without real-time interaction or safety validation. No
+existing system integrates voice recognition, command execution, safety
+classification, and educational feedback within an HCAI workflow. This
+integration gap defines the opportunity this work addresses.
+
+
+\section{Proposal: BOTAS with HCAI Approach}
+\label{sec:proposal}
+
+HCAI principles are materialized on GNU/Linux because this is where the
+intervention yields the greatest impact: a powerful system whose main adoption
+barrier is interaction, not functionality \cite{Warschauer2004}. Its openness
+permits deep integration, and its zero cost eliminates economic barriers---decisive
+for educational contexts in Latin America.
+
+\subsection{Origins and Evolution}
+\label{subsec:origins}
+
+BOTAS (\textit{Bot de Operaciones y Tareas Automatizadas del Sistema}) originated
+during a social service program focused on AI-integrated applications at a Mexican
+public university. Initially a minimum viable product, it explored whether natural
+language could bridge novice users and the command line. Early versions relied
+entirely on cloud services (Whisper for transcription, GPT-4o for interpretation)
+with a GTK3 interface and local TTS via eSpeak. Through iterative development,
+the system incorporated: offline wake-word detection (Vosk), a local
+intent-recognition module resolving routine requests without LLM calls, automatic
+distribution detection across six Linux families, a visual state indicator, and
+structured request logging. The strategy of routing all requests through the LLM
+was supplemented by local detection, reducing latency and costs; rigid error
+handling is being redesigned toward clarification dialogues.
+
+\subsection{Current Capabilities}
+\label{subsec:capabilities}
+
+BOTAS implements a five-layer pipeline: (1)~input via GUI or wake-word;
+(2)~local intent detection through regex patterns; (3)~GPT-4o command
+parsing for complex requests; (4)~deterministic safety validation at three risk
+levels (\textit{safe}, \textit{warning}, \textit{dangerous}); and (5)~execution
+with educational feedback and TTS narration. Supported operations include file
+management (creation, renaming, moving, search, deletion, editing), system
+queries (memory, disk, processes, ports, time), process control, networking,
+permissions, and web search. Every operation includes an explanation of the
+generated command, fulfilling the empowerment principle. The safety layer requires
+explicit confirmation for risky operations. Distribution detection (Debian,
+Fedora, Arch, openSUSE, Alpine, Void) translates package-management commands
+automatically.
+
+\subsection{Scope and Ongoing Developments}
+\label{subsec:scope}
+
+The system currently depends on cloud services (Whisper, GPT-4o). We are
+developing local operation using DeepSeek-R1-0528-Distill-8b---served via local
+network or on the host machine---with Vosk for speech recognition, eliminating
+cloud dependency and addressing privacy concerns for institutional environments.
+An expected accuracy decrease relative to cloud models is acknowledged.
+
+Recognized limitations include difficulty with ambiguous requests, multi-command
+concatenation in single utterances, technical jargon disambiguation, and absent
+clarification dialogues. Features under development include improved error
+recovery, responsive interface layout, and cross-distribution installation
+tooling. We plan to release BOTAS as open-source software; post-release feedback
+will inform version~2.0.
+
+
+\section{Preliminary Evaluation}
+\label{sec:evaluation}
+
+\subsection{Functional Testing}
+\label{subsec:testing}
+
+BOTAS was evaluated on 200 representative Linux tasks across five categories,
+specified as Spanish natural-language requests. The dataset was compiled and
+verified manually by the developer---a constraint we acknowledge, as it may
+introduce confirmation bias. Table~\ref{tab:accuracy} summarizes results.
+
+\begin{table}[h]
+\caption{Command generation accuracy by task category}
+\label{tab:accuracy}
+\centering
+\begin{tabular}{lcc}
+\toprule
+\textbf{Category} & \textbf{Tasks} & \textbf{Accuracy} \\
+\midrule
+File management     & 45 & 84\% \\
+System information  & 40 & 85\% \\
+Process control     & 35 & 83\% \\
+Networking          & 30 & 93\% \\
+Permissions         & 25 & 80\% \\
+\midrule
+\textbf{Total}      & \textbf{200} & \textbf{89\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Error modes: ambiguous phrasing (6\%), multi-pipe flag errors (3\%),
+distribution-specific unavailability (2\%). Errors were categorized as
+transcription failures, LLM misinterpretation, or execution-state mismatches.
+The deterministic safety layer detected 100\% of 43 dangerous operations
+(recursive deletion, privilege escalation, system modifications, permission
+changes)---a rate guaranteed by regex-based pattern matching independent of model
+variability. The local intent detector resolved 29\% of tasks without LLM calls,
+at 100\% accuracy, saving 500--1500\,ms per request.
+
+\subsection{Pilot Usability Study}
+\label{subsec:usability}
+
+Three users with no prior GNU/Linux experience evaluated BOTAS at its MVP stage.
+While insufficient for statistical generalization---acknowledged
+prominently---this pilot yielded qualitative insights. Participants found the
+natural-language execution capability, educational explanations, and safety
+feedback encouraging; these positive impressions from users who had never used a
+Linux terminal motivated continued development and this contribution to the HCI
+community. Constructive feedback identified confusion with verbal syntax,
+frustration with seemingly excessive safety confirmations, and difficulty with
+error messages---directly informing the redesign toward clarification dialogues.
+Latency data: Whisper transcription averages 1--3\,s; Vosk wake-word detection
+responds in under 200\,ms.
+
+
+\section{Discussion and Conclusions}
+\label{sec:discussion}
+
+Desktop interface stagnation is a design problem, not a technical one: the
+enabling technologies exist and are mature. HCAI provides a theoretical and
+practical framework for addressing it, prioritizing user autonomy over opaque
+automation. From a Latin American perspective, the linguistic barrier excludes
+users whose documentation is in English, and closed-ecosystem costs burden
+educational institutions \cite{Warschauer2004}. Voice interaction in Spanish
+reduces these barriers without requiring prior CLI expertise, offering guided
+learning rather than conditioning through repetition.
+
+Future work includes consolidating local operation (DeepSeek-R1 with Vosk),
+a formal usability study with an expanded sample, cross-distribution validation,
+and the open-source release.
+
+The HCAI principles of transparency, control, safety, and
+empowerment---materialized in BOTAS---demonstrate that access barriers to
+powerful systems can be reduced without sacrificing capabilities. The goal is
+not to make technology simpler, but to make it more accessible---and in that
+process, more human.
+
+
+\bibliographystyle{sbc}
+\bibliography{paper-en}
+
+\end{document}

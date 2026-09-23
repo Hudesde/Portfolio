@@ -74,6 +74,7 @@ const COMMON = {
     'cite.bib': `📋 Copy BibTeX`,
     'cite.bibshow': `Show BibTeX`,
     'doc.view': `View PDF`,
+    'doc.read': `📖 Read`,
     'doc.dl': `Download`,
     'fab': `Contact me`,
     'cm.avail': `Open to new opportunities`,

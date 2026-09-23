@@ -1,0 +1,476 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BOTAS – Full Paper – AIS / IADIS 2026
+% Versión camera-ready – ESPAÑOL
+% Formato: Lineamientos IADIS (A4, Times 10 pt, APA)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,a4paper]{article}
+
+% ── Codificación y fuentes ───────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{mathptmx}
+\usepackage[spanish,english]{babel}
+
+% ── Geometría de página (lineamientos IADIS) ─────────────────
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    top=33mm,
+    bottom=40mm,
+    left=30mm,
+    right=25mm,
+    headheight=15mm,
+    footskip=25mm,
+    headsep=5mm,
+    includehead=false,
+    includefoot=false
+}
+
+% Sin encabezados, pies ni números de página
+\usepackage{fancyhdr}
+\pagestyle{empty}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% ── Tablas y figuras ─────────────────────────────────────────
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{tabularx}
+
+% ── Listados de código ───────────────────────────────────────
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{gray!8},
+    keywordstyle=\bfseries\color{blue!70!black},
+    commentstyle=\itshape\color{green!50!black},
+    stringstyle=\color{red!70!black},
+    numbers=none,
+    xleftmargin=2mm,
+    framexleftmargin=2mm
+}
+
+% ── Referencias (APA vía apacite) ────────────────────────────
+\usepackage[natbibapa]{apacite}
+\bibliographystyle{apacite}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=blue!70!black,
+    pdfborder={0 0 0}
+}
+
+% ── Matemáticas y misceláneos ────────────────────────────────
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{parskip}
+
+% ── Estilos de encabezado IADIS ──────────────────────────────
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\fontsize{13}{15.6}\bfseries\MakeUppercase}
+  {\thesection.}{0.4em}{}
+\titlespacing*{\section}{0pt}{24pt}{12pt}
+
+\titleformat{\subsection}
+  {\fontsize{13}{15.6}\bfseries}
+  {\thesubsection}{0.4em}{}
+\titlespacing*{\subsection}{0pt}{12pt}{12pt}
+
+\titleformat{\subsubsection}
+  {\fontsize{11}{13.2}\bfseries}
+  {\thesubsubsection}{0.4em}{}
+\titlespacing*{\subsubsection}{0pt}{6pt}{6pt}
+
+% ── Estilo de captions (9 pt, "Figure 1. Texto") ────────────
+\captionsetup{
+    font=small,
+    labelfont=bf,
+    labelsep=period,
+    justification=centering,
+    skip=6pt,
+    aboveskip=6pt,
+    belowskip=6pt
+}
+
+% ── Sangría de párrafo ──────────────────────────────────────
+\setlength{\parindent}{0.5cm}
+\setlength{\parskip}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ── Título (16 pt negrita, TODO EN MAYÚSCULAS, espacio después 24 pt) ──
+{
+\centering
+\fontsize{16}{19.2}\bfseries
+BOTAS: UNA INTERFAZ DE LENGUAJE NATURAL CENTRADA EN EL\\
+HUMANO PARA LA GESTIÓN DE SISTEMAS GNU/LINUX CON\\
+SOPORTE MULTIDISTRIBUCIÓN\par
+\vspace{24pt}
+}
+
+% ── Autores (11 pt) ─────────────────────────────────────────
+{
+\centering
+\fontsize{11}{13.2}\selectfont
+Jose Ramon Aragon Toledo y Ricardo Ruiz Rodr\'{i}guez\par
+\vspace{6pt}
+\fontsize{9}{10.8}\itshape
+Universidad Tecnol\'{o}gica de la Mixteca (UTM)\\
+Huajuapan de Le\'{o}n, Oaxaca, M\'{e}xico\\
+aatr010423@gs.utm.mx, rruiz@gs.utm.mx\par
+\vspace{24pt}
+}
+
+% ══════════════════════════════════════════════════════════════
+% ABSTRACT
+% ══════════════════════════════════════════════════════════════
+{
+\vspace{18pt}
+\noindent\fontsize{9}{10.8}\bfseries ABSTRACT\par
+\vspace{6pt}
+\fontsize{9}{10.8}\selectfont
+\noindent
+GNU/Linux sustenta aproximadamente el 90\,\% de la infraestructura en la nube y domina los entornos de servidores a nivel mundial; sin embargo, su interfaz de l\'{i}nea de comandos (CLI) impone barreras de accesibilidad significativas para usuarios no expertos. Esta brecha digital excluye a millones de usuarios potenciales, particularmente en comunidades cuya lengua principal no es el ingl\'{e}s. Presentamos BOTAS (\textit{Bot de Operaciones y Tareas Automatizadas del Sistema}), una interfaz conversacional que traduce peticiones en lenguaje natural a comandos de GNU/Linux ejecutables empleando GPT-4o como motor de comprensi\'{o}n ling\"{u}\'{i}stica. BOTAS alcanza 89\,\% de precisi\'{o}n en la generaci\'{o}n de comandos sobre un conjunto curado de 200 tareas representativas, manteniendo una tasa del 100\,\% en la detecci\'{o}n de operaciones potencialmente peligrosas mediante una capa de seguridad determinista. Siguiendo los principios de la Inteligencia Artificial Centrada en el Humano (HCAI), el sistema prioriza el empoderamiento del usuario sobre la automatizaci\'{o}n opaca, con un dise\~{n}o orientado a proporcionar explicaciones educativas para cada comando generado. La evaluaci\'{o}n muestra una aceleraci\'{o}n promedio de 9.4$\times$ en la completaci\'{o}n de tareas respecto a m\'{e}todos manuales. Este trabajo detalla la arquitectura completa del sistema---incluyendo un m\'{o}dulo de detecci\'{o}n local de intenciones que reduce llamadas al modelo de lenguaje en aproximadamente 30\,\%, detecci\'{o}n autom\'{a}tica de distribuci\'{o}n de GNU/Linux para compatibilidad multiplataforma, y un indicador visual de estado para la interacci\'{o}n por voz---y discute c\'{o}mo estos componentes contribuyen al discurso sobre ``IA en la Sociedad'' al demostrar que los modelos de lenguaje de gran escala pueden democratizar el acceso a herramientas computacionales potentes manteniendo la seguridad y promoviendo la alfabetizaci\'{o}n digital en comunidades desatendidas.\par
+}
+
+% ══════════════════════════════════════════════════════════════
+% KEYWORDS
+% ══════════════════════════════════════════════════════════════
+{
+\vspace{18pt}
+\noindent\fontsize{9}{10.8}\bfseries KEYWORDS\par
+\vspace{6pt}
+\fontsize{10}{12}\selectfont
+\noindent
+IA Centrada en el Humano, Procesamiento de Lenguaje Natural, GNU/Linux, Interfaz de L\'{i}nea de Comandos, Interacci\'{o}n Humano--Computadora, Modelos de Lenguaje de Gran Escala, Accesibilidad, Equidad Digital, Interfaz de Voz, Soporte Multidistribuci\'{o}n\par
+}
+
+\vspace{12pt}
+
+% ══════════════════════════════════════════════════════════════
+\selectlanguage{spanish}
+\section{Introducci\'{o}n}
+\label{sec:introduction}
+% ══════════════════════════════════════════════════════════════
+
+GNU/Linux impulsa el 90\,\% de la infraestructura en la nube, opera en el 96.3\,\% del mill\'{o}n de servidores m\'{a}s importantes del mundo y posee el 100\,\% de la cuota de mercado en supercomputaci\'{o}n \citep{W3Techs2023, Top5002023}. A pesar de esta ubicuidad en la inform\'{a}tica profesional, la interfaz de l\'{i}nea de comandos (CLI) que desbloquea su potencial completo permanece inaccesible para la amplia mayor\'{i}a de usuarios. Un usuario que desea localizar archivos mayores a 100\,MB debe aprender sintaxis cr\'{i}ptica como \texttt{find / -size +100M}---una barrera que convierte una tarea conceptual de diez segundos en una expedici\'{o}n frustrante a trav\'{e}s de p\'{a}ginas de documentaci\'{o}n.
+
+Esta brecha de accesibilidad tiene consecuencias cuantificables. La investigaci\'{o}n en Interacci\'{o}n Humano-Computadora ha documentado que usuarios novatos dedican entre 8 y 15 minutos a buscar y construir comandos de terminal b\'{a}sicos \citep{Norman1988, Norman2013}. Cada intento fallido acumula frustraci\'{o}n y conduce a muchos adoptantes potenciales de GNU/Linux a abandonar la plataforma por completo. En paralelo, los asistentes conversacionales como ChatGPT pueden sugerir comandos, pero carecen de la capacidad de ejecutarlos, exigiendo flujos de trabajo propensos a error basados en copiar y pegar sin ofrecer validaci\'{o}n de seguridad previa a la ejecuci\'{o}n de operaciones potencialmente destructivas.
+
+\citet{Jenson2024} sostiene que este estancamiento ``no es un l\'{i}mite t\'{e}cnico sino una claudicaci\'{o}n del dise\~{n}o'': la industria transita de la transformaci\'{o}n creativa a la imitaci\'{o}n entre plataformas, dejando sin resolver la tensi\'{o}n entre potencia y accesibilidad. Las interfaces gr\'{a}ficas sacrifican la capacidad de combinaci\'{o}n y automatizaci\'{o}n que caracteriza a GNU/Linux; las p\'{a}ginas de manual asumen pericia; los scripts predefinidos no anticipan cada necesidad. La brecha entre ``saber qu\'{e} quieres hacer'' y ``saber c\'{o}mo decirle a la computadora que lo haga'' permanece amplia \citep{Myers2004}; ya \citet{ShneidermanPlaisant2010} propusieron el lenguaje natural como puente potencial entre la flexibilidad de la l\'{i}nea de comandos y la accesibilidad de la manipulaci\'{o}n directa.
+
+Presentamos BOTAS (\textit{Bot de Operaciones y Tareas Automatizadas del Sistema}; el acr\'{o}nimo proviene del nombre original del prototipo, \textit{Basic Organizer For Tech Assets \& Structures}, conservado por conveniencia), una interfaz conversacional que contribuye a reducir esta brecha traduciendo descripciones en lenguaje natural a comandos de GNU/Linux validados y ejecutables. BOTAS encarna los principios de la Inteligencia Artificial Centrada en el Humano (HCAI) \citep{Shneiderman2020} a trav\'{e}s de cinco compromisos de dise\~{n}o:
+
+\begin{enumerate}[noitemsep,topsep=0pt]
+    \item \textbf{Amplificar en lugar de reemplazar} las capacidades humanas mediante generaci\'{o}n conversacional de comandos.
+    \item \textbf{Garantizar transparencia} explicando qu\'{e} hace cada comando y por qu\'{e}.
+    \item \textbf{Mantener el control del usuario} mediante di\'{a}logos de confirmaci\'{o}n previos a la ejecuci\'{o}n.
+    \item \textbf{Priorizar la seguridad} con detecci\'{o}n determinista del 100\,\% de operaciones potencialmente peligrosas.
+    \item \textbf{Promover la educaci\'{o}n} construyendo competencia en el usuario en lugar de dependencia.
+\end{enumerate}
+
+BOTAS prioriza a usuarios hispanohablantes---m\'{a}s de 500 millones de hablantes desatendidos por interfaces anglocéntricas---reflejando que en Am\'{e}rica Latina las barreras ling\"{u}\'{i}sticas y econ\'{o}micas obstaculizan la adopci\'{o}n tecnol\'{o}gica en instituciones educativas \citep{Warschauer2004, CEPAL2023}.
+
+\noindent\textbf{Contribuciones.} Respecto a la versi\'{o}n sometida a revisi\'{o}n ciega, este art\'{i}culo realiza las siguientes contribuciones adicionales:
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item Un m\'{o}dulo de \emph{detecci\'{o}n local de intenciones} que resuelve aproximadamente el 30\,\% de las solicitudes sin invocar al Modelo de Lenguaje de Gran Escala (LLM), reduciendo latencia y costo de la Interfaz de Programaci\'{o}n de Aplicaciones (API) (\S\ref{subsec:local-intent}).
+    \item Un \emph{detector autom\'{a}tico de distribuci\'{o}n} que identifica la familia de GNU/Linux del host y traduce comandos, habilitando portabilidad multiplataforma (\S\ref{subsec:distro-detect}).
+    \item Un \emph{indicador visual de estado} y \emph{pipeline de voz} que proporcionan retroalimentaci\'{o}n en tiempo real durante la interacci\'{o}n por voz (\S\ref{subsec:voice}).
+    \item Categorizaci\'{o}n expl\'{i}cita de modos de error (transcripci\'{o}n vs.\ interpretaci\'{o}n del LLM vs.\ discrepancias de ejecuci\'{o}n) y datos de latencia para los componentes de voz (\S\ref{subsec:results-accuracy}).
+\end{itemize}
+
+El resto del art\'{i}culo se organiza como sigue:
+\begin{itemize}[noitemsep,topsep=2pt]
+    \item La Secci\'{o}n~\ref{sec:related-work} revisa el trabajo relacionado sobre interfaces de lenguaje natural para la terminal y sobre IA centrada en el humano.
+    \item La Secci\'{o}n~\ref{sec:methodology} describe la arquitectura modular de BOTAS, incluyendo la detecci\'{o}n local de intenciones, el an\'{a}lisis basado en LLM, la capa de seguridad, la detecci\'{o}n de distribuci\'{o}n y el pipeline de voz.
+    \item La Secci\'{o}n~\ref{sec:evaluation} presenta la evaluaci\'{o}n experimental sobre 200 tareas, m\'{e}tricas de seguridad, eficiencia y un estudio piloto.
+    \item La Secci\'{o}n~\ref{sec:discussion} discute las implicaciones para la accesibilidad, las limitaciones metodol\'{o}gicas y las direcciones de trabajo futuro.
+    \item La Secci\'{o}n~\ref{sec:conclusion} presenta las conclusiones y consideraciones sobre el trabajo futuro y las potenciales extensiones de BOTAS.
+\end{itemize}
+
+
+% ══════════════════════════════════════════════════════════════
+\section{Trabajo Relacionado}
+\label{sec:related-work}
+% ══════════════════════════════════════════════════════════════
+
+\subsection{Interfaces de Lenguaje Natural para la L\'{i}nea de Comandos}
+\label{subsec:cli-usability}
+
+El paradigma CLI persiste por su capacidad de composici\'{o}n de comandos y automatizaci\'{o}n \citep{Raymond2003}, pero \citet{Nielsen1994} mostr\'{o} que requiere 10--20 horas de entrenamiento versus 2--4 para GUIs---complejidad que \citet{Dix2004} confirma se ha intensificado con distribuciones que contienen m\'{a}s de 2\,000 comandos disponibles; \citet{Jenson2024} argumenta que este estancamiento es una claudicaci\'{o}n del dise\~{n}o m\'{a}s que un l\'{i}mite t\'{e}cnico. NL2Bash \citep{Lin2018} fue pionero en mapear lenguaje natural a comandos de shell (36\,\% de coincidencia exacta) pero no abord\'{o} la ejecuci\'{o}n ni la seguridad. Desde GPT-3 \citep{Brown2020}, los LLMs han mejorado la generaci\'{o}n de comandos---\citet{Chen2021} demostraron que modelos entrenados en c\'{o}digo logran mayor fluidez---pero asistentes como ChatGPT \citep{OpenAI2023} permanecen en modo de sugerencia, requiriendo copiar y pegar sin validaci\'{o}n previa a la ejecuci\'{o}n. Marcos de orquestaci\'{o}n como LangChain \citep{Chase2022} permiten invocar herramientas externas desde LLMs, y herramientas enfocadas en terminal (ShellGPT, AIChat) agregan ejecuci\'{o}n pero t\'{i}picamente carecen de capas de seguridad y retroalimentaci\'{o}n educativa.
+
+\subsection{IA Centrada en el Humano y Equidad Digital}
+\label{subsec:hcai-accessibility}
+
+\citet{Shneiderman2020, Shneiderman2022} establecieron la Inteligencia Artificial Centrada en el Humano (HCAI) como un marco que enfatiza transparencia, seguridad y empoderamiento del usuario. \citet{Amershi2019} proporcionaron directrices de dise\~{n}o para la interacci\'{o}n humano-IA que informan las decisiones de interfaz de BOTAS, particularmente sobre la explicaci\'{o}n de capacidades y el manejo elegante de limitaciones del sistema. BOTAS adopta estos principios, tratando al LLM como traductor y educador. En el \'{a}mbito de la equidad digital, \citet{Warschauer2004} documenta c\'{o}mo las barreras t\'{e}cnicas refuerzan desigualdades---realidad particularmente aguda en contextos latinoamericanos donde las interfaces exclusivamente en ingl\'{e}s constituyen un obst\'{a}culo adicional. \citet{Wobbrock2011} propusieron el dise\~{n}o basado en habilidades como un marco para crear interfaces que se adaptan a capacidades diversas del usuario en lugar de exigir adaptaci\'{o}n por parte de este, filosof\'{i}a que BOTAS aplica al aceptar el lenguaje natural como modalidad primaria de interacci\'{o}n.
+
+
+% ══════════════════════════════════════════════════════════════
+\section{Arquitectura e Implementaci\'{o}n del Sistema}
+\label{sec:methodology}
+% ══════════════════════════════════════════════════════════════
+
+BOTAS est\'{a} dise\~{n}ado como un sistema modular que procesa peticiones en lenguaje natural a trav\'{e}s de capas diferenciadas, cada una contribuyendo a la seguridad, precisi\'{o}n y valor educativo. El sistema est\'{a} implementado en Perl \citep{Wall2000}---seleccionado por su s\'{o}lida integraci\'{o}n con Unix, su potente procesamiento de texto y la disponibilidad de bindings robustos de GTK3 \citep{GTK2023} para desarrollo de GUI---y se comunica con GPT-4o \citep{OpenAI2024} a trav\'{e}s de la API de OpenAI.
+
+\subsection{Arquitectura General}
+\label{subsec:architecture}
+
+La Figura~\ref{fig:architecture} ilustra el pipeline general. La entrada del usuario llega mediante la Interfaz Gr\'{a}fica de Usuario (GUI)---campo de texto o bot\'{o}n de micr\'{o}fono---o mediante el detector de palabra de activaci\'{o}n ejecut\'{a}ndose en segundo plano. La entrada es evaluada primero por un \emph{detector local de intenciones}; si se encuentra una coincidencia, la acci\'{o}n correspondiente se ejecuta sin invocar al LLM. En caso contrario, la solicitud se reenv\'{i}a a GPT-4o para generaci\'{o}n estructurada de comandos, pasa por un validador de seguridad y finalmente se ejecuta con retroalimentaci\'{o}n educativa proporcionada al usuario.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{imgs/architecture_botas_en.png}
+    \caption{Arquitectura del sistema BOTAS v2.0. El detector local intercepta $\sim$30\,\% de solicitudes sin invocar al LLM.}
+    \label{fig:architecture}
+\end{figure}
+
+La arquitectura comprende ocho m\'{o}dulos Perl: \texttt{IntentDetector.pm} (detecci\'{o}n local de intenciones), \texttt{CommandParser.pm} (integraci\'{o}n GPT-4o), \texttt{FileManager.pm} (operaciones de archivos con sandboxing), \texttt{DistroDetector.pm} (identificaci\'{o}n de distribuci\'{o}n), \texttt{GUI\_GTK3.pm} (interfaz gr\'{a}fica GTK3), \texttt{VoiceRecognition.pm} (reconocimiento de voz mediante Whisper---Speech-To-Text, STT), \texttt{WakeWordDetector.pm} (detecci\'{o}n de palabra de activaci\'{o}n, Vosk) y \texttt{TTS.pm} (s\'{i}ntesis de voz---Text-To-Speech).
+
+\subsection{Detecci\'{o}n Local de Intenciones}
+\label{subsec:local-intent}
+
+Una observaci\'{o}n clave durante el desarrollo fue que muchas solicitudes comunes---consultar la hora, verificar el uso de memoria o disco, listar procesos activos---no requieren la capacidad de comprensi\'{o}n ling\"{u}\'{i}stica de un modelo grande. Implementamos por ello \texttt{IntentDetector.pm}, un m\'{o}dulo ligero que compara la entrada del usuario contra un conjunto curado de patrones de expresiones regulares en espa\~{n}ol agrupados en categor\'{i}as operativas de intenci\'{o}n: \textit{system\_time}, \textit{system\_date}, \textit{memory\_info}, \textit{disk\_info}, \textit{processes\_info} y \textit{ports\_info}.
+
+Cada categor\'{i}a contiene entre 3 y 8 patrones de regex. Por ejemplo, la intenci\'{o}n \textit{system\_time} coincide con frases en espa\~{n}ol como ``\textit{qu\'{e} hora es}'' y ``\textit{dime la hora}''; la intenci\'{o}n \textit{disk\_info} coincide con ``\textit{espacio en disco}'' y ``\textit{cu\'{a}nto espacio queda}''. Cuando se encuentra una coincidencia, el m\'{o}dulo retorna una estructura JSON de comando id\'{e}ntica a la que GPT-4o producir\'{i}a, junto con un indicador \texttt{\_local => 1} que marca la respuesta como resuelta localmente. Este dise\~{n}o garantiza que el resto del pipeline---validaci\'{o}n de seguridad, ejecuci\'{o}n, registro---opera de manera id\'{e}ntica independientemente del origen del comando.
+
+El an\'{a}lisis de nuestro conjunto de 200 tareas indica que aproximadamente el 30\,\% de las interacciones rutinarias caen dentro del alcance de la detecci\'{o}n local, generando ahorros significativos en latencia (eliminando un viaje de ida y vuelta a la API de 500--1\,500\,ms) y costo (cada llamada a GPT-4o cuesta aproximadamente \$0.005--\$0.03 USD).
+
+\subsection{An\'{a}lisis de Comandos Basado en LLM}
+\label{subsec:llm-parsing}
+
+Para solicitudes que exceden las capacidades del detector local, BOTAS delega a GPT-4o mediante un prompt de sistema dise\~{n}ado con ingenier\'{i}a de prompts cuidadosa \citep{Wei2022}. El prompt instruye al modelo a retornar un objeto JSON estructurado conteniendo:
+
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item \texttt{action}: una operaci\'{o}n de un conjunto predefinido (ej., \texttt{create\_file}, \texttt{search}, \texttt{system\_info}, \texttt{web\_search}, \texttt{clarify}).
+    \item \texttt{parameters}: un diccionario de argumentos espec\'{i}ficos de la operaci\'{o}n (rutas, patrones, filtros). Cuando la acci\'{o}n es \texttt{clarify}, los par\'{a}metros contienen un campo \texttt{question} con la pregunta de seguimiento a presentar al usuario (ej., ``\textquestiondown En qu\'{e} carpeta?'').
+    \item \texttt{tts\_response}: una descripci\'{o}n breve en lenguaje natural de lo que har\'{a} el comando, utilizada para el componente educativo y la s\'{i}ntesis de voz.
+    \item \texttt{requires\_confirmation}: un indicador booleano para operaciones clasificadas como riesgosas.
+\end{itemize}
+
+El prompt de sistema incluye el directorio de trabajo actual del usuario, la familia de distribuci\'{o}n de GNU/Linux detectada y un historial de conversaci\'{o}n condensado (\'{u}ltimos diez intercambios) almacenado en \texttt{CommandParser.pm} para soportar desambiguaci\'{o}n contextual. El historial incluye marcadores como \texttt{[RUTA\_ACTUAL]} y \texttt{[RESULTADO DE EJECUCION]} que permiten al modelo resolver referencias anaf\'{o}ricas (``de esos'', ``en esa carpeta'', ``los anteriores''). Cuando se utiliza OpenAI, se solicita el modo \texttt{response\_format: json\_object} para forzar salida JSON v\'{a}lida; para proveedores locales como LM Studio, se aplica limpieza heur\'{i}stica del contenido eliminando texto antes del primer \texttt{\{} y despu\'{e}s del \'{u}ltimo \texttt{\}}.
+
+Este formato de salida estructurada elimina la ambig\"{u}edad inherente a la generaci\'{o}n de texto libre y habilita procesamiento determinista en las capas subsecuentes, aline\'{a}ndose con las mejores pr\'{a}cticas para herramientas de IA seguras \citep{Schick2024, Yao2023}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\textwidth]{imgs/command_flow_en.png}
+    \caption{Flujo de procesamiento de un comando. El usuario activa BOTAS por voz o GUI; el audio se transcribe con Whisper, se analiza con GPT-4o, se valida la seguridad y se ejecuta con retroalimentaci\'{o}n por TTS.}
+    \label{fig:command-flow}
+\end{figure}
+
+\subsection{Capa de Seguridad}
+\label{subsec:safety}
+
+Central al dise\~{n}o HCAI de BOTAS es una capa de seguridad determinista que analiza los comandos generados \emph{antes} de su ejecuci\'{o}n. Esta capa detecta cuatro categor\'{i}as de operaciones potencialmente peligrosas:
+
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item \textbf{Operaciones destructivas:} Eliminaci\'{o}n recursiva (\texttt{rm -r}, \texttt{rm -rf}), formateo de disco (\texttt{mkfs}), sobrescritura de datos.
+    \item \textbf{Escalamiento de privilegios:} Uso de \texttt{sudo} o comandos que requieren acceso root.
+    \item \textbf{Modificaciones del sistema:} Cambios a archivos de configuraci\'{o}n del sistema o servicios.
+    \item \textbf{Cambios de permisos:} Operaciones potencialmente bloqueantes como \texttt{chmod 000}.
+\end{itemize}
+
+La detecci\'{o}n se implementa mediante expresiones regulares y reglas heur\'{i}sticas deterministas---\emph{no} mediante inferencia del LLM---garantizando comportamiento consistente, auditable e independiente de la variabilidad del modelo \citep{Amodei2016}. Cuando se detecta una operaci\'{o}n peligrosa, BOTAS requiere confirmaci\'{o}n expl\'{i}cita mediante un di\'{a}logo modal (Figura~\ref{fig:confirmacion}) o advertencia TTS con explicaci\'{o}n de riesgos. Adicionalmente, \texttt{FileManager.pm} implementa sandboxing validando rutas contra directorios permitidos configurables---un dise\~{n}o de defensa en profundidad.
+
+\subsection{Detecci\'{o}n de Distribuci\'{o}n}
+\label{subsec:distro-detect}
+
+La fragmentaci\'{o}n de GNU/Linux en familias de distribuciones es una fuente conocida de confusi\'{o}n para los usuarios. Un comando que instala software en Ubuntu (\texttt{apt install foo}) falla en Fedora (\texttt{dnf install foo}) y en Arch (\texttt{pacman -S foo}). BOTAS aborda este problema mediante \texttt{DistroDetector.pm}, que:
+
+\begin{enumerate}[noitemsep,topsep=0pt]
+    \item Analiza \texttt{/etc/os-release} para identificar la distribuci\'{o}n exacta y su versi\'{o}n, incluyendo campos \texttt{ID} e \texttt{ID\_LIKE}.
+    \item Mapea el identificador de distribuci\'{o}n a una de seis familias: \textit{debian} (Ubuntu, Mint, Pop!\_OS, Kali, MX, incluyendo variantes identificadas por \texttt{ID\_LIKE}), \textit{fedora} (RHEL, CentOS, Rocky, Alma, Nobara), \textit{arch} (Manjaro, EndeavourOS, Garuda), \textit{suse} (openSUSE, SLES), \textit{alpine} y \textit{void}.
+    \item En caso de que \texttt{/etc/os-release} no est\'{e} disponible, recurre a la detecci\'{o}n por la presencia de gestores de paquetes conocidos.
+    \item Proporciona una tabla de traducci\'{o}n de paquetes que mapea nombres gen\'{e}ricos (estilo Debian) a sus equivalentes espec\'{i}ficos por familia---por ejemplo, \texttt{libgtk3-perl} en Debian se traduce como \texttt{perl-Gtk3} en Fedora y \texttt{perl-gtk3} en Arch.
+    \item Genera los comandos correctos de \texttt{install\_command()} y \texttt{update\_command()} para la familia detectada.
+\end{enumerate}
+
+La familia detectada se inyecta tanto en el prompt de sistema de GPT-4o como en los manejadores del detector local de intenciones, asegurando que todos los comandos generados sean apropiados para el sistema del usuario. La informaci\'{o}n se almacena en cach\'{e} est\'{a}tica para evitar lecturas redundantes del sistema de archivos.
+
+\subsection{Pipeline de Voz, Retroalimentaci\'{o}n de Estado y Salida Educativa}
+\label{subsec:voice}
+
+BOTAS soporta operaci\'{o}n manos libres mediante: (1)~detecci\'{o}n fuera de l\'{i}nea de palabra de activaci\'{o}n con Vosk \citep{Alphacep2023} (latencia $<$200\,ms); (2)~ventana de atenci\'{o}n de 30\,s; (3)~transcripci\'{o}n v\'{i}a Whisper \citep{Radford2022} (1--3\,s); (4)~procesamiento id\'{e}ntico al de entrada tipeada; y (5)~s\'{i}ntesis de voz v\'{i}a OpenAI TTS. Vosk opera fuera de l\'{i}nea; la conexi\'{o}n a la nube se activa solo durante la ventana de atenci\'{o}n, equilibrando rendimiento con privacidad. La Figura~\ref{fig:attention-flow} detalla el flujo completo del Modo Atenci\'{o}n.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imgs/attention_mode_flow_en.png}
+    \caption{Flujo del Modo Atenci\'{o}n. El detector de palabra de activaci\'{o}n opera continuamente fuera de l\'{i}nea; al activarse, BOTAS graba, transcribe, procesa y responde v\'{i}a TTS antes de retornar al modo de espera.}
+    \label{fig:attention-flow}
+\end{figure}
+
+Atendiendo el hallazgo de \citet{Luger2016} sobre la frustraci\'{o}n por falta de retroalimentaci\'{o}n de estado, la GUI GTK3 incluye un indicador visual de cuatro estados---gris/inactivo, azul/escuchando, rojo/grabando, naranja/procesando---con soporte de temas claro/oscuro v\'{i}a CSS (Cascading Style Sheets).
+
+Para promover el aprendizaje en lugar de la dependencia \citep{Shneiderman2022}, cada comando ejecutado se acompa\~{n}a de: (1)~un resumen de intenci\'{o}n en lenguaje llano y (2)~una evaluaci\'{o}n de riesgo para operaciones marcadas. Un tercer componente---desgloses detallados bandera por bandera---se encuentra parcialmente implementado y constituye trabajo futuro activo (\S\ref{subsec:future-work}). Todas las interacciones se registran en \texttt{logs/request\_history.log} para auditor\'{i}a y potencial afinamiento del modelo. El empaquetado se ofrece mediante script instalador universal, paquete \texttt{.deb} y paquete \texttt{.rpm}.
+
+
+% ══════════════════════════════════════════════════════════════
+\section{Evaluaci\'{o}n Experimental}
+\label{sec:evaluation}
+% ══════════════════════════════════════════════════════════════
+
+Evaluamos BOTAS a lo largo de cinco dimensiones: precisi\'{o}n en la generaci\'{o}n de comandos, confiabilidad en la detecci\'{o}n de seguridad, eficiencia en la completaci\'{o}n de tareas, cobertura de la detecci\'{o}n local de intenciones y retroalimentaci\'{o}n cualitativa de los usuarios.
+
+\subsection{Metodolog\'{i}a de Evaluaci\'{o}n}
+\label{subsec:eval-methodology}
+
+Nuestra evaluaci\'{o}n emple\'{o} un conjunto curado de 200 tareas representativas de administraci\'{o}n de GNU/Linux distribuidas en cinco dominios de intenci\'{o}n. Cada tarea fue especificada como una solicitud en lenguaje natural en espa\~{n}ol. Para cada tarea medimos:
+
+\begin{itemize}[noitemsep,topsep=0pt]
+    \item \textbf{Validez sint\'{a}ctica:} Si el comando generado se analiza sin errores.
+    \item \textbf{Correcci\'{o}n sem\'{a}ntica:} Si el comando cumple la tarea pretendida en un sistema de prueba.
+    \item \textbf{Detecci\'{o}n de seguridad:} Para tareas que involucran operaciones peligrosas, si se generaron las advertencias apropiadas.
+    \item \textbf{Comparaci\'{o}n temporal:} Tiempo de completaci\'{o}n v\'{i}a BOTAS versus construcci\'{o}n manual por un usuario de nivel intermedio.
+\end{itemize}
+
+\textbf{Nota metodol\'{o}gica.} Las 200 tareas fueron compiladas y verificadas manualmente por el desarrollador principal---restricci\'{o}n que reconocemos como fuente potencial de sesgo de confirmaci\'{o}n, dado que el sistema puede estar inadvertidamente sintonizado al fraseo o tipos de tarea que el desarrollador consider\'{o} m\'{a}s relevantes. Reportamos esta limitaci\'{o}n de forma prominente porque la transparencia metodol\'{o}gica es un valor central de este trabajo. Todas las pruebas se condujeron en Ubuntu 22.04 LTS con GPT-4o accedido a trav\'{e}s de la API de OpenAI (versi\'{o}n de modelo \texttt{gpt-4o-2024-05-13}).
+
+\subsection{Precisi\'{o}n en la Generaci\'{o}n de Comandos}
+\label{subsec:results-accuracy}
+
+BOTAS alcanz\'{o} 89\,\% de precisi\'{o}n general en la generaci\'{o}n de comandos correctos (Tabla~\ref{tab:accuracy}). Los comandos de redes arrojaron la mayor precisi\'{o}n (94\,\%), mientras que los comandos de permisos presentaron el mayor desaf\'{i}o (83\,\%).
+
+\begin{table}[H]
+    \centering
+    \caption{Precisi\'{o}n en la generaci\'{o}n de comandos por categor\'{i}a}
+    \label{tab:accuracy}
+    \begin{tabular}{@{}lcccc@{}}
+        \toprule
+        \textbf{Categor\'{i}a} & \textbf{Tareas} & \textbf{V\'{a}lidos} & \textbf{Correctos} & \textbf{Precisi\'{o}n} \\
+        \midrule
+        Gesti\'{o}n de archivos        & 50 & 48 & 45 & 90\,\% \\
+        Informaci\'{o}n del sistema    & 45 & 42 & 40 & 89\,\% \\
+        Control de procesos        & 40 & 37 & 35 & 88\,\% \\
+        Redes                      & 35 & 34 & 33 & 94\,\% \\
+        Permisos                   & 30 & 27 & 25 & 83\,\% \\
+        \midrule
+        \textbf{Total}             & \textbf{200} & \textbf{188} & \textbf{178} & \textbf{89\,\%} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+El an\'{a}lisis de errores revel\'{o} tres modos de fallo primarios, categorizados expl\'{i}citamente para responder a llamados de mayor rigor metodol\'{o}gico: (a)~\textit{errores de interpretaci\'{o}n del LLM}: fraseo ambiguo del usuario que no activ\'{o} la acci\'{o}n \texttt{clarify} (6\,\% de los errores)---aunque el sistema puede solicitar par\'{a}metros faltantes como rutas o nombres de archivo, formulaciones altamente ambiguas a\'{u}n pueden evadir este mecanismo; (b)~\textit{errores de generaci\'{o}n de comandos}: comandos multi-pipe complejos donde una etapa ten\'{i}a banderas incorrectas (3\,\%); (c)~\textit{discrepancias de ejecuci\'{o}n}: comandos espec\'{i}ficos de distribuci\'{o}n no disponibles en el sistema de prueba (2\,\%).
+
+Ning\'{u}n error fue atribuible a fallos de transcripci\'{o}n de Whisper en las pruebas funcionales, lo cual se explica porque el conjunto de evaluaci\'{o}n utiliz\'{o} entrada de texto directa para aislar la precisi\'{o}n del an\'{a}lisis de comandos de la variabilidad del reconocimiento de voz.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imgs/confirmacion.png}
+    \caption{Di\'{a}logo de confirmaci\'{o}n de seguridad (mostrado en espa\~{n}ol nativo). (A)~Descripci\'{o}n de la operaci\'{o}n; (B)~indicador de advertencia; (C)~botones Cancelar/Ejecutar.}
+    \label{fig:confirmacion}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imgs/Resultado.png}
+    \caption{Resultado de b\'{u}squeda (mostrado en espa\~{n}ol nativo). (A)~Archivos con rutas y tama\~{n}os; (B)~registro de actividad; (C)~contador de elementos.}
+    \label{fig:search-results}
+\end{figure}
+
+\subsection{Detecci\'{o}n de Seguridad}
+\label{subsec:results-safety}
+
+La capa de seguridad determinista alcanz\'{o} 100\,\% de detecci\'{o}n en los 43 casos de prueba que involucran operaciones potencialmente peligrosas (Tabla~\ref{tab:safety}).
+
+\begin{table}[H]
+    \centering
+    \caption{Rendimiento de la detecci\'{o}n de seguridad}
+    \label{tab:safety}
+    \begin{tabular}{@{}lccc@{}}
+        \toprule
+        \textbf{Escenario} & \textbf{Total} & \textbf{Detectados} & \textbf{Tasa} \\
+        \midrule
+        Operaciones destructivas (\texttt{rm -r})       & 15 & 15 & 100\,\% \\
+        Escalamiento de privilegios (\texttt{sudo})      & 12 & 12 & 100\,\% \\
+        Modificaciones del sistema (\texttt{mkfs})       &  8 &  8 & 100\,\% \\
+        Cambios de permisos (\texttt{chmod 000})         &  8 &  8 & 100\,\% \\
+        \midrule
+        \textbf{Total}                                   & \textbf{43} & \textbf{43} & \textbf{100\,\%} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+La tasa del 100\,\% refleja la naturaleza determinista de la capa de seguridad: los patrones peligrosos se detectan mediante expresiones regulares y reglas heur\'{i}sticas que no dependen de la variabilidad de la salida del modelo. Reconocemos que esta capa detecta categor\'{i}as \emph{conocidas} de operaciones peligrosas; no puede anticipar vectores de ataque novedosos ni evaluar peligrosidad dependiente de contexto.
+
+\subsection{Eficiencia en la Completaci\'{o}n de Tareas}
+\label{subsec:results-efficiency}
+
+Comparado con la construcci\'{o}n manual de comandos por un usuario de GNU/Linux de nivel intermedio---familiarizado con comandos b\'{a}sicos pero que necesita consultar documentaci\'{o}n para operaciones complejas---BOTAS proporcion\'{o} una aceleraci\'{o}n promedio de 9.4$\times$. A trav\'{e}s de cuatro tipos de tarea representativos (b\'{u}squeda de archivos, consultas de uso de disco, gesti\'{o}n de procesos y cambios de permisos), el enfoque manual promedi\'{o} 6\,min\,54\,s por tarea, mientras que BOTAS complet\'{o} las mismas tareas en un promedio de 46\,s. Las aceleraciones oscilaron entre 6.9$\times$ para cambios de permisos---que requieren especificar modos num\'{e}ricos---y 10.7$\times$ para consultas de disco resueltas localmente sin llamada al LLM.
+
+\subsection{Cobertura de la Detecci\'{o}n Local de Intenciones}
+\label{subsec:results-local}
+
+De las 200 tareas, 58 (29\,\%) fueron resolubles por el detector local sin una llamada al LLM, alcanzando 100\,\% de precisi\'{o}n dado que los manejadores producen salida determinista. Las 142 tareas dependientes del LLM mostraron 85\,\% de precisi\'{o}n, confirmando que las tareas m\'{a}s dif\'{i}ciles se delegan apropiadamente a GPT-4o.
+
+\subsection{Estudio Piloto con Usuarios}
+\label{subsec:results-usability}
+
+Un estudio piloto con tres usuarios novatos en GNU/Linux---muestra que reconocemos insuficiente para generalizaci\'{o}n estad\'{i}stica---aport\'{o} hallazgos cualitativos que orientaron iteraciones de dise\~{n}o. Los participantes valoraron la ejecuci\'{o}n v\'{i}a lenguaje natural, las explicaciones educativas (calificadas con 4.4/5.0) y la retroalimentaci\'{o}n visual de seguridad. La retroalimentaci\'{o}n constructiva identific\'{o} confusi\'{o}n con la sintaxis verbal (lo cual motiv\'{o} la implementaci\'{o}n de la acci\'{o}n \texttt{clarify}), frustraci\'{o}n ante confirmaciones de seguridad excesivas y dificultad con mensajes de error. La transcripci\'{o}n por Whisper promedi\'{o} 1--3\,s; la detecci\'{o}n de palabra de activaci\'{o}n por Vosk respondi\'{o} en menos de 200\,ms; el ciclo completo voz-a-respuesta promedi\'{o} 4--8\,s (LLM) y 1--2\,s (local).
+
+
+% ══════════════════════════════════════════════════════════════
+\section{Discusi\'{o}n}
+\label{sec:discussion}
+% ══════════════════════════════════════════════════════════════
+
+\subsection{Implicaciones de Accesibilidad y Costo}
+\label{subsec:implications}
+
+La aceleraci\'{o}n de 9.4$\times$ beneficia contextos educativos---donde estudiantes pueden concentrarse en conceptos en lugar de sintaxis \citep{Norman2013}---y profesionales no t\'{e}cnicos. El soporte multidistribuci\'{o}n implica que un usuario migrando de Ubuntu a Fedora no necesita reaprender comandos. Desde la perspectiva latinoamericana, una herramienta gratuita que acepta espa\~{n}ol reduce simult\'{a}neamente barreras ling\"{u}\'{i}sticas, econ\'{o}micas y t\'{e}cnicas \citep{CEPAL2023, Warschauer2004}. A precios actuales de GPT-4o, 50 solicitudes diarias cuestan $\sim$\$4.50/mes; el detector local reduce esto en $\sim$30\,\% eliminando 500--1\,500\,ms de latencia. Investigamos la viabilidad de un modelo local (DeepSeek-R1-0528-Distill-8b) \citep{DeepSeek2025} para eliminar completamente la dependencia de la nube.
+
+\subsection{Limitaciones}
+\label{subsec:limitations}
+
+\begin{enumerate}[noitemsep,topsep=0pt]
+    \item \textbf{Estudio piloto preliminar:} El piloto con tres participantes es insuficiente para validaci\'{o}n estad\'{i}stica; un estudio formal con muestra ampliada siguiendo ISO 9241-210 \citep{ISO9241} es necesario.
+    \item \textbf{Solicitudes compuestas y altamente ambiguas:} Cuando falta un par\'{a}metro requerido---como un directorio destino, nombre de archivo o desambiguaci\'{o}n entre archivos con nombre id\'{e}ntico---el sistema dispara una acci\'{o}n \texttt{clarify} que presenta una pregunta de seguimiento al usuario antes de proceder. Sin embargo, este mecanismo de turno \'{u}nico no cubre todos los escenarios de ambig\"{u}edad: formulaciones muy vagas (ej., ``borra los grandes'') a\'{u}n pueden evadir la clarificaci\'{o}n y producir un comando incorrecto o fallo silencioso. Adem\'{a}s, solicitudes compuestas que encadenan m\'{u}ltiples operaciones en una sola expresi\'{o}n (ej., ``busca archivos grandes, mu\'{e}velos al respaldo y comprime la carpeta'') no se descomponen en pasos at\'{o}micos verificables, ya que la arquitectura procesa una acci\'{o}n por entrada de usuario. Ambas limitaciones fueron observadas durante las pruebas piloto. Extender la clarificaci\'{o}n a di\'{a}logos multiturnos e implementar descomposici\'{o}n secuencial de comandos son prioridades del trabajo futuro.
+    \item \textbf{Pruebas en una sola distribuci\'{o}n:} Las pruebas sistem\'{a}ticas se condujeron \'{u}nicamente en Ubuntu 22.04 pese a soportar seis familias.
+    \item \textbf{Sesgo del evaluador:} Las 200 tareas fueron compiladas por el desarrollador, con potencial sesgo de confirmaci\'{o}n inherente.
+    \item \textbf{Sin l\'{i}neas base comparativas:} No se incluy\'{o} una comparaci\'{o}n cuantitativa contra otros marcos de comandos por voz.
+\end{enumerate}
+
+\subsection{Trabajo Futuro}
+\label{subsec:future-work}
+
+Las mejoras planificadas incluyen: (a)~expansi\'{o}n de la detecci\'{o}n local de intenciones mediante an\'{a}lisis de registros de interacci\'{o}n; (b)~extensi\'{o}n del mecanismo existente de clarificaci\'{o}n de turno \'{u}nico (\texttt{clarify}) hacia di\'{a}logos multiturnos y descomposici\'{o}n secuencial de comandos para solicitudes compuestas; (c)~un estudio formal con una muestra m\'{a}s amplia de participantes; (d)~investigaci\'{o}n de LLMs locales para operaci\'{o}n completamente fuera de l\'{i}nea \citep{DeepSeek2025}; (e)~comparaci\'{o}n cuantitativa contra l\'{i}neas base (ShellGPT, NL2Bash); (f)~completar y robustecer el componente de explicaciones educativas detalladas (desgloses bandera por bandera) parcialmente implementado; y (g)~liberaci\'{o}n como software libre.
+
+
+% ══════════════════════════════════════════════════════════════
+\section{Conclusiones}
+\label{sec:conclusion}
+% ══════════════════════════════════════════════════════════════
+
+Hemos presentado BOTAS, una interfaz conversacional para la gesti\'{o}n de sistemas GNU/Linux que encarna los principios de la Inteligencia Artificial Centrada en el Humano. Al traducir lenguaje natural a comandos de terminal validados, BOTAS alcanza 89\,\% de precisi\'{o}n en generaci\'{o}n de comandos, 100\,\% de detecci\'{o}n de seguridad y una aceleraci\'{o}n de 9.4$\times$ en completaci\'{o}n de tareas respecto a m\'{e}todos manuales.
+
+Las contribuciones clave m\'{a}s all\'{a} de la versi\'{o}n sometida a revisi\'{o}n ciega incluyen: un m\'{o}dulo de detecci\'{o}n local de intenciones que reduce la dependencia del LLM en aproximadamente 30\,\%; detecci\'{o}n autom\'{a}tica de distribuci\'{o}n que habilita portabilidad multiplataforma en seis familias de GNU/Linux; un indicador visual de estado que mejora la experiencia de interacci\'{o}n por voz; registro estructurado de solicitudes para auditor\'{i}a; e infraestructura de empaquetado para instalaci\'{o}n sin fricciones v\'{i}a paquetes \texttt{.deb} y \texttt{.rpm}.
+
+BOTAS demuestra que los modelos de lenguaje de gran escala pueden democratizar el acceso a herramientas computacionales potentes cuando se dise\~{n}an con mecanismos de seguridad apropiados, componentes educativos y atenci\'{o}n a comunidades desatendidas. El objetivo no es hacer la tecnolog\'{i}a m\'{a}s simple, sino m\'{a}s accesible---y en ese proceso, m\'{a}s humana. Planeamos liberar el sistema como software libre y conducir un estudio formal con usuarios para validar su efectividad educativa.
+
+
+% ══════════════════════════════════════════════════════════════
+% REFERENCIAS (9 pt, APA, alfabéticas, sangría francesa 0.5 cm)
+% ══════════════════════════════════════════════════════════════
+{
+\fontsize{9}{10.8}\selectfont
+\setlength{\bibhang}{0.5cm}
+\setlength{\bibsep}{2pt}
+\bibliography{references}
+}
+
+\end{document}
