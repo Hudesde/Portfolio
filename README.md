@@ -18,9 +18,9 @@ Portfolio of Jose Ramon Aragon Toledo, Computer Engineering graduate from Univer
 | `proyectos/` | One page per project: `lima.html`, `diagnostico-oncologico.html`, `chatbots-ia.html`, `chatbot-facturacion.html` |
 | `investigacion/` | One page per research item: `tesis-lima.html`, `botas-iadis-2026.html`, `clihc-2026.html` |
 | `reconocimientos/` | `hackathon-clihc-2026.html` |
-| `assets/css/site.css` | Shared styles for every page |
-| `assets/js/site.js` | Shared script: ES/EN language switch, nav, carousel, lightbox, citation copy, contact form |
-| `assets/img/` | Web-optimized photos and PDF previews |
+| `assets/css/site.css` | Shared styles for every page, including the icon set (Lucide, as CSS masks) and the visual layer: animated hero backgrounds, card hover light, page transitions |
+| `assets/js/site.js` | Shared script: ES/EN language switch, nav, carousel, lightbox, citation copy, contact form, hero network canvas, LIMA terminal replay, metric counters |
+| `assets/img/` | Web-optimized photos, PDF previews and `favicon.svg` |
 | `Novedades/` | Thesis PDF, professional exam certificate, IADIS certificate, event photos and video |
 | `foto.jpg` | Profile photo |
 | `hackathon-clihc-2026.jpg` | 1st place photo — Hackathon CLIHC 2026 |

@@ -1,4 +1,4 @@
-// ═══ Shared script: i18n · nav · reveal · carousel · lightbox · citations · contact ═══
+// ═══ Shared script: i18n · nav · reveal · carousel · lightbox · citations · contact · visual effects ═══
 // Each page may define window.PAGE_I18N = { es: {...}, en: {...} } before loading this file.
 // Spanish text lives in the HTML; a key missing from the dictionary falls back to it.
 (() => {
@@ -61,20 +61,20 @@ const COMMON = {
     'crumb.home': `Home`,
     'crumb.projects': `Projects`,
     'crumb.pubs': `Publications`,
-    'rel.title': `🔗 Related`,
+    'rel.title': `<i class="ic ic-link"></i> Related`,
     'rel.project': `Project`,
     'rel.thesis': `Thesis`,
     'rel.paper': `Paper`,
     'rel.award': `Award`,
     'info.title': `Fact sheet`,
     'info.links': `Links`,
-    'cite.title': `❝ How to cite`,
-    'cite.copy': `📋 Copy citation`,
-    'cite.copied': `✓ Copied`,
-    'cite.bib': `📋 Copy BibTeX`,
+    'cite.title': `<i class="ic ic-quote"></i> How to cite`,
+    'cite.copy': `<i class="ic ic-copy"></i> Copy citation`,
+    'cite.copied': `<i class="ic ic-check"></i> Copied`,
+    'cite.bib': `<i class="ic ic-copy"></i> Copy BibTeX`,
     'cite.bibshow': `Show BibTeX`,
     'doc.view': `View PDF`,
-    'doc.read': `📖 Read`,
+    'doc.read': `<i class="ic ic-book"></i> Read`,
     'doc.dl': `Download`,
     'fab': `Contact me`,
     'cm.avail': `Open to new opportunities`,
@@ -482,13 +482,224 @@ function initNav() {
 }
 
 // ═══ REVEAL ═══
+// Elements that enter the viewport together fade in one after another.
 function initReveal() {
   const els = document.querySelectorAll('.reveal');
   if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('visible')); return; }
   const ro = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+    let k = 0;
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, delay = Math.min(k++, 6) * 80;
+      if (delay) {
+        el.style.transitionDelay = delay + 'ms';
+        setTimeout(() => { el.style.transitionDelay = ''; }, delay + 700);
+      }
+      el.classList.add('visible');
+      ro.unobserve(el);
+    });
   }, { threshold: 0.1 });
   els.forEach(el => ro.observe(el));
+}
+
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// ═══ AMBIENT BACKGROUND (hero + detail headers) ═══
+function initFx() {
+  document.querySelectorAll('#inicio, .page-hero').forEach(host => {
+    const fx = document.createElement('div');
+    fx.className = 'fx';
+    fx.setAttribute('aria-hidden', 'true');
+    fx.innerHTML = '<i class="fx-blob fx-b1"></i><i class="fx-blob fx-b2"></i><i class="fx-blob fx-b3"></i><i class="fx-blob fx-b4"></i><i class="fx-grid"></i>';
+    host.prepend(fx);
+    if (host.id === 'inicio') initNet(host, fx);
+    fx.insertAdjacentHTML('beforeend', '<i class="fx-grain"></i>');
+  });
+}
+
+// Neural-network canvas behind the hero: drifting nodes linked by proximity,
+// plus links to the pointer. Paused off-screen and in background tabs.
+function initNet(host, fx) {
+  const cv = document.createElement('canvas');
+  cv.className = 'fx-net';
+  fx.appendChild(cv);
+  fx.insertAdjacentHTML('beforeend', '<i class="fx-veil"></i>');
+  const ctx = cv.getContext('2d');
+  if (!ctx) return;
+  const LINK = 130, REACH = 170;
+  const mouse = { x: -1e4, y: -1e4 };
+  let w = 0, h = 0, pts = [], raf = 0, inView = true;
+
+  const spawn = () => ({
+    x: Math.random() * w, y: Math.random() * h,
+    vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
+    r: Math.random() * 1.3 + 0.7,
+  });
+  // Existing nodes are rescaled, not re-seeded, so height changes (e.g. the badge
+  // wrapping to two lines on phones) don't make the network jump.
+  function size() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2), ow = w, oh = h;
+    w = host.clientWidth; h = host.clientHeight;
+    cv.width = w * dpr; cv.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (ow && oh) for (const p of pts) { p.x *= w / ow; p.y *= h / oh; }
+    const n = Math.round(Math.min(85, Math.max(24, w * h / 15000)));
+    while (pts.length < n) pts.push(spawn());
+    pts.length = n;
+  }
+  function line(a, b, color) {
+    ctx.strokeStyle = color;
+    ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+  }
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.lineWidth = 1;
+    for (let i = 0; i < pts.length; i++) {
+      const a = pts[i];
+      for (let j = i + 1; j < pts.length; j++) {
+        const b = pts[j], dx = a.x - b.x, dy = a.y - b.y, d2 = dx * dx + dy * dy;
+        if (d2 < LINK * LINK) line(a, b, `rgba(147,197,253,${(1 - Math.sqrt(d2) / LINK) * 0.28})`);
+      }
+      const dm = Math.hypot(a.x - mouse.x, a.y - mouse.y);
+      if (dm < REACH) line(a, mouse, `rgba(252,211,77,${(1 - dm / REACH) * 0.45})`);
+    }
+    ctx.fillStyle = 'rgba(191,219,254,.8)';
+    for (const p of pts) { ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill(); }
+  }
+  function step() {
+    for (const p of pts) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > w) p.vx *= -1;
+      if (p.y < 0 || p.y > h) p.vy *= -1;
+    }
+    draw();
+    raf = requestAnimationFrame(step);
+  }
+  function sync() {
+    const run = inView && !document.hidden && !REDUCED;
+    if (run && !raf) raf = requestAnimationFrame(step);
+    if (!run && raf) { cancelAnimationFrame(raf); raf = 0; }
+  }
+
+  size(); draw();
+  if ('ResizeObserver' in window) new ResizeObserver(() => { size(); draw(); }).observe(host);
+  if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => { inView = e.isIntersecting; sync(); }).observe(host);
+  document.addEventListener('visibilitychange', sync);
+  host.addEventListener('pointermove', e => {
+    const r = host.getBoundingClientRect();
+    mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
+  }, { passive: true });
+  host.addEventListener('pointerleave', () => { mouse.x = mouse.y = -1e4; });
+  sync();
+}
+
+// ═══ CARDS: pointer-following light (mouse/trackpad only) ═══
+function initSpotlight() {
+  if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  document.querySelectorAll('.proj-card, .pub-card, .tl-card, .sk-group, .cert-card, .kpi, .mod, .rel-card, .doc-card, .contact-link')
+    .forEach(el => el.classList.add('spot'));
+  document.addEventListener('pointermove', e => {
+    const el = e.target.closest && e.target.closest('.spot');
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty('--mx', `${e.clientX - r.left}px`);
+    el.style.setProperty('--my', `${e.clientY - r.top}px`);
+  }, { passive: true });
+}
+
+// ═══ COUNTERS: metrics count up when they scroll into view ═══
+// Animates the first number in the element's leading text node ("89", "×2.8", "83.9").
+function initCounters() {
+  if (REDUCED || !('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    io.unobserve(e.target);
+    const { node, pre, to, dec, post } = e.target._count;
+    const t0 = performance.now(), dur = 1400;
+    const tick = now => {
+      const p = Math.min(1, (now - t0) / dur);
+      node.nodeValue = pre + (to * (1 - Math.pow(1 - p, 3))).toFixed(dec) + post;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }), { threshold: 0.6 });
+
+  document.querySelectorAll('.stat .n, .m-val, .kpi .v').forEach(el => {
+    const node = [...el.childNodes].find(n => n.nodeType === 3 && /\d/.test(n.nodeValue));
+    const m = node && node.nodeValue.match(/^(\D*?)(\d+(?:\.\d+)?)([\s\S]*)$/);
+    if (!m) return;
+    const dec = (m[2].split('.')[1] || '').length;
+    el._count = { node, pre: m[1], to: parseFloat(m[2]), dec, post: m[3] };
+    node.nodeValue = m[1] + (0).toFixed(dec) + m[3];
+    io.observe(el);
+  });
+}
+
+// ═══ LIMA BANNER: replays a real session log line by line ═══
+function initLimaTerm() {
+  const body = document.querySelector('[data-lima-term]');
+  if (!body || REDUCED || !('IntersectionObserver' in window)) return;
+  const lines = [...body.children];
+  const typed = body.querySelector('[data-type]');
+  const text = typed.textContent;
+  const caret = document.createElement('span');
+  caret.className = 'caret';
+  let inView = false, wake = null;
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  // Resolves once the terminal is on screen and the tab is visible
+  const ready = () => (inView && !document.hidden) ? Promise.resolve() : new Promise(r => { wake = r; });
+  const sync = () => { if (wake && inView && !document.hidden) { wake(); wake = null; } };
+  new IntersectionObserver(([e]) => { inView = e.isIntersecting; sync(); }, { threshold: 0.3 }).observe(body);
+  document.addEventListener('visibilitychange', sync);
+  body.classList.add('is-anim');
+
+  (async () => {
+    for (;;) {
+      lines.forEach(l => l.classList.remove('on'));
+      typed.textContent = '';
+      body.classList.remove('fade');
+      for (const l of lines) {
+        await ready();
+        l.classList.add('on');
+        l.appendChild(caret);
+        if (l.hasAttribute('data-listen')) {
+          body.classList.add('listening');
+          await sleep(1800);
+          body.classList.remove('listening');
+          continue;
+        }
+        if (l.contains(typed)) {
+          for (let i = 1; i <= text.length; i++) { typed.textContent = text.slice(0, i); await sleep(32); }
+        }
+        await sleep(700);
+      }
+      await sleep(3800);
+      body.classList.add('fade');
+      await sleep(600);
+    }
+  })();
+}
+
+// ═══ PAGE TRANSITIONS ═══
+// Cards and detail headers share a view-transition-name so one morphs into the other.
+// Names of elements that are off screen are dropped for the transition, so nothing
+// flies in from outside the viewport.
+function initPageTransitions() {
+  if (!window.CSSViewTransitionRule) return;
+  const named = [...document.querySelectorAll('[style*="view-transition-name:vt-"]')];
+  named.forEach(el => { el.dataset.vt = el.style.viewTransitionName; });
+  const dropOffscreen = () => named.forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > innerHeight) el.style.viewTransitionName = 'none';
+  });
+  const restore = () => named.forEach(el => { el.style.viewTransitionName = el.dataset.vt; });
+  addEventListener('pageswap', e => { if (e.viewTransition) dropOffscreen(); });
+  addEventListener('pagereveal', e => {
+    if (!e.viewTransition) return;
+    dropOffscreen();
+    e.viewTransition.finished.finally(restore);
+  });
+  addEventListener('pageshow', restore);
 }
 
 // ═══ INIT ═══
@@ -496,12 +707,17 @@ buildContact();
 buildLightbox();
 document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
 applyLang(lang);
+initFx();
 initNav();
 initReveal();
 initContact();
 initZoom();
 document.querySelectorAll('[data-carousel]').forEach(initCarousel);
 initCopy();
+initSpotlight();
+initCounters();
+initLimaTerm();
+initPageTransitions();
 
 window.site = { t, applyLang, get lang() { return lang; } };
 })();

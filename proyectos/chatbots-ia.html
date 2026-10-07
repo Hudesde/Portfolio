@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/site.css">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 </head>
 <body>
 
@@ -24,8 +25,8 @@
       <li><a href="../index.html#contacto" data-i18n="nav.contact">Contacto</a></li>
     </ul>
     <div class="lang-switch" role="group" aria-label="Language / Idioma">
-      <button class="lang-btn" data-lang="es" aria-label="Español"><span class="flag">🇲🇽</span>ES</button>
-      <button class="lang-btn" data-lang="en" aria-label="English"><span class="flag">🇺🇸</span>EN</button>
+      <button class="lang-btn" data-lang="es" aria-label="Español">ES</button>
+      <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Menú" data-i18n-attr="aria-label:nav.menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
@@ -34,18 +35,18 @@
 </nav>
 
 <!-- ═══ HEADER ═══ -->
-<header class="page-hero" style="background:linear-gradient(135deg,#172554 0%,#1e3a8a 55%,#3730a3 100%)">
+<header class="page-hero" style="background:linear-gradient(135deg,#172554 0%,#1e3a8a 55%,#3730a3 100%);view-transition-name:vt-chat">
   <div class="container">
     <div class="crumbs"><a href="../index.html" data-i18n="crumb.home">Inicio</a><span>/</span><a href="../index.html#proyectos" data-i18n="crumb.projects">Proyectos</a><span>/</span><span>CharlesTherapy &amp; Kuiti</span></div>
-    <span class="page-tag t-blue" data-i18n="ch.tag">💬 Chatbots IA · OpenAI API</span>
+    <span class="page-tag t-blue" data-i18n="ch.tag"><i class="ic ic-chat"></i> Chatbots IA · OpenAI API</span>
     <h1 data-i18n="ch.h1">Aplicaciones Conversacionales con IA</h1>
     <p class="page-lead" data-i18n="ch.lead">Dos aplicaciones conversacionales que desarrollé durante mi servicio social «Investigación en IA y LLMs» en la Universidad Tecnológica de la Mixteca.</p>
     <div class="page-meta">
-      <span class="chip" data-i18n="ch.c1">📅 Mar 2025 – Ene 2026</span>
-      <span class="chip">📍 Huajuapan de León, Oaxaca</span>
+      <span class="chip" data-i18n="ch.c1"><i class="ic ic-calendar"></i> Mar 2025 – Ene 2026</span>
+      <span class="chip"><i class="ic ic-pin"></i> Huajuapan de León, Oaxaca</span>
     </div>
     <div class="page-actions">
-      <a href="https://github.com/Hudesde/JRATSS" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="ch.a1">💻 Ver en GitHub ↗</a>
+      <a href="https://github.com/Hudesde/JRATSS" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="ch.a1"><i class="ic ic-github"></i> Ver en GitHub ↗</a>
     </div>
   </div>
 </header>
@@ -56,7 +57,7 @@
     <div class="detail-main">
 
       <div class="block">
-        <h2 class="block-title" data-i18n="ch.apps.title">🧠 Las aplicaciones</h2>
+        <h2 class="block-title" data-i18n="ch.apps.title"><i class="ic ic-brain"></i> Las aplicaciones</h2>
         <div class="mods">
           <div class="mod">
             <h3>CharlesTherapy</h3>
@@ -72,14 +73,14 @@
       </div>
 
       <div class="block">
-        <h2 class="block-title" data-i18n="ch.ctx.title">🏛 Contexto</h2>
+        <h2 class="block-title" data-i18n="ch.ctx.title"><i class="ic ic-landmark"></i> Contexto</h2>
         <div class="prose">
           <p data-i18n="ch.ctx.p">Ambas aplicaciones formaron parte de mi servicio social en investigación sobre IA y modelos de lenguaje. Durante ese periodo también elaboré un marco histórico y referencial de más de 4,000 líneas en LaTeX sobre la evolución de los LLM (GPT-4, Gemini, DeepSeek, Grok, transformers y Mixture of Experts), desarrollé la versión alfa de <a href="lima.html">LIMA/BOTAS</a> y documenté las arquitecturas con PlantUML.</p>
         </div>
       </div>
 
       <div class="block">
-        <h2 class="block-title" data-i18n="ch.stack.title">🛠 Tecnologías</h2>
+        <h2 class="block-title" data-i18n="ch.stack.title"><i class="ic ic-wrench"></i> Tecnologías</h2>
         <div class="tags">
           <span class="tag">Angular</span><span class="tag">Express</span><span class="tag">Node.js</span><span class="tag">MySQL</span>
           <span class="tag">OpenAI API</span><span class="tag">NLP</span><span class="tag">PlantUML</span><span class="tag">LaTeX</span>
@@ -100,8 +101,8 @@
       <div class="info-card">
         <h2 data-i18n="info.links">Enlaces</h2>
         <ul class="link-list">
-          <li><a href="https://github.com/Hudesde/JRATSS" target="_blank" rel="noopener">💻 <span data-i18n="ch.l1">Repositorio</span><span class="ext">↗</span></a></li>
-          <li><a href="lima.html">🤖 <span data-i18n="ch.l2">Proyecto LIMA</span></a></li>
+          <li><a href="https://github.com/Hudesde/JRATSS" target="_blank" rel="noopener"><i class="ic ic-github"></i> <span data-i18n="ch.l1">Repositorio</span><span class="ext">↗</span></a></li>
+          <li><a href="lima.html"><i class="ic ic-bot"></i> <span data-i18n="ch.l2">Proyecto LIMA</span></a></li>
         </ul>
       </div>
     </aside>
@@ -118,17 +119,17 @@ window.PAGE_I18N = {
   en: {
     "meta.title": `AI Conversational Applications | Jose Ramon Aragon Toledo`,
     "meta.desc": `CharlesTherapy and Kuiti: AI conversational applications built by Jose Ramon Aragon Toledo at the Universidad Tecnológica de la Mixteca.`,
-    "ch.tag": `💬 AI Chatbots · OpenAI API`,
+    "ch.tag": `<i class="ic ic-chat"></i> AI Chatbots · OpenAI API`,
     "ch.h1": `AI Conversational Applications`,
     "ch.lead": `Two conversational applications I built during my social service «Research in AI and LLMs» at the Universidad Tecnológica de la Mixteca.`,
-    "ch.c1": `📅 Mar 2025 – Jan 2026`,
-    "ch.a1": `💻 View on GitHub ↗`,
-    "ch.apps.title": `🧠 The applications`,
+    "ch.c1": `<i class="ic ic-calendar"></i> Mar 2025 – Jan 2026`,
+    "ch.a1": `<i class="ic ic-github"></i> View on GitHub ↗`,
+    "ch.apps.title": `<i class="ic ic-brain"></i> The applications`,
     "ch.a.d": `A conversational therapy platform with a Rogerian (person-centered) approach.`,
     "ch.b.d": `A UTM university chatbot using natural language processing on the OpenAI API.`,
-    "ch.ctx.title": `🏛 Context`,
+    "ch.ctx.title": `<i class="ic ic-landmark"></i> Context`,
     "ch.ctx.p": `Both applications were part of my social service in AI and language-model research. During that period I also wrote a historical and reference framework of more than 4,000 lines in LaTeX on the evolution of LLMs (GPT-4, Gemini, DeepSeek, Grok, transformers, and Mixture of Experts), developed the alpha version of <a href="lima.html">LIMA/BOTAS</a>, and documented the architectures with PlantUML.`,
-    "ch.stack.title": `🛠 Technologies`,
+    "ch.stack.title": `<i class="ic ic-wrench"></i> Technologies`,
     "ch.f1.k": `Context`,
     "ch.f1.v": `Social service · Universidad Tecnológica de la Mixteca`,
     "ch.f2.k": `Period`,

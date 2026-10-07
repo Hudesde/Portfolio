@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 </head>
 <body>
 
@@ -27,8 +28,8 @@
       <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
     </ul>
     <div class="lang-switch" role="group" aria-label="Language / Idioma">
-      <button class="lang-btn" data-lang="es" aria-label="Español"><span class="flag">🇲🇽</span>ES</button>
-      <button class="lang-btn" data-lang="en" aria-label="English"><span class="flag">🇺🇸</span>EN</button>
+      <button class="lang-btn" data-lang="es" aria-label="Español">ES</button>
+      <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Menú" data-i18n-attr="aria-label:nav.menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
@@ -39,16 +40,16 @@
 <!-- ═══ HERO ═══ -->
 <section id="inicio">
   <div class="hero-inner">
-    <div class="hero-badge" id="heroBadge">🏆 1.er Lugar · Hackathon CLIHC 2026</div>
-    <img src="foto.jpg" alt="Jose Ramon Aragon Toledo" class="hero-photo">
+    <div class="hero-badge" id="heroBadge"><i class="ic ic-trophy"></i> 1.er Lugar · Hackathon CLIHC 2026</div>
+    <div class="hero-photo-wrap"><img src="foto.jpg" alt="Jose Ramon Aragon Toledo" class="hero-photo"></div>
     <h1>Jose Ramon Aragon Toledo</h1>
     <p class="hero-title" data-i18n="hero.title">Ingeniero en Computación · IA Centrada en el Humano</p>
     <p class="hero-sub" data-i18n="hero.sub">Desarrollador de software e investigador. Creador de LIMA, asistente de voz para GNU/Linux presentado en conferencias internacionales.</p>
     <p class="avail"><span class="pulse" aria-hidden="true"></span><span data-i18n="hero.avail">Disponible para nuevas oportunidades laborales</span></p>
     <div class="hero-cta">
-      <a href="https://hudesde.github.io/LIMA-Web/" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="hero.cta1">🤖 Ver LIMA en Acción</a>
+      <a href="https://hudesde.github.io/LIMA-Web/" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="hero.cta1"><i class="ic ic-bot"></i> Ver LIMA en Acción</a>
       <a href="#proyectos" class="btn btn-outline" data-i18n="hero.cta2">Ver Proyectos</a>
-      <a href="#contacto" class="btn btn-outline" data-contact-open data-i18n="hero.cta3">✉ Contáctame</a>
+      <a href="#contacto" class="btn btn-outline" data-contact-open data-i18n="hero.cta3"><i class="ic ic-mail"></i> Contáctame</a>
     </div>
     <div class="hero-socials">
       <a href="https://github.com/Hudesde" target="_blank" rel="noopener" class="hero-social">
@@ -59,7 +60,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         LinkedIn
       </a>
-      <a href="mailto:aatr010423@gmail.com" class="hero-social">✉ aatr010423@gmail.com</a>
+      <a href="mailto:aatr010423@gmail.com" class="hero-social"><i class="ic ic-mail"></i> aatr010423@gmail.com</a>
     </div>
   </div>
   <div class="scroll-ind">
@@ -73,7 +74,7 @@
     <div class="about-grid">
       <div class="about-photo-wrap reveal">
         <img src="foto.jpg" alt="Jose Ramon Aragon Toledo" class="about-photo">
-        <div class="about-badge" data-i18n="about.badge">📍 Oaxaca, México</div>
+        <div class="about-badge" data-i18n="about.badge"><i class="ic ic-pin"></i> Oaxaca, México</div>
       </div>
       <div class="about-content reveal">
         <h2 data-i18n="about.title">Sobre mí</h2>
@@ -87,7 +88,7 @@
           <div class="stat"><div class="n">3<span>+</span></div><div class="l" data-i18n="about.stat4">Años exp.</div></div>
         </div>
         <div class="about-actions">
-          <a href="CV_JoseRamonAragonToledo.pdf" download class="btn-dark" data-i18n="about.cv">📄 Descargar CV</a>
+          <a href="CV_JoseRamonAragonToledo.pdf" download class="btn-dark" data-i18n="about.cv"><i class="ic ic-download"></i> Descargar CV</a>
           <a href="https://github.com/Hudesde" target="_blank" rel="noopener" class="btn-ghost" data-i18n="about.github">Ver GitHub →</a>
         </div>
       </div>
@@ -179,16 +180,27 @@
 
       <!-- FEATURED: LIMA -->
       <article class="proj-card feat reveal">
-        <div class="proj-banner">
-          <div style="text-align:center;position:relative;z-index:1">
+        <div class="proj-banner lima-banner" style="view-transition-name:vt-lima">
+          <div class="lima-brand">
             <div class="proj-logo">LI<span>MA</span></div>
             <div class="proj-logo-sub">Linux Intelligent Middleware Assistant</div>
           </div>
-          <div class="proj-banner-bg">🤖</div>
+          <!-- Replays a real LIMA session log (wake word → Whisper → GPT-4o → FileManager → TTS) -->
+          <div class="term" aria-hidden="true">
+            <div class="term-bar"><i></i><i></i><i></i><span>lima.pl</span></div>
+            <div class="term-body" data-lima-term>
+              <p class="t-dim">[WakeWord] Di 'LIMA' para activar.</p>
+              <p data-listen><span class="t-sys">[SYSTEM]</span> ¡Te escucho!<span class="wave"><b></b><b></b><b></b><b></b><b></b></span></p>
+              <p><span class="t-mic">[Whisper]</span> <span class="t-str" data-type>"Lista los archivos del escritorio"</span></p>
+              <p><span class="t-ai">[GPT-4o]</span> {<span class="t-key">"action"</span>: "list", <span class="t-key">"target_path"</span>: "~/Escritorio"}</p>
+              <p><span class="t-ok">[SUCCESS]</span> ✓ Encontrados 17 elementos</p>
+              <p><span class="t-tts">[TTS]</span> <span class="t-str">"Listando archivos del escritorio"</span></p>
+            </div>
+          </div>
         </div>
         <div class="proj-body">
           <div class="badges">
-            <span class="badge b-amber">🌍 IADIS 2026</span>
+            <span class="badge b-amber"><i class="ic ic-earth"></i> IADIS 2026</span>
             <span class="badge b-blue">CLIHC 2026</span>
             <span class="badge b-green" data-i18n="proj.lima.badge">Tesis</span>
             <span class="badge b-navy">HCAI</span>
@@ -205,9 +217,9 @@
             <span class="tag">Vosk</span><span class="tag">GTK3</span><span class="tag">GNU/Linux</span><span class="tag">NLP</span><span class="tag">TTS</span>
           </div>
           <div class="proj-links">
-            <a href="https://hudesde.github.io/LIMA-Web/" target="_blank" rel="noopener" class="pl pl-p" data-i18n="proj.lima.demo">🌐 Sitio web de LIMA</a>
+            <a href="https://hudesde.github.io/LIMA-Web/" target="_blank" rel="noopener" class="pl pl-p" data-i18n="proj.lima.demo"><i class="ic ic-globe"></i> Sitio web de LIMA</a>
             <a href="https://github.com/Hudesde/LIMA-DEMO" target="_blank" rel="noopener" class="pl pl-g">GitHub</a>
-            <a href="investigacion/tesis-lima.html" class="pl pl-g" data-i18n="proj.lima.thesis">🎓 Tesis</a>
+            <a href="investigacion/tesis-lima.html" class="pl pl-g" data-i18n="proj.lima.thesis"><i class="ic ic-cap"></i> Tesis</a>
           </div>
           <span class="more" data-i18n="proj.more">Ver proyecto →</span>
         </div>
@@ -215,9 +227,9 @@
 
       <!-- Oncology -->
       <article class="proj-card reveal">
-        <div class="proj-banner" style="background:linear-gradient(135deg,#065f46,#0d9488)">
-          <div style="text-align:center;position:relative;z-index:1">
-            <div class="proj-logo" style="font-size:2.8rem">🧬</div>
+        <div class="proj-banner" style="background:linear-gradient(135deg,#065f46,#0d9488);view-transition-name:vt-onco">
+          <div class="proj-art">
+            <div class="proj-glyph"><i class="ic ic-dna"></i></div>
             <div class="proj-logo-sub" data-i18n="proj.onco.sub">Diagnóstico Oncológico</div>
           </div>
         </div>
@@ -241,10 +253,10 @@
 
       <!-- Chatbots -->
       <article class="proj-card reveal">
-        <div class="proj-banner" style="background:linear-gradient(135deg,#1e3a8a,#3730a3)">
-          <div style="text-align:center;position:relative;z-index:1">
-            <div class="proj-logo" style="font-size:2.8rem">💬</div>
-            <div class="proj-logo-sub">CharlesTherapy & Kuiti</div>
+        <div class="proj-banner" style="background:linear-gradient(135deg,#1e3a8a,#3730a3);view-transition-name:vt-chat">
+          <div class="proj-art">
+            <div class="proj-glyph"><i class="ic ic-chat"></i></div>
+            <div class="proj-logo-sub">CharlesTherapy &amp; Kuiti</div>
           </div>
         </div>
         <div class="proj-body">
@@ -267,9 +279,9 @@
 
       <!-- WhatsApp Bot -->
       <article class="proj-card reveal">
-        <div class="proj-banner" style="background:linear-gradient(135deg,#7c3aed,#a855f7)">
-          <div style="text-align:center;position:relative;z-index:1">
-            <div class="proj-logo" style="font-size:2.8rem">📱</div>
+        <div class="proj-banner" style="background:linear-gradient(135deg,#7c3aed,#a855f7);view-transition-name:vt-wa">
+          <div class="proj-art">
+            <div class="proj-glyph"><i class="ic ic-phone"></i></div>
             <div class="proj-logo-sub">WhatsApp · Meta Cloud API</div>
           </div>
         </div>
@@ -304,26 +316,26 @@
 
       <!-- Thesis -->
       <article class="pub-card has-media reveal">
-        <div class="pub-media"><img src="assets/img/tesis/defensa-lima.jpg" alt="Jose Ramon Aragon Toledo con su constancia de examen profesional frente a la presentación de LIMA" data-i18n-attr="alt:pub0.alt" loading="lazy" style="object-position:center 40%"></div>
+        <div class="pub-media" style="view-transition-name:vt-tesis"><img src="assets/img/tesis/defensa-lima.jpg" alt="Jose Ramon Aragon Toledo con su constancia de examen profesional frente a la presentación de LIMA" data-i18n-attr="alt:pub0.alt" loading="lazy" style="object-position:center 40%"></div>
         <div class="pub-body">
-          <span class="pub-tag pt-g" data-i18n="pub0.tag">🎓 Tesis de Licenciatura · Aprobada por unanimidad</span>
+          <span class="pub-tag pt-g" data-i18n="pub0.tag"><i class="ic ic-cap"></i> Tesis de Licenciatura · Aprobada por unanimidad</span>
           <h3 class="pub-title"><a href="investigacion/tesis-lima.html" class="stretch" data-i18n="pub0.title">LIMA: Middleware de asistencia por voz para GNU/Linux con enfoque en Inteligencia Artificial Centrada en el Humano</a></h3>
           <div class="pub-venue" data-i18n="pub0.venue">Universidad Tecnológica de la Mixteca — Ingeniería en Computación</div>
           <div class="pub-authors" data-i18n="pub0.authors">Aragon Toledo, J. R. · Director de tesis: M.C. Ricardo Ruiz Rodríguez</div>
-          <div class="pub-detail" data-i18n="pub0.detail">📍 Huajuapan de León, Oaxaca · Examen profesional: 11 de septiembre de 2026</div>
+          <div class="pub-detail" data-i18n="pub0.detail"><i class="ic ic-pin"></i> Huajuapan de León, Oaxaca · Examen profesional: 11 de septiembre de 2026</div>
           <span class="more" data-i18n="pub0.more">Ver tesis, fotos y constancia →</span>
         </div>
       </article>
 
       <!-- IADIS -->
       <article class="pub-card has-media reveal">
-        <div class="pub-media"><img src="Novedades/iadis.jpeg" alt="Jose Ramon Aragon Toledo en AIS 2026 (IADIS), Valencia, España" data-i18n-attr="alt:pub1.alt" loading="lazy" style="object-position:center 30%"></div>
+        <div class="pub-media" style="view-transition-name:vt-botas"><img src="Novedades/iadis.jpeg" alt="Jose Ramon Aragon Toledo en AIS 2026 (IADIS), Valencia, España" data-i18n-attr="alt:pub1.alt" loading="lazy" style="object-position:center 30%"></div>
         <div class="pub-body">
-          <span class="pub-tag pt-a" data-i18n="pub1.tag">🌍 Full Paper · Publicado</span>
+          <span class="pub-tag pt-a" data-i18n="pub1.tag"><i class="ic ic-earth"></i> Full Paper · Publicado</span>
           <h3 class="pub-title"><a href="investigacion/botas-iadis-2026.html" class="stretch">BOTAS: A Human-Centered Natural Language Interface for GNU/Linux System Management with Multi-Distribution Support</a></h3>
           <div class="pub-venue">AIS 2026 — International Conference on Artificial Intelligence in Society (MCCSIS 2026 · IADIS)</div>
           <div class="pub-authors">Aragon Toledo, J. R. &amp; Ruiz Rodríguez, R. — Universidad Tecnológica de la Mixteca</div>
-          <div class="pub-detail" data-i18n="pub1.detail">📍 Valencia, España · 25–27 de julio de 2026 · pp. 100–110</div>
+          <div class="pub-detail" data-i18n="pub1.detail"><i class="ic ic-pin"></i> Valencia, España · 25–27 de julio de 2026 · pp. 100–110</div>
           <p class="pub-cite"><span class="cite-lbl" data-i18n="cite.label">Cómo citar</span>Aragon Toledo, J. R. and Ruiz Rodríguez, R. (2026). <em>BOTAS: A Human-Centered Natural Language Interface for GNU/Linux System Management with Multi-Distribution Support.</em> In Proceedings of the International Conferences on Artificial Intelligence in Society 2026, Digital Transformation and Innovation Management 2026 and Connected Smart Cities 2026, pp. 100–110. Valencia, Spain: IADIS Press. ISBN 978-989-8704-78-8.</p>
           <span class="more" data-i18n="pub1.more">Ver artículo, video, fotos y cita →</span>
         </div>
@@ -331,13 +343,13 @@
 
       <!-- CLIHC -->
       <article class="pub-card has-media reveal">
-        <div class="pub-media"><img src="assets/img/clihc/ponencia-clihc-2026.jpg" alt="Ponencia CLIHC 2026 — Jose Ramon Aragon Toledo" data-i18n-attr="alt:pub2.alt" loading="lazy" style="object-position:top"></div>
+        <div class="pub-media" style="view-transition-name:vt-clihc"><img src="assets/img/clihc/ponencia-clihc-2026.jpg" alt="Ponencia CLIHC 2026 — Jose Ramon Aragon Toledo" data-i18n-attr="alt:pub2.alt" loading="lazy" style="object-position:top"></div>
         <div class="pub-body">
-          <span class="pub-tag pt-b" data-i18n="pub2.tag">📄 Short Paper · Publicado</span>
+          <span class="pub-tag pt-b" data-i18n="pub2.tag"><i class="ic ic-file"></i> Short Paper · Publicado</span>
           <h3 class="pub-title"><a href="investigacion/clihc-2026.html" class="stretch" data-i18n="pub2.title">Hacia la Evolución de la GUI Desktop: IA Centrada en el Humano como Paradigma para Repensar la Interacción con Sistemas Operativos</a></h3>
           <div class="pub-venue" data-i18n="pub2.venue">CLIHC 2026 — Conferencia Latinoamericana de Interacción Humano-Computadora</div>
           <div class="pub-authors">Aragon Toledo, J. R. &amp; Ruiz Rodríguez, R. — Universidad Tecnológica de la Mixteca</div>
-          <div class="pub-detail" data-i18n="pub2.detail">📍 Oaxaca de Juárez, México · 2026 · pp. 181–185 · SBC</div>
+          <div class="pub-detail" data-i18n="pub2.detail"><i class="ic ic-pin"></i> Oaxaca de Juárez, México · 2026 · pp. 181–185 · SBC</div>
           <p class="pub-cite"><span class="cite-lbl" data-i18n="cite.label">Cómo citar</span>Toledo, J., &amp; Rodríguez, R. (2026). Hacia la Evolución de la GUI Desktop: IA Centrada en el Humano como Paradigma para Repensar la Interacción con Sistemas Operativos. In Anais da XII Conferência Latino-Americana de Interação Humano-Computador, (pp. 181-185). Porto Alegre: SBC. doi:<a href="https://doi.org/10.5753/clihc.2026.21652" target="_blank" rel="noopener">10.5753/clihc.2026.21652</a></p>
           <span class="more" data-i18n="pub2.more">Ver artículo, detalles y cita →</span>
         </div>
@@ -345,9 +357,9 @@
 
       <!-- Hackathon -->
       <article class="pub-card has-media is-award reveal">
-        <div class="pub-media"><img src="assets/img/clihc/equipo-ruta-clara.jpg" alt="Equipo Ruta Clara — 1.er lugar Hackathon CLIHC 2026" data-i18n-attr="alt:award.alt" loading="lazy" style="object-position:top"></div>
+        <div class="pub-media" style="view-transition-name:vt-hack"><img src="assets/img/clihc/equipo-ruta-clara.jpg" alt="Equipo Ruta Clara — 1.er lugar Hackathon CLIHC 2026" data-i18n-attr="alt:award.alt" loading="lazy" style="object-position:top"></div>
         <div class="pub-body">
-          <span class="pub-tag pt-a" data-i18n="award.tag">🥇 Reconocimiento</span>
+          <span class="pub-tag pt-a" data-i18n="award.tag"><i class="ic ic-medal"></i> Reconocimiento</span>
           <h3 class="pub-title aw-title"><a href="reconocimientos/hackathon-clihc-2026.html" class="stretch" data-i18n="award.title">1.er Lugar — Hackathon CLIHC 2026</a></h3>
           <div class="aw-org" data-i18n="award.org">Conferencia Latinoamericana de Interacción Humano-Computadora · Equipo «Ruta Clara»</div>
           <div class="aw-desc" data-i18n="award.desc">Rediseño de interfaz de app móvil de transporte urbano con metodología UCD e investigación con 30 usuarios. 27–29 de mayo de 2026 · Oaxaca de Juárez, México.</div>
@@ -370,7 +382,7 @@
     <div class="skills-grid">
 
       <div class="sk-group reveal">
-        <div class="sk-title"><span class="sk-ico">💻</span><span data-i18n="sk.g1">Lenguajes</span></div>
+        <div class="sk-title"><span class="sk-ico"><i class="ic ic-code"></i></span><span data-i18n="sk.g1">Lenguajes</span></div>
         <div class="sk-tags">
           <span class="sk-tag hi">Python</span>
           <span class="sk-tag hi">JavaScript</span>
@@ -382,7 +394,7 @@
       </div>
 
       <div class="sk-group reveal">
-        <div class="sk-title"><span class="sk-ico">🚀</span><span data-i18n="sk.g2">Frameworks y Tecnologías</span></div>
+        <div class="sk-title"><span class="sk-ico"><i class="ic ic-rocket"></i></span><span data-i18n="sk.g2">Frameworks y Tecnologías</span></div>
         <div class="sk-tags">
           <span class="sk-tag hi">Angular</span>
           <span class="sk-tag hi">Node.js</span>
@@ -394,7 +406,7 @@
       </div>
 
       <div class="sk-group reveal">
-        <div class="sk-title"><span class="sk-ico">🤖</span><span data-i18n="sk.g3">Inteligencia Artificial</span></div>
+        <div class="sk-title"><span class="sk-ico"><i class="ic ic-bot"></i></span><span data-i18n="sk.g3">Inteligencia Artificial</span></div>
         <div class="sk-tags">
           <span class="sk-tag hi">GPT-4o</span>
           <span class="sk-tag hi">OpenAI API</span>
@@ -407,7 +419,7 @@
       </div>
 
       <div class="sk-group reveal">
-        <div class="sk-title"><span class="sk-ico">🔬</span><span data-i18n="sk.g4">Optimización</span></div>
+        <div class="sk-title"><span class="sk-ico"><i class="ic ic-flask"></i></span><span data-i18n="sk.g4">Optimización</span></div>
         <div class="sk-tags">
           <span class="sk-tag" data-i18n="sk.t.ga">Algoritmos Genéticos</span>
           <span class="sk-tag" data-i18n="sk.t.sa">Recocido Simulado</span>
@@ -419,7 +431,7 @@
       </div>
 
       <div class="sk-group reveal">
-        <div class="sk-title"><span class="sk-ico">🗄️</span><span data-i18n="sk.g5">Bases de Datos</span></div>
+        <div class="sk-title"><span class="sk-ico"><i class="ic ic-database"></i></span><span data-i18n="sk.g5">Bases de Datos</span></div>
         <div class="sk-tags">
           <span class="sk-tag hi">MySQL</span>
           <span class="sk-tag hi">MongoDB</span>
@@ -429,7 +441,7 @@
       </div>
 
       <div class="sk-group reveal">
-        <div class="sk-title"><span class="sk-ico">🔌</span><span data-i18n="sk.g6">APIs e Integraciones</span></div>
+        <div class="sk-title"><span class="sk-ico"><i class="ic ic-plug"></i></span><span data-i18n="sk.g6">APIs e Integraciones</span></div>
         <div class="sk-tags">
           <span class="sk-tag hi">WhatsApp Cloud API</span>
           <span class="sk-tag">Meta Platform</span>
@@ -453,43 +465,43 @@
     <div class="certs-grid">
 
       <div class="cert-card reveal">
-        <div class="cert-ico ci-b">🤖</div>
+        <div class="cert-ico ci-b"><i class="ic ic-bot"></i></div>
         <div>
           <div class="cert-name">Google AI Essentials</div>
           <div class="cert-issuer">Google / Coursera</div>
           <div class="cert-date" data-i18n="cert1.date">Marzo 2025</div>
-          <a href="cert-google-ai-essentials.pdf" target="_blank" class="cert-dl" data-i18n="cert.view">⬇ Ver certificado</a>
+          <a href="cert-google-ai-essentials.pdf" target="_blank" class="cert-dl" data-i18n="cert.view"><i class="ic ic-award"></i> Ver certificado</a>
         </div>
       </div>
       <div class="cert-card reveal">
-        <div class="cert-ico ci-n">🔒</div>
+        <div class="cert-ico ci-n"><i class="ic ic-shield"></i></div>
         <div>
           <div class="cert-name">Cybersecurity Fundamentals</div>
           <div class="cert-issuer">IBM SkillsBuild</div>
           <div class="cert-date" data-i18n="cert2.date">Febrero 2025</div>
-          <a href="cert-ibm.pdf" target="_blank" class="cert-dl" data-i18n="cert.view">⬇ Ver certificado</a>
+          <a href="cert-ibm.pdf" target="_blank" class="cert-dl" data-i18n="cert.view"><i class="ic ic-award"></i> Ver certificado</a>
         </div>
       </div>
       <div class="cert-card reveal">
-        <div class="cert-ico ci-a">📋</div>
+        <div class="cert-ico ci-a"><i class="ic ic-clipboard"></i></div>
         <div>
           <div class="cert-name">Scrum Fundamentals Certified (SFC)</div>
           <div class="cert-issuer">SCRUMstudy / VMEdu</div>
           <div class="cert-date" data-i18n="cert3.date">Junio 2025</div>
-          <a href="cert-scrum-sfc.png" target="_blank" class="cert-dl" data-i18n="cert.view">⬇ Ver certificado</a>
+          <a href="cert-scrum-sfc.png" target="_blank" class="cert-dl" data-i18n="cert.view"><i class="ic ic-award"></i> Ver certificado</a>
         </div>
       </div>
       <div class="cert-card reveal">
-        <div class="cert-ico ci-b">⚡</div>
+        <div class="cert-ico ci-b"><i class="ic ic-zap"></i></div>
         <div>
           <div class="cert-name" data-i18n="cert4.name">JavaScript Moderno: Guía para dominar el lenguaje</div>
           <div class="cert-issuer">Udemy · 20.5 h</div>
           <div class="cert-date" data-i18n="cert4.date">Agosto 2024</div>
-          <a href="UC-b621b285.pdf" target="_blank" class="cert-dl" data-i18n="cert.view">⬇ Ver certificado</a>
+          <a href="UC-b621b285.pdf" target="_blank" class="cert-dl" data-i18n="cert.view"><i class="ic ic-award"></i> Ver certificado</a>
         </div>
       </div>
       <div class="cert-card reveal">
-        <div class="cert-ico ci-n">🐳</div>
+        <div class="cert-ico ci-n"><i class="ic ic-container"></i></div>
         <div>
           <div class="cert-name" data-i18n="cert5.name">Docker: Fundamentos</div>
           <div class="cert-issuer">Udemy</div>
@@ -497,39 +509,39 @@
         </div>
       </div>
       <div class="cert-card reveal">
-        <div class="cert-ico ci-a">🌱</div>
+        <div class="cert-ico ci-a"><i class="ic ic-sprout"></i></div>
         <div>
           <div class="cert-name">Lifelong Learning — Continuous Learner</div>
           <div class="cert-issuer">CertiProf</div>
           <div class="cert-date" data-i18n="cert6.date">Ediciones 2025 y 2026</div>
-          <a href="cert-lifelong-learning.png" target="_blank" class="cert-dl" data-i18n="cert.view">⬇ Ver certificado</a>
+          <a href="cert-lifelong-learning.png" target="_blank" class="cert-dl" data-i18n="cert.view"><i class="ic ic-award"></i> Ver certificado</a>
         </div>
       </div>
       <div class="cert-card reveal">
-        <div class="cert-ico ci-g">🏆</div>
+        <div class="cert-ico ci-g"><i class="ic ic-trophy"></i></div>
         <div>
           <div class="cert-name" data-i18n="cert7.name">Liderazgo y Gestión de Equipos</div>
           <div class="cert-issuer">Udemy</div>
           <div class="cert-date" data-i18n="cert7.date">Febrero 2026</div>
-          <a href="UC-e4c19366.pdf" target="_blank" class="cert-dl" data-i18n="cert.view">⬇ Ver certificado</a>
+          <a href="UC-e4c19366.pdf" target="_blank" class="cert-dl" data-i18n="cert.view"><i class="ic ic-award"></i> Ver certificado</a>
         </div>
       </div>
       <div class="cert-card reveal">
-        <div class="cert-ico ci-g">😊</div>
+        <div class="cert-ico ci-g"><i class="ic ic-smile"></i></div>
         <div>
           <div class="cert-name" data-i18n="cert8.name">Liderazgo y Felicidad en el Trabajo</div>
           <div class="cert-issuer">Udemy</div>
           <div class="cert-date" data-i18n="cert8.date">Marzo 2026</div>
-          <a href="UC-0e9a66c4.pdf" target="_blank" class="cert-dl" data-i18n="cert.view">⬇ Ver certificado</a>
+          <a href="UC-0e9a66c4.pdf" target="_blank" class="cert-dl" data-i18n="cert.view"><i class="ic ic-award"></i> Ver certificado</a>
         </div>
       </div>
       <div class="cert-card reveal">
-        <div class="cert-ico ci-a">📊</div>
+        <div class="cert-ico ci-a"><i class="ic ic-chart"></i></div>
         <div>
           <div class="cert-name" data-i18n="cert9.name">Habilidades Gerenciales +</div>
           <div class="cert-issuer">Udemy</div>
           <div class="cert-date" data-i18n="cert9.date">Marzo 2026</div>
-          <a href="UC-b8c12b46.pdf" target="_blank" class="cert-dl" data-i18n="cert.view">⬇ Ver certificado</a>
+          <a href="UC-b8c12b46.pdf" target="_blank" class="cert-dl" data-i18n="cert.view"><i class="ic ic-award"></i> Ver certificado</a>
         </div>
       </div>
 
@@ -546,30 +558,30 @@
         <h2 class="sec-title" data-i18n="contact.title">Contacto</h2>
         <p class="sec-desc" data-i18n="contact.desc">Estoy buscando activamente nuevas oportunidades laborales en desarrollo de software e inteligencia artificial. También atiendo proyectos puntuales y colaboraciones. ¡Escríbeme!</p>
         <div class="contact-cta">
-          <button type="button" class="btn btn-primary" data-contact-open data-contact-reason="job" data-i18n="contact.cta">✉ Escríbeme un mensaje</button>
-          <a href="CV_JoseRamonAragonToledo.pdf" download class="btn-ghost" data-i18n="about.cv">📄 Descargar CV</a>
+          <button type="button" class="btn btn-primary" data-contact-open data-contact-reason="job" data-i18n="contact.cta"><i class="ic ic-mail"></i> Escríbeme un mensaje</button>
+          <a href="CV_JoseRamonAragonToledo.pdf" download class="btn-ghost" data-i18n="about.cv"><i class="ic ic-download"></i> Descargar CV</a>
         </div>
       </div>
       <div class="contact-links reveal">
         <a href="mailto:aatr010423@gmail.com" class="contact-link">
-          <div class="cl-ico" style="background:#FEE2E2">✉️</div>
+          <div class="cl-ico cl-mail"><i class="ic ic-mail"></i></div>
           <div><div class="cl-lbl">Email</div><div class="cl-val">aatr010423@gmail.com</div></div>
         </a>
         <a href="https://www.linkedin.com/in/jose-ramon-aragon-toledo/" target="_blank" rel="noopener" class="contact-link">
-          <div class="cl-ico" style="background:#DBEAFE">💼</div>
+          <div class="cl-ico cl-in"><i class="ic ic-linkedin"></i></div>
           <div><div class="cl-lbl">LinkedIn</div><div class="cl-val">jose-ramon-aragon-toledo</div></div>
         </a>
         <a href="https://github.com/Hudesde" target="_blank" rel="noopener" class="contact-link">
-          <div class="cl-ico" style="background:#F3F4F6">💻</div>
+          <div class="cl-ico cl-gh"><i class="ic ic-github"></i></div>
           <div><div class="cl-lbl">GitHub</div><div class="cl-val">github.com/Hudesde</div></div>
         </a>
       </div>
       <p class="services-lbl reveal" data-i18n="contact.svc">¿En qué puedo ayudarte?</p>
       <div class="services reveal">
-        <span class="svc" data-i18n="contact.svc1">💻 Desarrollo de software y web</span>
-        <span class="svc" data-i18n="contact.svc2">🤖 Integración de IA y chatbots</span>
-        <span class="svc" data-i18n="contact.svc3">⚙️ Automatización e integración de APIs</span>
-        <span class="svc" data-i18n="contact.svc4">🐧 Soporte de TI y GNU/Linux</span>
+        <span class="svc" data-i18n="contact.svc1"><i class="ic ic-code"></i> Desarrollo de software y web</span>
+        <span class="svc" data-i18n="contact.svc2"><i class="ic ic-bot"></i> Integración de IA y chatbots</span>
+        <span class="svc" data-i18n="contact.svc3"><i class="ic ic-gear"></i> Automatización e integración de APIs</span>
+        <span class="svc" data-i18n="contact.svc4"><i class="ic ic-terminal"></i> Soporte de TI y GNU/Linux</span>
       </div>
     </div>
   </div>
@@ -585,12 +597,12 @@
 window.PAGE_I18N = {
   es: {
     "_badges": [
-      `🏆 1.er Lugar · Hackathon CLIHC 2026`,
-      `🎓 Ingeniero en Computación · Tesis aprobada por unanimidad`,
-      `🌍 Full Paper Publicado · IADIS 2026 Valencia`,
-      `🤖 Investigador · IA Centrada en el Humano`,
-      `💻 Python · GPT-4o · GNU/Linux`,
-      `📖 Aprendizaje Continuo · Autodidacta`,
+      `<i class="ic ic-trophy"></i> 1.er Lugar · Hackathon CLIHC 2026`,
+      `<i class="ic ic-cap"></i> Ingeniero en Computación · Tesis aprobada por unanimidad`,
+      `<i class="ic ic-earth"></i> Full Paper Publicado · IADIS 2026 Valencia`,
+      `<i class="ic ic-bot"></i> Investigador · IA Centrada en el Humano`,
+      `<i class="ic ic-code"></i> Python · GPT-4o · GNU/Linux`,
+      `<i class="ic ic-book"></i> Aprendizaje Continuo · Autodidacta`,
     ],
   },
   en: {
@@ -599,10 +611,10 @@ window.PAGE_I18N = {
     "hero.title": `Computer Engineer · Human-Centered AI`,
     "hero.sub": `Software developer and researcher. Creator of LIMA, a voice assistant for GNU/Linux presented at international conferences.`,
     "hero.avail": `Open to new job opportunities`,
-    "hero.cta1": `🤖 See LIMA in Action`,
+    "hero.cta1": `<i class="ic ic-bot"></i> See LIMA in Action`,
     "hero.cta2": `View Projects`,
-    "hero.cta3": `✉ Contact me`,
-    "about.badge": `📍 Oaxaca, Mexico`,
+    "hero.cta3": `<i class="ic ic-mail"></i> Contact me`,
+    "about.badge": `<i class="ic ic-pin"></i> Oaxaca, Mexico`,
     "about.title": `About Me`,
     "about.p1": `I'm a Computer Engineer from the <strong>Universidad Tecnológica de la Mixteca</strong>, specialized in building applications with Artificial Intelligence. I earned my degree by thesis in September 2026, unanimously approved by the examining committee.`,
     "about.p2": `My main project is <strong>LIMA</strong> (Linux Intelligent Middleware Assistant), a voice assistant for GNU/Linux focused on Human-Centered AI (HCAI), presented at CLIHC 2026 and at AIS/IADIS 2026 (Valencia, Spain).`,
@@ -611,7 +623,7 @@ window.PAGE_I18N = {
     "about.stat2": `LIMA Accuracy`,
     "about.stat3": `CLIHC Hackathon`,
     "about.stat4": `Years exp.`,
-    "about.cv": `📄 Download CV`,
+    "about.cv": `<i class="ic ic-download"></i> Download CV`,
     "about.github": `View GitHub →`,
     "exp.label": `Career Path`,
     "exp.title": `Professional Experience`,
@@ -647,8 +659,8 @@ window.PAGE_I18N = {
     "proj.lima.m1": `Accuracy (250 tasks)`,
     "proj.lima.m2": `Destructive-op detection`,
     "proj.lima.m3": `Safety levels`,
-    "proj.lima.demo": `🌐 LIMA website`,
-    "proj.lima.thesis": `🎓 Thesis`,
+    "proj.lima.demo": `<i class="ic ic-globe"></i> LIMA website`,
+    "proj.lima.thesis": `<i class="ic ic-cap"></i> Thesis`,
     "proj.onco.sub": `Oncology Diagnosis`,
     "proj.onco.b1": `Metaheuristics`,
     "proj.onco.title": `Oncology Diagnosis Optimization`,
@@ -666,24 +678,24 @@ window.PAGE_I18N = {
     "pub.desc": `Contributions to the field of Human-Computer Interaction and Artificial Intelligence.`,
     "cite.label": `How to cite`,
     "pub0.alt": `Jose Ramon Aragon Toledo holding his professional exam certificate in front of the LIMA presentation`,
-    "pub0.tag": `🎓 Bachelor's Thesis · Unanimously approved`,
+    "pub0.tag": `<i class="ic ic-cap"></i> Bachelor's Thesis · Unanimously approved`,
     "pub0.title": `LIMA: Voice-Assistance Middleware for GNU/Linux with a Human-Centered Artificial Intelligence Approach`,
     "pub0.venue": `Universidad Tecnológica de la Mixteca — Computer Engineering`,
     "pub0.authors": `Aragon Toledo, J. R. · Thesis advisor: M.Sc. Ricardo Ruiz Rodríguez`,
-    "pub0.detail": `📍 Huajuapan de León, Oaxaca · Thesis defense: September 11, 2026`,
+    "pub0.detail": `<i class="ic ic-pin"></i> Huajuapan de León, Oaxaca · Thesis defense: September 11, 2026`,
     "pub0.more": `View thesis, photos and certificate →`,
     "pub1.alt": `Jose Ramon Aragon Toledo at AIS 2026 (IADIS), Valencia, Spain`,
-    "pub1.tag": `🌍 Full Paper · Published`,
-    "pub1.detail": `📍 Valencia, Spain · July 25–27, 2026 · pp. 100–110`,
+    "pub1.tag": `<i class="ic ic-earth"></i> Full Paper · Published`,
+    "pub1.detail": `<i class="ic ic-pin"></i> Valencia, Spain · July 25–27, 2026 · pp. 100–110`,
     "pub1.more": `View paper, video, photos and citation →`,
     "pub2.alt": `CLIHC 2026 talk — Jose Ramon Aragon Toledo`,
-    "pub2.tag": `📄 Short Paper · Published`,
+    "pub2.tag": `<i class="ic ic-file"></i> Short Paper · Published`,
     "pub2.title": `Toward the Evolution of the Desktop GUI: Human-Centered AI as a Paradigm to Rethink Interaction with Operating Systems`,
     "pub2.venue": `CLIHC 2026 — Latin American Conference on Human-Computer Interaction`,
-    "pub2.detail": `📍 Oaxaca de Juárez, Mexico · 2026 · pp. 181–185 · SBC`,
+    "pub2.detail": `<i class="ic ic-pin"></i> Oaxaca de Juárez, Mexico · 2026 · pp. 181–185 · SBC`,
     "pub2.more": `View paper, details and citation →`,
     "award.alt": `Team Ruta Clara — 1st place, CLIHC 2026 Hackathon`,
-    "award.tag": `🥇 Recognition`,
+    "award.tag": `<i class="ic ic-medal"></i> Recognition`,
     "award.title": `1st Place — CLIHC 2026 Hackathon`,
     "award.org": `Latin American Conference on Human-Computer Interaction · Team «Ruta Clara»`,
     "award.desc": `Redesign of an urban transit mobile app interface using UCD methodology and research with 30 users. May 27–29, 2026 · Oaxaca de Juárez, Mexico.`,
@@ -701,7 +713,7 @@ window.PAGE_I18N = {
     "sk.t.sa": `Simulated Annealing`,
     "cert.label": `Continuous Learning`,
     "cert.title": `Certifications`,
-    "cert.view": `⬇ View certificate`,
+    "cert.view": `<i class="ic ic-award"></i> View certificate`,
     "cert1.date": `March 2025`,
     "cert2.date": `February 2025`,
     "cert3.date": `June 2025`,
@@ -718,19 +730,19 @@ window.PAGE_I18N = {
     "contact.label": `Let's Talk`,
     "contact.title": `Contact`,
     "contact.desc": `I'm actively looking for new job opportunities in software development and artificial intelligence. I also take on freelance projects and collaborations. Drop me a line!`,
-    "contact.cta": `✉ Send me a message`,
+    "contact.cta": `<i class="ic ic-mail"></i> Send me a message`,
     "contact.svc": `How can I help?`,
-    "contact.svc1": `💻 Software & web development`,
-    "contact.svc2": `🤖 AI integration & chatbots`,
-    "contact.svc3": `⚙️ Automation & API integrations`,
-    "contact.svc4": `🐧 IT support & GNU/Linux`,
+    "contact.svc1": `<i class="ic ic-code"></i> Software & web development`,
+    "contact.svc2": `<i class="ic ic-bot"></i> AI integration & chatbots`,
+    "contact.svc3": `<i class="ic ic-gear"></i> Automation & API integrations`,
+    "contact.svc4": `<i class="ic ic-terminal"></i> IT support & GNU/Linux`,
     "_badges": [
-      `🏆 1st Place · CLIHC 2026 Hackathon`,
-      `🎓 Computer Engineer · Thesis unanimously approved`,
-      `🌍 Full Paper Published · IADIS 2026 Valencia`,
-      `🤖 Researcher · Human-Centered AI`,
-      `💻 Python · GPT-4o · GNU/Linux`,
-      `📖 Lifelong Learning · Self-Taught`,
+      `<i class="ic ic-trophy"></i> 1st Place · CLIHC 2026 Hackathon`,
+      `<i class="ic ic-cap"></i> Computer Engineer · Thesis unanimously approved`,
+      `<i class="ic ic-earth"></i> Full Paper Published · IADIS 2026 Valencia`,
+      `<i class="ic ic-bot"></i> Researcher · Human-Centered AI`,
+      `<i class="ic ic-code"></i> Python · GPT-4o · GNU/Linux`,
+      `<i class="ic ic-book"></i> Lifelong Learning · Self-Taught`,
     ],
   },
 };
@@ -755,7 +767,7 @@ function setBadge(i){
   badge.style.background = col.bg;
   badge.style.borderColor = col.bd;
   badge.style.color = col.c;
-  badge.textContent = list[i % list.length];
+  badge.innerHTML = list[i % list.length];
 }
 
 document.addEventListener('langchange', () => { bi = 0; setBadge(0); });
