@@ -41,6 +41,8 @@ Portfolio of Jose Ramon Aragon Toledo, Computer Engineering graduate from Univer
 2. Push the contents of this folder (not the folder itself) to the `main` branch
 3. GitHub Pages publishes automatically at `https://hudesde.github.io`
 
+**Cache:** GitHub Pages tells browsers to keep files for 10 minutes, so every page loads `site.css?v=…` and `site.js?v=…`. After changing either file, bump that `v` value in all pages (e.g. `grep -rl "site.css?v=" --include=*.html .`) so visitors don't get new HTML with an old stylesheet.
+
 ## Featured Projects
 
 - **LIMA** — Voice assistant for GNU/Linux with HCAI focus · [Website](https://hudesde.github.io/LIMA-Web/) · [GitHub](https://github.com/Hudesde/LIMA-DEMO)
