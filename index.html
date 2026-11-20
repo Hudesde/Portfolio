@@ -80,7 +80,7 @@
         <h2 data-i18n="about.title">Sobre mí</h2>
         <p data-i18n="about.p1">Soy Ingeniero en Computación por la <strong>Universidad Tecnológica de la Mixteca</strong>, especializado en el desarrollo de aplicaciones con Inteligencia Artificial. Me titulé por tesis en septiembre de 2026, con aprobación por unanimidad del jurado.</p>
         <p data-i18n="about.p2">Mi proyecto principal es <strong>LIMA</strong> (Linux Intelligent Middleware Assistant), un asistente de voz para GNU/Linux con enfoque en IA Centrada en el Humano (HCAI), presentado en CLIHC 2026 y en AIS/IADIS 2026 (Valencia, España).</p>
-        <p data-i18n="about.p3">Soy autodidacta, comunicativo y apasionado por resolver problemas reales con tecnología. Domino <strong>Python, JavaScript y Java</strong>, con experiencia en Angular, FastAPI, Node.js y múltiples APIs de IA.</p>
+        <p data-i18n="about.p3">Soy autodidacta, comunicativo y apasionado por resolver problemas reales con tecnología. Domino <strong>Python, JavaScript y Java</strong>, con experiencia en Angular, Flask, FastAPI, Node.js, PostgreSQL y múltiples APIs de IA.</p>
         <div class="about-stats">
           <div class="stat"><div class="n">2<span>+</span></div><div class="l" data-i18n="about.stat1">Publicaciones</div></div>
           <div class="stat"><div class="n">89<span>%</span></div><div class="l" data-i18n="about.stat2">Precisión LIMA</div></div>
@@ -105,6 +105,25 @@
       <p class="sec-desc" data-i18n="exp.desc">Roles y proyectos donde he aportado soluciones tecnológicas reales.</p>
     </div>
     <div class="timeline">
+
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-meta">
+            <div>
+              <div class="tl-title" data-i18n="exp0.title">Desarrollador de Inteligencia de Negocios e IA</div>
+              <div class="tl-org" data-i18n="exp0.org"><strong>Grupo AG</strong> · Concesionarias de motocicletas (Honda Motos GT y otras marcas), Oaxaca</div>
+            </div>
+            <span class="tl-period" data-i18n="exp0.period">Oct 2026 – actualidad</span>
+          </div>
+          <ul class="tl-list">
+            <li data-i18n="exp0.li1">Diseñé, desarrollé y puse en producción, de forma individual, la <a href="proyectos/plataforma-bi.html"><strong>plataforma de BI e IA</strong></a> del grupo: 5 razones sociales y 23 sucursales conectadas al ERP Adaflex.</li>
+            <li data-i18n="exp0.li2">ETL de dos bases Firebird a PostgreSQL y portal web en Flask con 6 roles: reporte mensual por sucursal, tablero de dirección y paneles de inventario, rentabilidad, cartera y objetivos.</li>
+            <li data-i18n="exp0.li3">Asistente de IA que consulta ventas e inventario con 26 herramientas de solo lectura, asistente de captura y bot de WhatsApp por voz.</li>
+            <li data-i18n="exp0.li4">Despliegue en un VPS Linux con HTTPS, Cloudflare Tunnel, respaldos automáticos y pruebas automatizadas.</li>
+          </ul>
+        </div>
+      </div>
 
       <div class="tl-item reveal">
         <div class="tl-dot"></div>
@@ -220,6 +239,32 @@
             <a href="https://hudesde.github.io/LIMA-Web/" target="_blank" rel="noopener" class="pl pl-p" data-i18n="proj.lima.demo"><i class="ic ic-globe"></i> Sitio web de LIMA</a>
             <a href="https://github.com/Hudesde/LIMA-DEMO" target="_blank" rel="noopener" class="pl pl-g">GitHub</a>
             <a href="investigacion/tesis-lima.html" class="pl pl-g" data-i18n="proj.lima.thesis"><i class="ic ic-cap"></i> Tesis</a>
+          </div>
+          <span class="more" data-i18n="proj.more">Ver proyecto →</span>
+        </div>
+      </article>
+
+      <!-- BI & AI platform (Grupo AG) -->
+      <article class="proj-card feat reveal">
+        <div class="proj-banner" style="background:linear-gradient(135deg,#0F2340,#0d9488);view-transition-name:vt-bi;flex-direction:column;gap:1rem">
+          <img src="assets/img/grupoag/tablero.webp" alt="Tablero de Dirección de la plataforma (demo con datos ficticios)" data-i18n-attr="alt:proj.bi.img" loading="lazy" width="1440" height="900" style="width:100%;height:auto;border-radius:10px;box-shadow:0 18px 40px rgba(0,0,0,.35)">
+          <div class="proj-logo-sub" data-i18n="proj.bi.sub">ERP · Panel de datos · IA — demo con datos ficticios</div>
+        </div>
+        <div class="proj-body">
+          <div class="badges">
+            <span class="badge b-green" data-i18n="proj.bi.b1">En producción</span>
+            <span class="badge b-navy">Business Intelligence</span>
+            <span class="badge b-blue" data-i18n="proj.bi.b2">IA</span>
+          </div>
+          <h3 class="proj-title"><a href="proyectos/plataforma-bi.html" class="stretch" data-i18n="proj.bi.title">Plataforma de BI e IA — Grupo AG</a></h3>
+          <p class="proj-desc" data-i18n="proj.bi.desc">Sistema en producción para un grupo de concesionarias de motocicletas: ETL del ERP a PostgreSQL, portal de reportes mensuales con 6 roles, paneles de inventario, rentabilidad y cartera, y un asistente de IA que responde en lenguaje natural.</p>
+          <div class="proj-metrics">
+            <div><div class="m-val">23</div><div class="m-lbl" data-i18n="proj.bi.m1">Sucursales</div></div>
+            <div><div class="m-val">26</div><div class="m-lbl" data-i18n="proj.bi.m2">Herramientas de IA</div></div>
+            <div><div class="m-val">6</div><div class="m-lbl" data-i18n="proj.bi.m3">Roles</div></div>
+          </div>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">PostgreSQL</span><span class="tag">Firebird</span><span class="tag">OpenAI API</span><span class="tag">Node.js</span>
           </div>
           <span class="more" data-i18n="proj.more">Ver proyecto →</span>
         </div>
@@ -399,6 +444,7 @@
           <span class="sk-tag hi">Angular</span>
           <span class="sk-tag hi">Node.js</span>
           <span class="sk-tag hi">FastAPI</span>
+          <span class="sk-tag hi">Flask</span>
           <span class="sk-tag hi">Express.js</span>
           <span class="sk-tag">Docker</span>
           <span class="sk-tag">REST APIs</span>
@@ -433,8 +479,10 @@
       <div class="sk-group reveal">
         <div class="sk-title"><span class="sk-ico"><i class="ic ic-database"></i></span><span data-i18n="sk.g5">Bases de Datos</span></div>
         <div class="sk-tags">
+          <span class="sk-tag hi">PostgreSQL</span>
           <span class="sk-tag hi">MySQL</span>
           <span class="sk-tag hi">MongoDB</span>
+          <span class="sk-tag">Firebird</span>
           <span class="sk-tag">phpMyAdmin</span>
           <span class="sk-tag">SQL</span>
         </div>
@@ -618,7 +666,7 @@ window.PAGE_I18N = {
     "about.title": `About Me`,
     "about.p1": `I'm a Computer Engineer from the <strong>Universidad Tecnológica de la Mixteca</strong>, specialized in building applications with Artificial Intelligence. I earned my degree by thesis in September 2026, unanimously approved by the examining committee.`,
     "about.p2": `My main project is <strong>LIMA</strong> (Linux Intelligent Middleware Assistant), a voice assistant for GNU/Linux focused on Human-Centered AI (HCAI), presented at CLIHC 2026 and at AIS/IADIS 2026 (Valencia, Spain).`,
-    "about.p3": `I'm self-taught, communicative, and passionate about solving real-world problems with technology. I'm proficient in <strong>Python, JavaScript, and Java</strong>, with experience in Angular, FastAPI, Node.js, and multiple AI APIs.`,
+    "about.p3": `I'm self-taught, communicative, and passionate about solving real-world problems with technology. I'm proficient in <strong>Python, JavaScript, and Java</strong>, with experience in Angular, Flask, FastAPI, Node.js, PostgreSQL, and multiple AI APIs.`,
     "about.stat1": `Publications`,
     "about.stat2": `LIMA Accuracy`,
     "about.stat3": `CLIHC Hackathon`,
@@ -628,6 +676,13 @@ window.PAGE_I18N = {
     "exp.label": `Career Path`,
     "exp.title": `Professional Experience`,
     "exp.desc": `Roles and projects where I've delivered real technological solutions.`,
+    "exp0.title": `Business Intelligence & AI Developer`,
+    "exp0.org": `<strong>Grupo AG</strong> · Motorcycle dealership group (Honda Motos GT and other brands), Oaxaca`,
+    "exp0.period": `Oct 2026 – Present`,
+    "exp0.li1": `Single-handedly designed, built and shipped the group's <a href="proyectos/plataforma-bi.html"><strong>BI & AI platform</strong></a>: 5 companies and 23 branches connected to the Adaflex ERP.`,
+    "exp0.li2": `ETL from two Firebird databases into PostgreSQL and a Flask web portal with 6 roles: monthly branch reports, executive dashboard, and inventory, profitability, receivables and target dashboards.`,
+    "exp0.li3": `AI assistant that answers sales and inventory questions through 26 read-only tools, a report-filling assistant and a voice-enabled WhatsApp bot.`,
+    "exp0.li4": `Deployed on a Linux VPS with HTTPS, Cloudflare Tunnel, automated backups and automated tests.`,
     "exp1.title": `Social Service — Research in AI and LLMs`,
     "exp1.org": `<strong>Universidad Tecnológica de la Mixteca</strong> · Huajuapan de León, Oaxaca`,
     "exp1.period": `Mar 2025 – Jan 2026`,
@@ -663,6 +718,15 @@ window.PAGE_I18N = {
     "proj.lima.thesis": `<i class="ic ic-cap"></i> Thesis`,
     "proj.onco.sub": `Oncology Diagnosis`,
     "proj.onco.b1": `Metaheuristics`,
+    "proj.bi.sub": `ERP · Data dashboards · AI — demo with fictional data`,
+    "proj.bi.img": `Executive dashboard of the platform (demo with fictional data)`,
+    "proj.bi.b1": `In production`,
+    "proj.bi.b2": `AI`,
+    "proj.bi.title": `BI & AI Platform — Grupo AG`,
+    "proj.bi.desc": `A production system for a motorcycle dealership group: ERP-to-PostgreSQL ETL, a monthly reporting portal with 6 roles, inventory, profitability and receivables dashboards, and an AI assistant that answers in plain language.`,
+    "proj.bi.m1": `Branches`,
+    "proj.bi.m2": `AI tools`,
+    "proj.bi.m3": `Roles`,
     "proj.onco.title": `Oncology Diagnosis Optimization`,
     "proj.onco.desc": `A system for breast cancer diagnosis (Wisconsin Breast Cancer), designed to minimize false negatives. Feature selection with a Genetic Algorithm and hyperparameter tuning with SA, GWO, and WOA. Models: Random Forest, Extra Trees, and XGBoost.`,
     "proj.onco.tag1": `Genetic Algorithm`,

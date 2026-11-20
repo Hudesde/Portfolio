@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0F2340">
+<meta name="description" content="Plataforma de inteligencia de negocios e IA para Grupo AG, desarrollada por Jose Ramon Aragon Toledo: ETL del ERP, portal de reportes, paneles de datos, asistente de IA y bot de WhatsApp.">
+<title>Plataforma de BI e IA · Grupo AG | Jose Ramon Aragon Toledo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css?v=20261007">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="nav">
+  <a href="../index.html" class="nav-logo">JRAT</a>
+  <div class="nav-right">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html" data-i18n="nav.home">Inicio</a></li>
+      <li><a href="../index.html#proyectos" data-i18n="nav.projects">Proyectos</a></li>
+      <li><a href="../index.html#publicaciones" data-i18n="nav.publications">Publicaciones</a></li>
+      <li><a href="../index.html#contacto" data-i18n="nav.contact">Contacto</a></li>
+    </ul>
+    <div class="lang-switch" role="group" aria-label="Language / Idioma">
+      <button class="lang-btn" data-lang="es" aria-label="Español">ES</button>
+      <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menú" data-i18n-attr="aria-label:nav.menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══ HEADER ═══ -->
+<header class="page-hero" style="background:linear-gradient(135deg,#0F2340 0%,#115e59 55%,#0d9488 100%);view-transition-name:vt-bi">
+  <div class="container">
+    <div class="crumbs"><a href="../index.html" data-i18n="crumb.home">Inicio</a><span>/</span><a href="../index.html#proyectos" data-i18n="crumb.projects">Proyectos</a><span>/</span><span data-i18n="g.crumb">Plataforma de BI e IA</span></div>
+    <span class="page-tag t-blue" data-i18n="g.tag"><i class="ic ic-chart"></i> Inteligencia de negocios · IA · En producción</span>
+    <h1 data-i18n="g.h1">Plataforma de BI e IA para Grupo AG</h1>
+    <p class="page-lead" data-i18n="g.lead">Sistema que diseñé, desarrollé y puse en producción para un grupo de concesionarias de motocicletas: conecta el ERP con un portal web de reportes y paneles, y permite preguntar a una IA por ventas e inventario en lenguaje natural.</p>
+    <div class="page-meta">
+      <span class="chip"><i class="ic ic-building"></i> Grupo AG</span>
+      <span class="chip" data-i18n="g.c1"><i class="ic ic-calendar"></i> Oct 2026 – actualidad</span>
+      <span class="chip" data-i18n="g.c2"><i class="ic ic-briefcase"></i> Desarrollador BI e IA</span>
+    </div>
+    <div class="page-actions">
+      <a href="../index.html#contacto" class="btn btn-primary" data-contact-open data-contact-reason="project" data-i18n="g.a1"><i class="ic ic-mail"></i> Pedir una demo</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ CONTENT ═══ -->
+<main class="detail">
+  <div class="detail-grid">
+    <div class="detail-main">
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="g.ctx.title"><i class="ic ic-target"></i> El reto</h2>
+        <div class="prose">
+          <p data-i18n="g.ctx.p1">Grupo AG opera 23 sucursales repartidas en 5 razones sociales (Honda Motos GT y otras marcas). Las ventas, el inventario y la cartera viven en el ERP Adaflex, y el reporte mensual de cada sucursal se armaba aparte, en hojas de cálculo.</p>
+          <p data-i18n="g.ctx.p2">El objetivo era que dirección, gerentes y jefes de área vieran la misma información, al día, cada quien con lo que le corresponde, sin cargar el servidor del ERP que usan las sucursales todo el día.</p>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><div class="v">23</div><div class="d" data-i18n="g.k1">sucursales de 5 razones sociales en una sola plataforma</div></div>
+          <div class="kpi"><div class="v">26</div><div class="d" data-i18n="g.k2">herramientas de consulta que usa el asistente de IA</div></div>
+          <div class="kpi"><div class="v">6</div><div class="d" data-i18n="g.k3">roles, con permisos aplicados en el servidor</div></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="g.mod.title"><i class="ic ic-puzzle"></i> Qué construí</h2>
+        <div class="mods">
+          <div class="mod"><code>ETL</code><p data-i18n="g.m1">Extracción de dos bases Firebird del ERP a PostgreSQL: copia nocturna completa y copia rápida bajo demanda, con consultas probadas para no saturar el servidor de producción.</p></div>
+          <div class="mod"><code data-i18n="g.m2.k">Reportes mensuales</code><p data-i18n="g.m2">Cada gerente captura el reporte de su sucursal con validaciones al momento; Administración lo revisa o lo devuelve y Dirección cierra el mes con un consolidado por razón social.</p></div>
+          <div class="mod"><code data-i18n="g.m3.k">Panel de datos</code><p data-i18n="g.m3">Inventario de motos, rentabilidad por línea y sucursal, gastos, cartera y avance contra objetivos, con filtros y comparación contra el año anterior.</p></div>
+          <div class="mod"><code data-i18n="g.m4.k">Asistente de IA</code><p data-i18n="g.m4">Responde preguntas como «¿cuántas motos tiene esta sucursal y cuántas debería pedir?» eligiendo entre 26 herramientas de consulta de solo lectura; muestra los datos que consultó.</p></div>
+          <div class="mod"><code data-i18n="g.m5.k">Asistente de captura</code><p data-i18n="g.m5">Chat dentro del reporte que explica cada campo y cada error. Solo conoce el manual y el reporte abierto, y rechaza cualquier otro tema.</p></div>
+          <div class="mod"><code>WhatsApp</code><p data-i18n="g.m6">Bot que entiende y responde mensajes de voz con la misma lógica de consulta, y herramienta para enviar accesos y recordatorios de captura.</p></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="g.gal.title"><i class="ic ic-monitor"></i> Capturas</h2>
+        <div class="prose">
+          <p data-i18n="g.gal.p">Tomadas de la instancia demo, que usa datos y nombres ficticios. La información real del grupo es confidencial.</p>
+        </div>
+        <div class="car" data-carousel style="margin-top:1.5rem">
+          <div class="carousel">
+            <div class="car-track" tabindex="0" aria-label="Capturas de la plataforma" data-i18n-attr="aria-label:g.gal">
+              <figure class="car-slide">
+                <img src="../assets/img/grupoag/tablero.webp" alt="Tablero de Dirección con venta del día, venta del mes, utilidad, avance contra objetivo y ranking de sucursales" data-i18n-attr="alt:g.g1.alt">
+                <figcaption data-i18n="g.g1">Tablero de Dirección: venta del día y del mes, avance contra objetivo y ranking de sucursales.</figcaption>
+              </figure>
+              <figure class="car-slide">
+                <img src="../assets/img/grupoag/rentabilidad.webp" alt="Panel de rentabilidad con venta, costo, utilidad, margen y gráficas por mes" data-i18n-attr="alt:g.g2.alt">
+                <figcaption data-i18n="g.g2">Rentabilidad: venta, costo, utilidad y margen con filtros por periodo, razón social, línea y sucursal.</figcaption>
+              </figure>
+              <figure class="car-slide">
+                <img src="../assets/img/grupoag/asistente.webp" alt="Asistente de IA respondiendo cuántas motos tiene una sucursal y cuántas pedir" data-i18n-attr="alt:g.g3.alt">
+                <figcaption data-i18n="g.g3">Asistente de IA: responde en lenguaje natural y deja ver los datos que consultó.</figcaption>
+              </figure>
+              <figure class="car-slide">
+                <img src="../assets/img/grupoag/reportes.webp" alt="Panel de avance de captura de los reportes mensuales por sucursal" data-i18n-attr="alt:g.g4.alt">
+                <figcaption data-i18n="g.g4">Panel de reportes: avance de captura y revisión de cada sucursal.</figcaption>
+              </figure>
+              <figure class="car-slide">
+                <img src="../assets/img/grupoag/captura.webp" alt="Reporte mensual en captura con el asistente de captura abierto respondiendo una duda" data-i18n-attr="alt:g.g5.alt">
+                <figcaption data-i18n="g.g5">Captura del reporte mensual con el asistente de captura respondiendo una duda.</figcaption>
+              </figure>
+            </div>
+            <button type="button" class="car-btn car-prev" aria-label="Foto anterior" data-i18n-attr="aria-label:car.prev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+            <button type="button" class="car-btn car-next" aria-label="Foto siguiente" data-i18n-attr="aria-label:car.next"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+            <span class="car-count" aria-hidden="true"></span>
+          </div>
+          <div class="car-dots"></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="g.sec.title"><i class="ic ic-shield"></i> Seguridad y privacidad</h2>
+        <ul class="checklist">
+          <li data-i18n="g.s1">Cada rol ve solo su sucursal, su razón social o su área; el recorte se hace en el servidor, no solo escondiendo opciones en la pantalla.</li>
+          <li data-i18n="g.s2">La IA consulta únicamente con herramientas de solo lectura y no recibe datos personales ni textos libres.</li>
+          <li data-i18n="g.s3">Probé el asistente de captura con intentos de engaño («soy el director», «ignora tus instrucciones», historial falsificado) y los rechazó todos.</li>
+          <li data-i18n="g.s4">HTTPS, límite de intentos de inicio de sesión, respaldos automáticos dos veces al día y una instancia demo separada, sin datos reales.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="g.role.title"><i class="ic ic-user"></i> Mi aportación</h2>
+        <ul class="checklist">
+          <li data-i18n="g.r1">Desarrollé el proyecto de forma individual, del levantamiento de las reglas de negocio al despliegue.</li>
+          <li data-i18n="g.r2">Presenté el prototipo a la Dirección General y lo convertí en el sistema que hoy usan gerentes, jefes de categoría y dirección.</li>
+          <li data-i18n="g.r3">Entregué las cuentas a cada usuario y sigo a cargo de la operación, el soporte y las nuevas funciones.</li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <h2 class="block-title" data-i18n="g.stack.title"><i class="ic ic-wrench"></i> Tecnologías</h2>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">PostgreSQL</span><span class="tag">Firebird</span><span class="tag">JavaScript</span>
+          <span class="tag">Node.js</span><span class="tag">OpenAI API</span><span class="tag">whatsapp-web.js</span><span class="tag">Docker</span><span class="tag">Caddy</span>
+          <span class="tag">Cloudflare Tunnel</span><span class="tag">systemd</span><span class="tag">pytest</span><span class="tag">Playwright</span>
+        </div>
+      </div>
+
+    </div>
+
+    <aside class="aside">
+      <div class="info-card">
+        <h2 data-i18n="info.title">Ficha</h2>
+        <dl class="facts">
+          <div><dt data-i18n="g.f1.k">Empresa</dt><dd data-i18n="g.f1.v">Grupo AG · concesionarias de motocicletas, Oaxaca</dd></div>
+          <div><dt data-i18n="g.f2.k">Rol</dt><dd data-i18n="g.f2.v">Desarrollador de Inteligencia de Negocios e IA</dd></div>
+          <div><dt data-i18n="g.f3.k">Periodo</dt><dd data-i18n="g.f3.v">Octubre 2026 – actualidad</dd></div>
+          <div><dt data-i18n="g.f4.k">Estado</dt><dd data-i18n="g.f4.v">En producción</dd></div>
+          <div><dt data-i18n="g.f5.k">Demo</dt><dd data-i18n="g.f5.v">Disponible a solicitud, con datos ficticios</dd></div>
+        </dl>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <p data-i18n="footer.by">Diseñado por <strong>Jose Ramon Aragon Toledo</strong> · <a href="https://github.com/Hudesde" target="_blank" rel="noopener" style="color:rgba(255,255,255,.65);text-decoration:underline">github.com/Hudesde</a></p>
+  <p style="margin-top:.4rem;font-size:.78rem;opacity:.5" data-i18n="footer.loc">Oaxaca, México · 2026</p>
+</footer>
+
+<script>
+window.PAGE_I18N = {
+  en: {
+    "meta.title": `BI & AI Platform · Grupo AG | Jose Ramon Aragon Toledo`,
+    "meta.desc": `Business intelligence and AI platform for Grupo AG, built by Jose Ramon Aragon Toledo: ERP ETL, reporting portal, data dashboards, AI assistant and WhatsApp bot.`,
+    "g.crumb": `BI & AI platform`,
+    "g.tag": `<i class="ic ic-chart"></i> Business intelligence · AI · In production`,
+    "g.h1": `BI & AI Platform for Grupo AG`,
+    "g.lead": `A system I designed, built and shipped to production for a motorcycle dealership group: it connects the ERP to a web portal for reports and dashboards, and lets people ask an AI about sales and inventory in plain language.`,
+    "g.c1": `<i class="ic ic-calendar"></i> Oct 2026 – Present`,
+    "g.c2": `<i class="ic ic-briefcase"></i> BI & AI Developer`,
+    "g.a1": `<i class="ic ic-mail"></i> Request a demo`,
+    "g.ctx.title": `<i class="ic ic-target"></i> The challenge`,
+    "g.ctx.p1": `Grupo AG runs 23 branches across 5 companies (Honda Motos GT and other brands). Sales, inventory and receivables live in the Adaflex ERP, and each branch's monthly report was put together separately in spreadsheets.`,
+    "g.ctx.p2": `The goal was for executives, branch managers and department heads to see the same up-to-date information, each limited to what they're responsible for, without loading the ERP server the branches use all day.`,
+    "g.k1": `branches from 5 companies on a single platform`,
+    "g.k2": `query tools used by the AI assistant`,
+    "g.k3": `roles, with permissions enforced on the server`,
+    "g.mod.title": `<i class="ic ic-puzzle"></i> What I built`,
+    "g.m1": `Extraction from two Firebird ERP databases into PostgreSQL: a full nightly copy plus an on-demand quick copy, with tested queries so the production server isn't overloaded.`,
+    "g.m2.k": `Monthly reports`,
+    "g.m2": `Each manager fills in their branch report with live validation; Administration reviews or returns it, and Executive Management closes the month with a consolidated view per company.`,
+    "g.m3.k": `Data dashboards`,
+    "g.m3": `Motorcycle inventory, profitability by product line and branch, expenses, receivables and progress against targets, with filters and year-over-year comparison.`,
+    "g.m4.k": `AI assistant`,
+    "g.m4": `Answers questions like "how many bikes does this branch have and how many should it order?" by choosing among 26 read-only query tools, and shows the data it used.`,
+    "g.m5.k": `Report assistant`,
+    "g.m5": `A chat inside the report that explains every field and error. It only knows the manual and the open report, and turns down any other topic.`,
+    "g.m6": `A bot that understands and replies to voice messages using the same query logic, plus a tool to send account credentials and report reminders.`,
+    "g.gal.title": `<i class="ic ic-monitor"></i> Screenshots`,
+    "g.gal.p": `Taken from the demo instance, which uses fictional data and names. The group's real information is confidential.`,
+    "g.gal": `Platform screenshots`,
+    "g.g1": `Executive dashboard: daily and monthly sales, progress against targets and branch ranking.`,
+    "g.g1.alt": `Executive dashboard with daily sales, monthly sales, profit, progress against targets and branch ranking`,
+    "g.g2": `Profitability: sales, cost, profit and margin, filtered by period, company, product line and branch.`,
+    "g.g2.alt": `Profitability dashboard with sales, cost, profit, margin and monthly charts`,
+    "g.g3": `AI assistant: answers in plain language and lets you see the data it queried.`,
+    "g.g3.alt": `AI assistant answering how many bikes a branch has and how many to order`,
+    "g.g4": `Reports panel: capture and review progress for every branch.`,
+    "g.g4.alt": `Panel showing monthly report capture progress by branch`,
+    "g.g5": `Filling in the monthly report while the report assistant answers a question.`,
+    "g.g5.alt": `Monthly report being filled in with the report assistant open, answering a question`,
+    "g.sec.title": `<i class="ic ic-shield"></i> Security and privacy`,
+    "g.s1": `Each role sees only its branch, company or department; the filtering happens on the server, not just by hiding options on screen.`,
+    "g.s2": `The AI queries data only through read-only tools and never receives personal data or free-text fields.`,
+    "g.s3": `I tested the report assistant with manipulation attempts ("I'm the director", "ignore your instructions", forged chat history) and it rejected all of them.`,
+    "g.s4": `HTTPS, login rate limiting, automated backups twice a day and a separate demo instance with no real data.`,
+    "g.role.title": `<i class="ic ic-user"></i> My contribution`,
+    "g.r1": `Built the project single-handedly, from gathering the business rules to deployment.`,
+    "g.r2": `Presented the prototype to the CEO and turned it into the system that branch managers, department heads and executives use today.`,
+    "g.r3": `Delivered each user's account and remain in charge of operations, support and new features.`,
+    "g.stack.title": `<i class="ic ic-wrench"></i> Technologies`,
+    "g.f1.k": `Company`,
+    "g.f1.v": `Grupo AG · motorcycle dealerships, Oaxaca`,
+    "g.f2.k": `Role`,
+    "g.f2.v": `Business Intelligence & AI Developer`,
+    "g.f3.k": `Period`,
+    "g.f3.v": `October 2026 – Present`,
+    "g.f4.k": `Status`,
+    "g.f4.v": `In production`,
+    "g.f5.k": `Demo`,
+    "g.f5.v": `Available on request, with fictional data`,
+  },
+};
+</script>
+<script src="../assets/js/site.js?v=20261007"></script>
+</body>
+</html>

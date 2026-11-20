@@ -15,12 +15,12 @@ Portfolio of Jose Ramon Aragon Toledo, Computer Engineering graduate from Univer
 | File | Description |
 |------|-------------|
 | `index.html` | Main portfolio page (home) |
-| `proyectos/` | One page per project: `lima.html`, `diagnostico-oncologico.html`, `chatbots-ia.html`, `chatbot-facturacion.html` |
+| `proyectos/` | One page per project: `lima.html`, `plataforma-bi.html`, `diagnostico-oncologico.html`, `chatbots-ia.html`, `chatbot-facturacion.html` |
 | `investigacion/` | One page per research item: `tesis-lima.html`, `botas-iadis-2026.html`, `clihc-2026.html` |
 | `reconocimientos/` | `hackathon-clihc-2026.html` |
 | `assets/css/site.css` | Shared styles for every page, including the icon set (Lucide, as CSS masks) and the visual layer: animated hero backgrounds, card hover light, page transitions |
 | `assets/js/site.js` | Shared script: ES/EN language switch, nav, carousel, lightbox, citation copy, contact form, hero network canvas, LIMA terminal replay, metric counters |
-| `assets/img/` | Web-optimized photos, PDF previews and `favicon.svg` |
+| `assets/img/` | Web-optimized photos, PDF previews and `favicon.svg`; `grupoag/` holds screenshots of the BI platform demo (fictional data only) |
 | `Novedades/` | Thesis PDF, professional exam certificate, IADIS certificate, event photos and video |
 | `foto.jpg` | Profile photo |
 | `hackathon-clihc-2026.jpg` | 1st place photo — Hackathon CLIHC 2026 |
@@ -46,6 +46,7 @@ Portfolio of Jose Ramon Aragon Toledo, Computer Engineering graduate from Univer
 ## Featured Projects
 
 - **LIMA** — Voice assistant for GNU/Linux with HCAI focus · [Website](https://hudesde.github.io/LIMA-Web/) · [GitHub](https://github.com/Hudesde/LIMA-DEMO)
+- **BI & AI Platform — Grupo AG** — ERP ETL, reporting portal, dashboards and AI assistant in production · [Page](proyectos/plataforma-bi.html) (private code; demo on request)
 - **Breast Cancer Diagnosis Optimization** — Metaheuristics · [GitHub](https://github.com/aneli1/breast_cancer_mh)
 - **CharlesTherapy & Kuiti** — Conversational AI apps · [GitHub](https://github.com/Hudesde/JRATSS)
 
